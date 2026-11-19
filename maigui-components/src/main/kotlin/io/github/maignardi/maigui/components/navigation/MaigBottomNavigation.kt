@@ -171,26 +171,30 @@ public fun RowScope.MaigBottomNavigationItem(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(2.dp),
     ) {
-        Box(
-            modifier = Modifier
-                .clip(CircleShape)
-                .background(pillBg)
-                .padding(horizontal = MaigTheme.spacing.md, vertical = 4.dp),
-            contentAlignment = Alignment.Center,
-        ) {
-            CompositionLocalProvider(LocalMaigContentColor provides fgColor) {
-                if (badgeCount != null && badgeCount > 0) {
-                    MaigBadgedBox(
-                        badge = { MaigBadge(text = badgeCount.toString()) },
-                        badgeOffsetX = 12.dp,
-                        badgeOffsetY = (-8).dp,
-                    ) {
-                        icon()
-                    }
-                } else {
+        val iconContent: @Composable () -> Unit = {
+            Box(
+                modifier = Modifier
+                    .clip(CircleShape)
+                    .background(pillBg)
+                    .padding(horizontal = MaigTheme.spacing.md, vertical = 5.dp),
+                contentAlignment = Alignment.Center,
+            ) {
+                CompositionLocalProvider(LocalMaigContentColor provides fgColor) {
                     icon()
                 }
             }
+        }
+
+        if (badgeCount != null && badgeCount > 0) {
+            MaigBadgedBox(
+                badge = { MaigBadge(text = badgeCount.toString()) },
+                badgeOffsetX = 4.dp,
+                badgeOffsetY = (-4).dp,
+            ) {
+                iconContent()
+            }
+        } else {
+            iconContent()
         }
         BasicText(
             text = label,

@@ -165,24 +165,34 @@ public fun MaigAvatarGroup(
 ) {
     val visibleNames = names.take(maxVisible)
     val overflow = (names.size - maxVisible).coerceAtLeast(0)
-    val overlap = size.dp * 0.28f
+    val overlap = size.dp * 0.26f
+    val c = MaigTheme.colors
+    val palettePairs = listOf(
+        c.primarySubtle to c.onPrimarySubtle,
+        c.secondarySubtle to c.onSecondarySubtle,
+        c.successSubtle to c.onSuccessSubtle,
+        c.warningSubtle to c.onWarningSubtle,
+        c.infoSubtle to c.onInfoSubtle,
+    )
 
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
     ) {
         visibleNames.forEachIndexed { index, personName ->
+            val (bg, fg) = palettePairs[(personName.hashCode().absoluteValue) % palettePairs.size]
             Box(
                 modifier = Modifier
                     .offset(x = -overlap * index)
                     .clip(CircleShape)
-                    .border(2.dp, MaigTheme.colors.surface, CircleShape),
+                    .background(c.surface)
+                    .padding(2.dp),
             ) {
                 MaigAvatar(
                     name = personName,
                     size = size,
-                    containerColor = MaigAvatarDefaults.containerColorFor(personName),
-                    contentColor = MaigTheme.colors.textPrimary,
+                    containerColor = bg,
+                    contentColor = fg,
                 )
             }
         }
@@ -190,19 +200,25 @@ public fun MaigAvatarGroup(
             Box(
                 modifier = Modifier
                     .offset(x = -overlap * visibleNames.size)
-                    .size(size.dp)
                     .clip(CircleShape)
-                    .background(MaigTheme.colors.surfaceVariant)
-                    .border(2.dp, MaigTheme.colors.surface, CircleShape),
-                contentAlignment = Alignment.Center,
+                    .background(c.surface)
+                    .padding(2.dp),
             ) {
-                BasicText(
-                    text = "+$overflow",
-                    style = MaigTheme.typography.caption.copy(
-                        color = MaigTheme.colors.textPrimary,
-                        fontSize = size.fontSize,
-                    ),
-                )
+                Box(
+                    modifier = Modifier
+                        .size(size.dp)
+                        .clip(CircleShape)
+                        .background(c.surfaceVariant),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    BasicText(
+                        text = "+$overflow",
+                        style = MaigTheme.typography.caption.copy(
+                            color = c.textPrimary,
+                            fontSize = size.fontSize * 0.9f,
+                        ),
+                    )
+                }
             }
         }
     }

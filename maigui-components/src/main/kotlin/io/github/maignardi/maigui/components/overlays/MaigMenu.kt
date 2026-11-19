@@ -90,7 +90,12 @@ public fun MaigMenuSurface(
     Column(
         modifier = modifier
             .widthIn(min = 180.dp, max = 280.dp)
-            .shadow(MaigTheme.elevation.lg, shape)
+            .shadow(
+                elevation = if (MaigTheme.colors.isDark) 0.dp else MaigTheme.elevation.md,
+                shape = shape,
+                ambientColor = MaigTheme.colors.shadow,
+                spotColor = MaigTheme.colors.shadow,
+            )
             .clip(shape)
             .background(containerColor)
             .border(1.dp, MaigTheme.colors.border, shape)

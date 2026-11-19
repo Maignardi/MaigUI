@@ -167,6 +167,28 @@ public object MaigPaletteGenerator {
         }
     }
 
+    private fun pickAccessibleVibrant(scale: MaigColorScale): Color {
+        if (MaigColorUtils.contrastRatio(Color.White, scale.shade500) >= MaigColorUtils.WCAG_AA_NORMAL) {
+            return scale.shade500
+        }
+        // Binary search lightest OKLCH shade near shade500 that still hits WCAG AA (>= 4.5:1) against white.
+        val base = MaigOklch.fromColor(scale.shade500)
+        var lowL = 0.30f
+        var highL = base.l
+        var best = scale.shade600
+        repeat(12) {
+            val midL = (lowL + highL) * 0.5f
+            val candidate = MaigOklch(l = midL, c = base.c, h = base.h).toColor()
+            if (MaigColorUtils.contrastRatio(Color.White, candidate) >= MaigColorUtils.WCAG_AA_NORMAL) {
+                best = candidate
+                lowL = midL
+            } else {
+                highL = midL
+            }
+        }
+        return best
+    }
+
     private fun deriveSecondarySeed(primary: Color): Color {
         val oklch = MaigOklch.fromColor(primary)
         val secondaryHue = (oklch.h + 42f) % 360f
@@ -207,7 +229,7 @@ public object MaigPaletteGenerator {
         val onSecondary = MaigColorUtils.bestOnColor(secondaryDefault)
         val onSecondarySubtle = MaigColorUtils.ensureContrast(secondary.shade800, secondarySubtle)
 
-        val successDefault = success.shade600
+        val successDefault = pickAccessibleVibrant(success)
         val successSubtle = success.shade50
         val onSuccess = MaigColorUtils.bestOnColor(successDefault)
         val onSuccessSubtle = MaigColorUtils.ensureContrast(success.shade800, successSubtle)
@@ -217,12 +239,12 @@ public object MaigPaletteGenerator {
         val onWarning = MaigColorUtils.bestOnColor(warningDefault)
         val onWarningSubtle = MaigColorUtils.ensureContrast(warning.shade800, warningSubtle)
 
-        val dangerDefault = danger.shade600
+        val dangerDefault = pickAccessibleVibrant(danger)
         val dangerSubtle = danger.shade50
         val onDanger = MaigColorUtils.bestOnColor(dangerDefault)
         val onDangerSubtle = MaigColorUtils.ensureContrast(danger.shade800, dangerSubtle)
 
-        val infoDefault = info.shade600
+        val infoDefault = pickAccessibleVibrant(info)
         val infoSubtle = info.shade50
         val onInfo = MaigColorUtils.bestOnColor(infoDefault)
         val onInfoSubtle = MaigColorUtils.ensureContrast(info.shade800, infoSubtle)
@@ -309,47 +331,43 @@ public object MaigPaletteGenerator {
         val bgHue = MaigOklch.fromColor(primary.shade500).h
         val bgChroma = if (MaigOklch.fromColor(primary.shade500).c < 0.01f) 0f else 0.009f
 
-        val background = MaigOklch(l = 0.135f, c = bgChroma, h = bgHue).toColor()
-        val backgroundSubtle = MaigOklch(l = 0.165f, c = bgChroma, h = bgHue).toColor()
-        val surface = MaigOklch(l = 0.175f, c = bgChroma, h = bgHue).toColor()
-        val surfaceVariant = MaigOklch(l = 0.220f, c = bgChroma, h = bgHue).toColor()
-        val surfaceElevated = MaigOklch(l = 0.240f, c = bgChroma, h = bgHue).toColor()
+        val background = MaigOklch(l = 0.125f, c = bgChroma, h = bgHue).toColor()
+        val backgroundSubtle = MaigOklch(l = 0.155f, c = bgChroma, h = bgHue).toColor()
+        val surface = MaigOklch(l = 0.168f, c = bgChroma, h = bgHue).toColor()
+        val surfaceVariant = MaigOklch(l = 0.215f, c = bgChroma, h = bgHue).toColor()
+        val surfaceElevated = MaigOklch(l = 0.202f, c = bgChroma, h = bgHue).toColor()
 
-        val primaryDefault = if (MaigColorUtils.contrastRatio(Color.White, primary.shade500) >= MaigColorUtils.WCAG_AA_NORMAL) {
-            primary.shade500
-        } else {
-            primary.shade400
-        }
+        val primaryDefault = pickAccessibleVibrant(primary)
         val primaryHover = primary.shade400
         val primaryActive = primary.shade300
-        val primarySubtle = primary.shade900.copy(alpha = 0.48f).compositeOver(surface)
+        val primarySubtle = primary.shade900.copy(alpha = 0.50f).compositeOver(surface)
         val onPrimary = MaigColorUtils.bestOnColor(primaryDefault)
         val onPrimarySubtle = MaigColorUtils.ensureContrast(primary.shade200, primarySubtle)
 
-        val secondaryDefault = secondary.shade400
-        val secondaryHover = secondary.shade300
-        val secondaryActive = secondary.shade200
-        val secondarySubtle = secondary.shade900.copy(alpha = 0.48f).compositeOver(surface)
+        val secondaryDefault = pickAccessibleVibrant(secondary)
+        val secondaryHover = secondary.shade400
+        val secondaryActive = secondary.shade300
+        val secondarySubtle = secondary.shade900.copy(alpha = 0.50f).compositeOver(surface)
         val onSecondary = MaigColorUtils.bestOnColor(secondaryDefault)
         val onSecondarySubtle = MaigColorUtils.ensureContrast(secondary.shade200, secondarySubtle)
 
-        val successDefault = success.shade400
-        val successSubtle = success.shade900.copy(alpha = 0.45f).compositeOver(surface)
+        val successDefault = pickAccessibleVibrant(success)
+        val successSubtle = success.shade900.copy(alpha = 0.48f).compositeOver(surface)
         val onSuccess = MaigColorUtils.bestOnColor(successDefault)
         val onSuccessSubtle = MaigColorUtils.ensureContrast(success.shade200, successSubtle)
 
         val warningDefault = warning.shade400
-        val warningSubtle = warning.shade900.copy(alpha = 0.45f).compositeOver(surface)
+        val warningSubtle = warning.shade900.copy(alpha = 0.48f).compositeOver(surface)
         val onWarning = MaigColorUtils.bestOnColor(warningDefault)
         val onWarningSubtle = MaigColorUtils.ensureContrast(warning.shade200, warningSubtle)
 
-        val dangerDefault = danger.shade400
-        val dangerSubtle = danger.shade900.copy(alpha = 0.45f).compositeOver(surface)
+        val dangerDefault = pickAccessibleVibrant(danger)
+        val dangerSubtle = danger.shade900.copy(alpha = 0.48f).compositeOver(surface)
         val onDanger = MaigColorUtils.bestOnColor(dangerDefault)
         val onDangerSubtle = MaigColorUtils.ensureContrast(danger.shade200, dangerSubtle)
 
-        val infoDefault = info.shade400
-        val infoSubtle = info.shade900.copy(alpha = 0.45f).compositeOver(surface)
+        val infoDefault = pickAccessibleVibrant(info)
+        val infoSubtle = info.shade900.copy(alpha = 0.48f).compositeOver(surface)
         val onInfo = MaigColorUtils.bestOnColor(infoDefault)
         val onInfoSubtle = MaigColorUtils.ensureContrast(info.shade200, infoSubtle)
 

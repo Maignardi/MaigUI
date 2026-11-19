@@ -190,8 +190,15 @@ public fun MaigCircularProgressBar(
     ) {
         Canvas(modifier = Modifier.matchParentSize()) {
             val strokePx = strokeWidth.toPx()
+            val inset = strokePx / 2f
+            val arcDiameter = (this.size.minDimension - strokePx).coerceAtLeast(0f)
+            val arcTopLeft = Offset(
+                x = (this.size.width - arcDiameter) / 2f,
+                y = (this.size.height - arcDiameter) / 2f,
+            )
             drawCircle(
                 color = trackColor,
+                radius = (arcDiameter / 2f).coerceAtLeast(0f),
                 style = Stroke(width = strokePx),
             )
             drawArc(
@@ -199,6 +206,8 @@ public fun MaigCircularProgressBar(
                 startAngle = indeterminateStart,
                 sweepAngle = if (clamped != null) animatedSweep else 100f,
                 useCenter = false,
+                topLeft = arcTopLeft,
+                size = Size(arcDiameter, arcDiameter),
                 style = Stroke(width = strokePx, cap = StrokeCap.Round),
             )
         }

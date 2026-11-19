@@ -32,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.graphicsLayer
@@ -202,7 +203,7 @@ public object MaigButtonDefaults {
             MaigButtonVariant.Soft -> MaigButtonColors(
                 containerColor = subtleFill,
                 contentColor = onSubtle,
-                borderColor = Color.Transparent,
+                borderColor = outlineInk.copy(alpha = if (c.isDark) 0.24f else 0.14f),
                 disabledContainerColor = c.disabled,
                 disabledContentColor = c.onDisabled,
                 disabledBorderColor = Color.Transparent,
@@ -213,9 +214,9 @@ public object MaigButtonDefaults {
 
     /** Returns the visual minimum height for [size]. */
     public fun minHeight(size: MaigButtonSize): Dp = when (size) {
-        MaigButtonSize.Small -> 36.dp
-        MaigButtonSize.Medium -> 44.dp
-        MaigButtonSize.Large -> 52.dp
+        MaigButtonSize.Small -> 34.dp
+        MaigButtonSize.Medium -> 42.dp
+        MaigButtonSize.Large -> 50.dp
     }
 
     /** Returns default internal padding for [size] and [variant]. */
@@ -229,9 +230,9 @@ public object MaigButtonDefaults {
             return PaddingValues(horizontal = spacing.xs, vertical = spacing.xs)
         }
         return when (size) {
-            MaigButtonSize.Small -> PaddingValues(horizontal = spacing.md, vertical = spacing.xs)
-            MaigButtonSize.Medium -> PaddingValues(horizontal = spacing.lg, vertical = spacing.sm)
-            MaigButtonSize.Large -> PaddingValues(horizontal = spacing.xl, vertical = spacing.md)
+            MaigButtonSize.Small -> PaddingValues(horizontal = 14.dp, vertical = 6.dp)
+            MaigButtonSize.Medium -> PaddingValues(horizontal = 18.dp, vertical = 9.dp)
+            MaigButtonSize.Large -> PaddingValues(horizontal = 24.dp, vertical = 12.dp)
         }
     }
 
@@ -239,8 +240,8 @@ public object MaigButtonDefaults {
     @Composable
     public fun shape(size: MaigButtonSize): Shape = when (size) {
         MaigButtonSize.Small -> MaigTheme.shapes.sm
-        MaigButtonSize.Medium -> MaigTheme.shapes.md
-        MaigButtonSize.Large -> MaigTheme.shapes.lg
+        MaigButtonSize.Medium -> MaigTheme.shapes.sm
+        MaigButtonSize.Large -> MaigTheme.shapes.md
     }
 
     /** Returns label [TextStyle] for [size] and [variant]. */
@@ -342,23 +343,32 @@ public fun MaigButton(
         },
         contentAlignment = Alignment.Center,
     ) {
-        val solidElevation = if (variant == MaigButtonVariant.Solid && enabled) 2.dp else 0.dp
+        val isDark = MaigTheme.colors.isDark
+        val solidElevation = if (variant == MaigButtonVariant.Solid && enabled && !isDark) 1.dp else 0.dp
         val visualModifier = Modifier
             .then(if (fullWidth) Modifier.fillMaxWidth() else Modifier)
             .defaultMinSize(minHeight = minHeight)
             .shadow(
                 elevation = solidElevation,
                 shape = shape,
-                ambientColor = targetContainer.copy(alpha = 0.35f),
-                spotColor = targetContainer.copy(alpha = 0.35f),
+                ambientColor = targetContainer.copy(alpha = 0.25f),
+                spotColor = targetContainer.copy(alpha = 0.25f),
             )
             .clip(shape)
             .background(targetContainer)
             .then(
-                if (targetBorder != Color.Transparent) {
-                    Modifier.border(BorderStroke(1.dp, targetBorder), shape)
-                } else {
-                    Modifier
+                when {
+                    targetBorder != Color.Transparent -> Modifier.border(BorderStroke(1.dp, targetBorder), shape)
+                    variant == MaigButtonVariant.Solid && enabled -> Modifier.border(
+                        BorderStroke(
+                            1.dp,
+                            Brush.verticalGradient(
+                                listOf(Color.White.copy(alpha = 0.24f), Color.Transparent),
+                            ),
+                        ),
+                        shape,
+                    )
+                    else -> Modifier
                 },
             )
             .clickable(

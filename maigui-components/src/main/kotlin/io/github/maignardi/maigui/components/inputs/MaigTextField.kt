@@ -220,7 +220,11 @@ public fun MaigTextField(
         label = "MaigTextFieldBorder",
     )
     val borderWidth = if (isFocused || isError) 1.5.dp else 1.dp
-    val containerColor = if (enabled) colors.containerColor else colors.disabledContainerColor
+    val containerColor = when {
+        !enabled -> colors.disabledContainerColor
+        isError && variant == MaigTextFieldVariant.Filled -> MaigTheme.colors.dangerSubtle.copy(alpha = 0.55f)
+        else -> colors.containerColor
+    }
     val inputTextColor = if (enabled) colors.textColor else colors.disabledTextColor
     val labelColor = if (isError) colors.errorLabelColor else colors.labelColor
 

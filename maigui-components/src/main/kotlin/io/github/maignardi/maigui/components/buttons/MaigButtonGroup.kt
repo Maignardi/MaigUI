@@ -110,12 +110,16 @@ public fun MaigButtonGroup(
         modifier = modifier
             .height(IntrinsicSize.Min)
             .clip(shape)
-            .border(1.dp, colors.borderColor, shape),
+            .background(MaigTheme.colors.surfaceVariant)
+            .border(1.dp, colors.borderColor, shape)
+            .padding(3.dp),
+        horizontalArrangement = Arrangement.spacedBy(3.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
+        val itemShape = MaigTheme.shapes.sm
         options.forEachIndexed { index, label ->
             val isSelected = index == selectedIndex
-            val bg = if (isSelected) colors.selectedContainerColor else colors.containerColor
+            val bg = if (isSelected) colors.selectedContainerColor else Color.Transparent
             val fg = when {
                 !enabled -> colors.disabledContentColor
                 isSelected -> colors.selectedContentColor
@@ -127,8 +131,8 @@ public fun MaigButtonGroup(
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxHeight()
-                    .maigTouchTarget(minWidth = 48.dp, minHeight = 48.dp)
-                    .defaultMinSize(minHeight = 40.dp)
+                    .defaultMinSize(minHeight = 38.dp)
+                    .clip(itemShape)
                     .background(bg)
                     .clickable(
                         interactionSource = interactionSource,
@@ -138,7 +142,7 @@ public fun MaigButtonGroup(
                         onClick = { onOptionSelected(index) },
                     )
                     .semantics { selected = isSelected }
-                    .padding(horizontal = MaigTheme.spacing.md, vertical = MaigTheme.spacing.sm),
+                    .padding(horizontal = MaigTheme.spacing.md, vertical = 8.dp),
                 contentAlignment = Alignment.Center,
             ) {
                 BasicText(
@@ -146,15 +150,6 @@ public fun MaigButtonGroup(
                     style = MaigTheme.typography.label.copy(color = fg),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
-                )
-            }
-
-            if (index < options.lastIndex) {
-                Box(
-                    modifier = Modifier
-                        .width(1.dp)
-                        .fillMaxHeight()
-                        .background(colors.borderColor),
                 )
             }
         }

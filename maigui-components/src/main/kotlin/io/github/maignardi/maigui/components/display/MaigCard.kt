@@ -96,7 +96,7 @@ public object MaigCardDefaults {
     /** Default elevation for [variant]. */
     @Composable
     public fun elevation(variant: MaigCardVariant): Dp = when (variant) {
-        MaigCardVariant.Elevated -> MaigTheme.elevation.md
+        MaigCardVariant.Elevated -> if (MaigTheme.colors.isDark) MaigTheme.elevation.none else MaigTheme.elevation.sm
         MaigCardVariant.Outlined, MaigCardVariant.Filled -> MaigTheme.elevation.none
     }
 
@@ -108,7 +108,7 @@ public object MaigCardDefaults {
             MaigCardVariant.Elevated -> MaigCardColors(
                 containerColor = c.surfaceElevated,
                 contentColor = c.textPrimary,
-                borderColor = c.borderSubtle,
+                borderColor = c.border,
                 disabledContainerColor = c.disabled,
                 disabledContentColor = c.onDisabled,
             )

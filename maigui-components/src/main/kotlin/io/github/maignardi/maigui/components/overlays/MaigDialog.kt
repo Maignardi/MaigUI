@@ -137,12 +137,17 @@ public fun MaigDialogSurface(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .shadow(MaigTheme.elevation.xl, shape)
+            .shadow(
+                elevation = if (MaigTheme.colors.isDark) 0.dp else MaigTheme.elevation.lg,
+                shape = shape,
+                ambientColor = MaigTheme.colors.shadow,
+                spotColor = MaigTheme.colors.shadow,
+            )
             .clip(shape)
             .background(colors.containerColor)
             .border(1.dp, colors.borderColor, shape)
-            .padding(MaigTheme.spacing.xl),
-        verticalArrangement = Arrangement.spacedBy(MaigTheme.spacing.md),
+            .padding(MaigTheme.spacing.lg),
+        verticalArrangement = Arrangement.spacedBy(MaigTheme.spacing.sm),
     ) {
         if (icon != null) {
             Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {

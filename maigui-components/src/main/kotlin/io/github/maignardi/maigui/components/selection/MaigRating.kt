@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.semantics.Role
@@ -34,7 +35,7 @@ import kotlin.math.sin
  */
 public object MaigRatingDefaults {
     public const val DefaultMaxStars: Int = 5
-    public val StarSize: Dp = 28.dp
+    public val StarSize: Dp = 24.dp
 }
 
 /**
@@ -48,21 +49,21 @@ public fun MaigRating(
     maxStars: Int = MaigRatingDefaults.DefaultMaxStars,
     enabled: Boolean = true,
     starSize: Dp = MaigRatingDefaults.StarSize,
-    activeColor: Color = MaigTheme.colors.warning.shade400,
+    activeColor: Color = Color(0xFFF59E0B),
     inactiveColor: Color = MaigTheme.colors.borderStrong,
 ) {
     Row(
         modifier = modifier.semantics {
             contentDescription = "Avaliação $rating de $maxStars estrelas"
         },
-        horizontalArrangement = Arrangement.spacedBy(MaigTheme.spacing.xs),
+        horizontalArrangement = Arrangement.spacedBy(2.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         for (star in 1..maxStars) {
             val isFilled = star <= rating
             val starModifier = if (onRatingChange != null) {
                 Modifier
-                    .maigTouchTarget(minWidth = 40.dp, minHeight = 48.dp)
+                    .maigTouchTarget(minWidth = 34.dp, minHeight = 40.dp)
                     .clickable(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null,
@@ -79,11 +80,21 @@ public fun MaigRating(
                 contentAlignment = Alignment.Center,
             ) {
                 Canvas(modifier = Modifier.size(starSize)) {
-                    val path = buildStarPath(size.width / 2f, size.height / 2f, size.minDimension * 0.46f)
+                    val path = buildStarPath(size.width / 2f, size.height / 2f, size.minDimension * 0.44f)
                     if (isFilled) {
                         drawPath(path = path, color = activeColor, style = Fill)
+                        drawPath(
+                            path = path,
+                            color = activeColor,
+                            style = Stroke(width = 1.4.dp.toPx(), join = StrokeJoin.Round),
+                        )
                     } else {
-                        drawPath(path = path, color = inactiveColor, style = Stroke(width = 1.8.dp.toPx()))
+                        drawPath(path = path, color = inactiveColor.copy(alpha = 0.22f), style = Fill)
+                        drawPath(
+                            path = path,
+                            color = inactiveColor,
+                            style = Stroke(width = 1.4.dp.toPx(), join = StrokeJoin.Round),
+                        )
                     }
                 }
             }
@@ -92,7 +103,7 @@ public fun MaigRating(
 }
 
 private fun buildStarPath(cx: Float, cy: Float, outerRadius: Float): Path {
-    val innerRadius = outerRadius * 0.44f
+    val innerRadius = outerRadius * 0.48f
     val path = Path()
     for (i in 0 until 10) {
         val radius = if (i % 2 == 0) outerRadius else innerRadius

@@ -630,43 +630,43 @@
       </div>
     </section>
 
-    <section class="section" id="install" data-keywords="install gradle jitpack maven central github">
+    <section class="section" id="install" data-keywords="install gradle maven central dependencies">
       <div class="section-header">
         <h2>Instalação</h2>
-        <p>Disponível via <strong>GitHub (JitPack)</strong> e <strong>Maven Central</strong>.</p>
+        <p>Disponível diretamente no <strong>Maven Central</strong> (<code>mavenCentral()</code>).</p>
       </div>
       <div class="card">
         <div class="tabs-bar">
-          <button class="tab-btn active" onclick="switchInstallTab('jitpack', this)">GitHub / JitPack</button>
-          <button class="tab-btn" onclick="switchInstallTab('mavencentral', this)">Maven Central</button>
+          <button class="tab-btn active" onclick="switchInstallTab('kts', this)">Gradle (Kotlin DSL)</button>
+          <button class="tab-btn" onclick="switchInstallTab('toml', this)">Version Catalog (TOML)</button>
         </div>
-        <div id="install-jitpack">
-          <div class="code-wrap">
-            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
-<pre>// settings.gradle.kts
-dependencyResolutionManagement {
-    repositories {
-        google()
-        mavenCentral()
-        maven("https://jitpack.io")
-    }
-}
-
-// build.gradle.kts (app)
-dependencies {
-    implementation("com.github.Maignardi.MaigUI:maig-ui:0.1.0")
-    implementation("com.github.Maignardi.MaigUI:maig-ui-forms:0.1.0") // opcional
-}</pre>
-          </div>
-        </div>
-        <div id="install-mavencentral" style="display:none;">
+        <div id="install-kts">
           <div class="code-wrap">
             <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
 <pre>// build.gradle.kts (app)
 dependencies {
+    // Kit completo (MaigTheme + 45+ componentes + MaigIcons; expõe maig-ui-core)
     implementation("io.github.maignardi:maig-ui:0.1.0")
-    implementation("io.github.maignardi:maig-ui-forms:0.1.0") // opcional
+
+    // Opcional: Formulários declarativos, máscaras e validadores BR
+    implementation("io.github.maignardi:maig-ui-forms:0.1.0")
+
+    // Opcional: Apenas tokens, paleta OKLCH e tipografia Inter
+    // implementation("io.github.maignardi:maig-ui-core:0.1.0")
 }</pre>
+          </div>
+        </div>
+        <div id="install-toml" style="display:none;">
+          <div class="code-wrap">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+<pre># gradle/libs.versions.toml
+[versions]
+maigui = "0.1.0"
+
+[libraries]
+maigui-core = { module = "io.github.maignardi:maig-ui-core", version.ref = "maigui" }
+maigui = { module = "io.github.maignardi:maig-ui", version.ref = "maigui" }
+maigui-forms = { module = "io.github.maignardi:maig-ui-forms", version.ref = "maigui" }</pre>
           </div>
         </div>
       </div>
@@ -804,7 +804,7 @@ MaigTimePicker(selectedTime = time, onTimeSelected = { time = it })</pre>
           <button class="m-btn m-btn-outline m-btn-sm" onclick="document.getElementById('demoModal').classList.add('open')">Abrir Dialog</button>
           <button class="m-btn m-btn-soft m-btn-sm" onclick="showToast('Toast global exibido com sucesso!')">Disparar Toast</button>
         </div>
-        <div class="m-alert success"><strong>Sucesso:</strong> Publicação validada no Maven Central e JitPack.</div>
+        <div class="m-alert success"><strong>Sucesso:</strong> Publicação validada no Maven Central (Central Portal).</div>
         <div class="m-alert warning"><strong>Atenção:</strong> Verifique os campos obrigatórios antes de enviar.</div>
         <div style="display:grid;gap:0.5rem;margin-top:0.85rem;">
           <div class="skeleton" style="width:45%;"></div>
@@ -985,8 +985,8 @@ MaigTextField(field = form["cpf"], label = "CPF", visualTransformation = MaigMas
   function switchInstallTab(tab, btn) {
     document.querySelectorAll('#install .tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('install-jitpack').style.display = tab === 'jitpack' ? 'block' : 'none';
-    document.getElementById('install-mavencentral').style.display = tab === 'mavencentral' ? 'block' : 'none';
+    document.getElementById('install-kts').style.display = tab === 'kts' ? 'block' : 'none';
+    document.getElementById('install-toml').style.display = tab === 'toml' ? 'block' : 'none';
   }
 
   function copyCode(btn) {

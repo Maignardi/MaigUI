@@ -230,10 +230,15 @@ public fun MaigToastBanner(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .shadow(MaigTheme.elevation.lg, MaigTheme.shapes.lg)
+            .shadow(
+                elevation = if (MaigTheme.colors.isDark) 0.dp else MaigTheme.elevation.md,
+                shape = MaigTheme.shapes.lg,
+                ambientColor = MaigTheme.colors.shadow,
+                spotColor = MaigTheme.colors.shadow,
+            )
             .clip(MaigTheme.shapes.lg)
             .background(bg)
-            .border(1.dp, accent.copy(alpha = 0.45f), MaigTheme.shapes.lg)
+            .border(1.dp, accent.copy(alpha = 0.35f), MaigTheme.shapes.lg)
             .semantics {
                 liveRegion = LiveRegionMode.Polite
                 contentDescription = data.message

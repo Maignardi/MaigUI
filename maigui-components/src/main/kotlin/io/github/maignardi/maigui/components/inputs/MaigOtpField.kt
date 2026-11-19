@@ -184,7 +184,7 @@ public fun MaigOtpField(
                     val targetBorder = when {
                         isError -> colors.errorBorderColor
                         isCellActive -> colors.focusedBorderColor
-                        char != null -> MaigTheme.colors.borderStrong
+                        char != null -> colors.focusedBorderColor.copy(alpha = 0.55f)
                         else -> colors.borderColor
                     }
                     val borderColor by animateColorAsState(
@@ -192,12 +192,17 @@ public fun MaigOtpField(
                         animationSpec = tween(150),
                         label = "MaigOtpCellBorder",
                     )
+                    val cellBg = when {
+                        !enabled -> colors.disabledContainerColor
+                        char != null && !isError -> MaigTheme.colors.primarySubtle.copy(alpha = if (MaigTheme.colors.isDark) 0.40f else 0.45f)
+                        else -> colors.cellContainerColor
+                    }
 
                     Box(
                         modifier = Modifier
                             .size(width = cellSize, height = cellSize + 4.dp)
                             .clip(cellShape)
-                            .background(if (enabled) colors.cellContainerColor else colors.disabledContainerColor)
+                            .background(cellBg)
                             .border(if (isCellActive || isError) 1.5.dp else 1.dp, borderColor, cellShape),
                         contentAlignment = Alignment.Center,
                     ) {

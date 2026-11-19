@@ -1,6 +1,8 @@
 package io.github.maignardi.maigui.components.buttons
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -19,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.semantics.Role
@@ -47,15 +50,15 @@ public enum class MaigFabSize {
 public object MaigFabDefaults {
     /** Returns size in dp for a standard circular/square [MaigFab]. */
     public fun size(size: MaigFabSize): Dp = when (size) {
-        MaigFabSize.Small -> 48.dp
-        MaigFabSize.Medium -> 56.dp
-        MaigFabSize.Large -> 68.dp
+        MaigFabSize.Small -> 44.dp
+        MaigFabSize.Medium -> 52.dp
+        MaigFabSize.Large -> 62.dp
     }
 
     /** Returns default shape for [MaigFab]. */
     @Composable
     public fun shape(extended: Boolean): Shape =
-        if (extended) MaigTheme.shapes.full else MaigTheme.shapes.xl
+        if (extended) MaigTheme.shapes.full else MaigTheme.shapes.lg
 
     /** Resolves colors for [MaigFab]. */
     @Composable
@@ -94,11 +97,24 @@ public fun MaigFab(
             .padding(horizontal = MaigTheme.spacing.lg, vertical = MaigTheme.spacing.md)
     }
 
+    val effectiveElevation = if (enabled && !MaigTheme.colors.isDark) elevation.coerceAtMost(4.dp) else 0.dp
     Box(
         modifier = modifier
-            .shadow(elevation = if (enabled) elevation else 0.dp, shape = shape)
+            .shadow(
+                elevation = effectiveElevation,
+                shape = shape,
+                ambientColor = containerColor.copy(alpha = 0.35f),
+                spotColor = containerColor.copy(alpha = 0.35f),
+            )
             .clip(shape)
             .background(containerColor)
+            .border(
+                BorderStroke(
+                    1.dp,
+                    Brush.verticalGradient(listOf(Color.White.copy(alpha = 0.28f), Color.Transparent)),
+                ),
+                shape,
+            )
             .clickable(
                 interactionSource = resolvedInteraction,
                 indication = rememberMaigRipple(bounded = true, color = colors.rippleColor),

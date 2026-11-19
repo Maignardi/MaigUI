@@ -17,11 +17,11 @@ open class MaigPublishingExtension @Inject constructor(
         name: String,
         description: String,
     ) {
-        val groupId = project.providers.gradleProperty("group")
-            .orElse(project.providers.gradleProperty("GROUP"))
+        val groupId = project.providers.gradleProperty("GROUP")
+            .orElse(project.providers.gradleProperty("group"))
             .getOrElse("io.github.maignardi")
-        val versionName = project.providers.gradleProperty("version")
-            .orElse(project.providers.gradleProperty("VERSION_NAME"))
+        val versionName = project.providers.gradleProperty("VERSION_NAME")
+            .orElse(project.providers.gradleProperty("version"))
             .getOrElse("0.1.0")
 
         project.extensions.configure<MavenPublishBaseExtension> {
@@ -52,36 +52,18 @@ class PublishingConventionPlugin : Plugin<Project> {
                         javadocJar = JavadocJar.Dokka("dokkaGeneratePublicationHtml"),
                     ),
                 )
-                publishToMavenCentral()
 
-                if (
+                publishToMavenCentral(automaticRelease = true)
+
+                val hasSigningKey =
                     providers.gradleProperty("signingInMemoryKey").isPresent ||
-                    providers.gradleProperty("signing.keyId").isPresent
-                ) {
-                    signAllPublications()
+                        providers.gradleProperty("signing.keyId").isPresent ||
+                        providers.environmentVariable("ORG_GRADLE_PROJECT_signingInMemoryKey").isPresent
+                val isMavenCentralPublish = gradle.startParameter.taskNames.any {
+                    it.contains("MavenCentral", ignoreCase = true)
                 }
-
-                pom {
-                    url.set(providers.gradleProperty("POM_URL"))
-                    licenses {
-                        license {
-                            name.set(providers.gradleProperty("POM_LICENCE_NAME"))
-                            url.set(providers.gradleProperty("POM_LICENCE_URL"))
-                            distribution.set(providers.gradleProperty("POM_LICENCE_DIST"))
-                        }
-                    }
-                    developers {
-                        developer {
-                            id.set(providers.gradleProperty("POM_DEVELOPER_ID"))
-                            name.set(providers.gradleProperty("POM_DEVELOPER_NAME"))
-                            url.set(providers.gradleProperty("POM_DEVELOPER_URL"))
-                        }
-                    }
-                    scm {
-                        url.set(providers.gradleProperty("POM_SCM_URL"))
-                        connection.set(providers.gradleProperty("POM_SCM_CONNECTION"))
-                        developerConnection.set(providers.gradleProperty("POM_SCM_DEV_CONNECTION"))
-                    }
+                if (hasSigningKey || isMavenCentralPublish) {
+                    signAllPublications()
                 }
             }
         }

@@ -9,11 +9,11 @@
 Add one dependency, wrap your app in `MaigTheme {}`, and ship cohesive, accessible, modern Android UIs across every project — **100% built on `androidx.compose.foundation`** with zero Material 3 visual lock-in.
 
 [![CI](https://github.com/Maignardi/MaigUI/actions/workflows/ci.yml/badge.svg)](https://github.com/Maignardi/MaigUI/actions/workflows/ci.yml)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.maignardi/maig-ui?label=Maven%20Central&color=2563EB)](https://central.sonatype.com/artifact/io.github.maignardi/maig-ui)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![minSdk](https://img.shields.io/badge/minSdk-23-16A34A.svg)](gradle/libs.versions.toml)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.3.21-7F52FF.svg)](gradle/libs.versions.toml)
 [![Compose BOM](https://img.shields.io/badge/Compose%20BOM-2026.09.00-4285F4.svg)](gradle/libs.versions.toml)
-[![JitPack](https://jitpack.io/v/Maignardi/MaigUI.svg)](https://jitpack.io/#Maignardi/MaigUI)
 
 [Interactive Explorer & Docs](https://maignardi.github.io/MaigUI/) • [Installation](#-installation) • [Visual Gallery](#-visual-gallery-light--dark) • [Recipes](#-production-recipes) • [Components](#-component-catalog)
 
@@ -105,53 +105,31 @@ Add one dependency, wrap your app in `MaigTheme {}`, and ship cohesive, accessib
 
 ## Installation
 
-### Option 1 — Direct from GitHub (JitPack)
+All MaigUI artifacts are published on **Maven Central** (`mavenCentral()`).
 
-1. Add JitPack to `settings.gradle.kts`:
-
-```kotlin
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        maven("https://jitpack.io")
-    }
-}
-```
-
-2. Add the dependency in your app `build.gradle.kts`:
+Add the desired modules to your app's `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    // Full UI kit (MaigTheme + all components + MaigIcons)
-    implementation("com.github.Maignardi.MaigUI:maig-ui:0.1.0")
-
-    // Optional: Declarative forms, masks & Brazilian validators
-    implementation("com.github.Maignardi.MaigUI:maig-ui-forms:0.1.0")
-
-    // Optional: Tokens & theme engine only
-    // implementation("com.github.Maignardi.MaigUI:maig-ui-core:0.1.0")
-}
-```
-
-### Option 2 — Maven Central
-
-```kotlin
-dependencies {
+    // Full UI kit (MaigTheme + 45+ components + MaigIcons; exposes maig-ui-core transitively)
     implementation("io.github.maignardi:maig-ui:0.1.0")
+
+    // Optional: Declarative forms, Brazilian masks (CPF/CNPJ/CEP/Phone/BRL) & validators
     implementation("io.github.maignardi:maig-ui-forms:0.1.0")
+
+    // Optional: Design tokens, WCAG AA OKLCH theme engine & Inter typography only
+    implementation("io.github.maignardi:maig-ui-core:0.1.0")
 }
 ```
 
-### Modules
+### Published Modules
 
-| Module | Artifact ID | Purpose |
+| Module | Maven Central Coordinate | Purpose |
 | :--- | :--- | :--- |
-| `maigui-core` | `maig-ui-core` | `@Immutable` tokens, OKLCH palette generator, WCAG AA utilities, 10 presets, Inter font |
-| `maigui-components` | `maig-ui` | 45+ UI components + `MaigIcons` (exposes `maigui-core` via `api`) |
-| `maigui-forms` | `maig-ui-forms` | `rememberMaigForm`, validators (CPF, CNPJ, CEP, BR Phone, etc.), `MaigMasks` |
-| `sample` | — | Interactive catalog & test app with real-time Light/Dark and brand color switching |
+| `maigui-core` | `io.github.maignardi:maig-ui-core:0.1.0` | `@Immutable` tokens, OKLCH palette generator, WCAG AA utilities, 10 presets, Inter font |
+| `maigui-components` | `io.github.maignardi:maig-ui:0.1.0` | 45+ UI components + `MaigIcons` (exposes `maig-ui-core` via `api`) |
+| `maigui-forms` | `io.github.maignardi:maig-ui-forms:0.1.0` | `rememberMaigForm`, validators (CPF, CNPJ, CEP, BR Phone, etc.), `MaigMasks` |
+| `sample` | *(not published)* | Interactive catalog & test app with real-time Light/Dark and brand color switching |
 
 ---
 

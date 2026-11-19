@@ -1,0 +1,76 @@
+name: Publish to Maven Central
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    name: Verify & Publish to Maven Central
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate release version against VERSION_NAME
+        run: |
+          VERSION_NAME=$(grep -E '^VERSION_NAME=' gradle.properties | cut -d'=' -f2 | tr -d '[:space:]')
+          echo "VERSION_NAME=$VERSION_NAME" >> "$GITHUB_ENV"
+          echo "Detected VERSION_NAME: $VERSION_NAME"
+
+          if [[ -z "$VERSION_NAME" ]]; then
+            echo "::error::VERSION_NAME not found in gradle.properties"
+            exit 1
+          fi
+
+          if [[ "$VERSION_NAME" == *-SNAPSHOT ]]; then
+            echo "::error::Release VERSION_NAME must not end with -SNAPSHOT (got '$VERSION_NAME')"
+            exit 1
+          fi
+
+          if [[ "${{ github.ref_type }}" == "tag" ]]; then
+            TAG_VERSION="${GITHUB_REF_NAME#v}"
+            echo "Detected tag version: $TAG_VERSION (from $GITHUB_REF_NAME)"
+            if [[ "$TAG_VERSION" != "$VERSION_NAME" ]]; then
+              echo "::error::Tag version ($TAG_VERSION) does not match VERSION_NAME ($VERSION_NAME) in gradle.properties"
+              exit 1
+            fi
+          fi
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Run binary API check & tests before publishing
+        run: ./gradlew apiCheck :maigui-core:testDebugUnitTest :maigui-forms:testDebugUnitTest :sample:testDebugUnitTest :maigui-components:verifyRoborazziDebug --no-daemon
+
+      - name: Publish and release to Maven Central (Central Portal)
+        env:
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.ORG_GRADLE_PROJECT_mavenCentralUsername }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.ORG_GRADLE_PROJECT_mavenCentralPassword }}
+          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.ORG_GRADLE_PROJECT_signingInMemoryKey }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.ORG_GRADLE_PROJECT_signingInMemoryKeyId }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.ORG_GRADLE_PROJECT_signingInMemoryKeyPassword }}
+        run: ./gradlew publishAndReleaseToMavenCentral --no-daemon
+
+      - name: Create GitHub Release
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            --title "MaigUI $GITHUB_REF_NAME" \
+            --generate-notes
