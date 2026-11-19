@@ -1,0 +1,9 @@
+public final class io/github/maignardi/maigui/components/MaigUi {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/MaigUi;
+	public static final field VERSION Ljava/lang/String;
+}
+
+public final class io/github/maignardi/maigui/components/R {
+}
+

@@ -1,0 +1,12 @@
+jdk:
+  - openjdk21
+
+before_install:
+  - |
+    if [ -n "$ANDROID_HOME" ] && [ -d "$ANDROID_HOME/cmdline-tools" ]; then
+      yes | sdkmanager --licenses >/dev/null 2>&1 || true
+      sdkmanager "platforms;android-37" "build-tools;36.0.0" >/dev/null 2>&1 || true
+    fi
+
+install:
+  - ./gradlew :maigui-core:publishToMavenLocal :maigui-components:publishToMavenLocal :maigui-forms:publishToMavenLocal -Pgroup=$GROUP -Pversion=$VERSION -x test --no-daemon
