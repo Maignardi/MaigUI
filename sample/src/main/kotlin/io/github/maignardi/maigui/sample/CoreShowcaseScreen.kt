@@ -4,27 +4,20 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.BasicText
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -48,35 +41,7 @@ internal enum class ThemeMode {
 }
 
 @Composable
-fun MaigSampleApp() {
-    var themeMode by remember { mutableStateOf(ThemeMode.System) }
-    var selectedBrand by remember { mutableStateOf(MaigThemes.Default.brand) }
-    var activePresetName by remember { mutableStateOf(MaigThemes.Default.name) }
-
-    val isDark = when (themeMode) {
-        ThemeMode.System -> isSystemInDarkTheme()
-        ThemeMode.Light -> false
-        ThemeMode.Dark -> true
-    }
-
-    MaigTheme(
-        brand = selectedBrand,
-        darkTheme = isDark,
-    ) {
-        CoreShowcaseScreen(
-            themeMode = themeMode,
-            onThemeModeChange = { themeMode = it },
-            activePresetName = activePresetName,
-            onSelectPreset = { name, brand ->
-                activePresetName = name
-                selectedBrand = brand
-            },
-        )
-    }
-}
-
-@Composable
-internal fun CoreShowcaseScreen(
+internal fun CoreShowcaseContent(
     themeMode: ThemeMode,
     onThemeModeChange: (ThemeMode) -> Unit,
     activePresetName: String,
@@ -100,12 +65,6 @@ internal fun CoreShowcaseScreen(
     }
 
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colors.background)
-            .safeDrawingPadding()
-            .verticalScroll(rememberScrollState())
-            .padding(spacing.lg),
         verticalArrangement = Arrangement.spacedBy(spacing.xl),
     ) {
         Column(verticalArrangement = Arrangement.spacedBy(spacing.xs)) {
@@ -126,10 +85,9 @@ internal fun CoreShowcaseScreen(
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     ThemeMode.entries.forEach { mode ->
-                        val selected = mode == themeMode
                         PillChip(
                             label = mode.name,
-                            selected = selected,
+                            selected = mode == themeMode,
                             onClick = { onThemeModeChange(mode) },
                         )
                     }
@@ -197,14 +155,8 @@ internal fun CoreShowcaseScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        BasicText(
-                            text = name,
-                            style = typography.button.copy(color = fg),
-                        )
-                        BasicText(
-                            text = formatted,
-                            style = typography.label.copy(color = fg),
-                        )
+                        BasicText(text = name, style = typography.button.copy(color = fg))
+                        BasicText(text = formatted, style = typography.label.copy(color = fg))
                     }
                 }
             }
@@ -238,10 +190,7 @@ internal fun CoreShowcaseScreen(
 
             Column(verticalArrangement = Arrangement.spacedBy(spacing.sm)) {
                 styles.forEach { (label, style) ->
-                    BasicText(
-                        text = label,
-                        style = style.copy(color = colors.textPrimary),
-                    )
+                    BasicText(text = label, style = style.copy(color = colors.textPrimary))
                 }
             }
         }
@@ -306,10 +255,7 @@ internal fun CoreShowcaseScreen(
                             .border(1.dp, colors.border, shape),
                         contentAlignment = Alignment.Center,
                     ) {
-                        BasicText(
-                            text = name,
-                            style = typography.label.copy(color = colors.textPrimary),
-                        )
+                        BasicText(text = name, style = typography.label.copy(color = colors.textPrimary))
                     }
                 }
             }
@@ -338,10 +284,7 @@ private fun TokenSection(
             .padding(spacing.lg),
         verticalArrangement = Arrangement.spacedBy(spacing.md),
     ) {
-        BasicText(
-            text = title,
-            style = typography.title.copy(color = colors.textPrimary),
-        )
+        BasicText(text = title, style = typography.title.copy(color = colors.textPrimary))
         content()
     }
 }
@@ -381,10 +324,7 @@ private fun PillChip(
                     .border(1.dp, Color.White.copy(alpha = 0.6f), shapes.full),
             )
         }
-        BasicText(
-            text = label,
-            style = typography.label.copy(color = fg),
-        )
+        BasicText(text = label, style = typography.label.copy(color = fg))
     }
 }
 
@@ -399,10 +339,7 @@ private fun ScaleRow(
     val shapes = MaigTheme.shapes
 
     Column(verticalArrangement = Arrangement.spacedBy(spacing.xs)) {
-        BasicText(
-            text = name,
-            style = typography.label.copy(color = colors.textSecondary),
-        )
+        BasicText(text = name, style = typography.label.copy(color = colors.textSecondary))
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(2.dp),
@@ -417,10 +354,7 @@ private fun ScaleRow(
                         .background(shade),
                     contentAlignment = Alignment.Center,
                 ) {
-                    BasicText(
-                        text = weight.toString(),
-                        style = typography.caption.copy(color = textColor),
-                    )
+                    BasicText(text = weight.toString(), style = typography.caption.copy(color = textColor))
                 }
             }
         }
@@ -431,12 +365,14 @@ private fun ScaleRow(
 @Composable
 private fun CoreShowcaseLightPreview() {
     MaigTheme(darkTheme = false) {
-        CoreShowcaseScreen(
-            themeMode = ThemeMode.Light,
-            onThemeModeChange = {},
-            activePresetName = "Default",
-            onSelectPreset = { _, _ -> },
-        )
+        Box(modifier = Modifier.background(MaigTheme.colors.background).padding(MaigTheme.spacing.lg)) {
+            CoreShowcaseContent(
+                themeMode = ThemeMode.Light,
+                onThemeModeChange = {},
+                activePresetName = "Default",
+                onSelectPreset = { _, _ -> },
+            )
+        }
     }
 }
 
@@ -444,11 +380,13 @@ private fun CoreShowcaseLightPreview() {
 @Composable
 private fun CoreShowcaseDarkPreview() {
     MaigTheme(darkTheme = true) {
-        CoreShowcaseScreen(
-            themeMode = ThemeMode.Dark,
-            onThemeModeChange = {},
-            activePresetName = "Default",
-            onSelectPreset = { _, _ -> },
-        )
+        Box(modifier = Modifier.background(MaigTheme.colors.background).padding(MaigTheme.spacing.lg)) {
+            CoreShowcaseContent(
+                themeMode = ThemeMode.Dark,
+                onThemeModeChange = {},
+                activePresetName = "Default",
+                onSelectPreset = { _, _ -> },
+            )
+        }
     }
 }

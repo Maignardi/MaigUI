@@ -1,7 +1,134 @@
+public final class io/github/maignardi/maigui/forms/MaigFieldBuilder {
+	public static final field $stable I
+	public fun <init> ()V
+	public final fun cep (Ljava/lang/String;)V
+	public static synthetic fun cep$default (Lio/github/maignardi/maigui/forms/MaigFieldBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public final fun cnpj (Ljava/lang/String;)V
+	public static synthetic fun cnpj$default (Lio/github/maignardi/maigui/forms/MaigFieldBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public final fun cpf (Ljava/lang/String;)V
+	public static synthetic fun cpf$default (Lio/github/maignardi/maigui/forms/MaigFieldBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public final fun custom (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun custom$default (Lio/github/maignardi/maigui/forms/MaigFieldBuilder;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public final fun email (Ljava/lang/String;)V
+	public static synthetic fun email$default (Lio/github/maignardi/maigui/forms/MaigFieldBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public final fun matches (Ljava/lang/String;Ljava/lang/String;)V
+	public static synthetic fun matches$default (Lio/github/maignardi/maigui/forms/MaigFieldBuilder;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+	public final fun maxLength (ILjava/lang/String;)V
+	public static synthetic fun maxLength$default (Lio/github/maignardi/maigui/forms/MaigFieldBuilder;ILjava/lang/String;ILjava/lang/Object;)V
+	public final fun minLength (ILjava/lang/String;)V
+	public static synthetic fun minLength$default (Lio/github/maignardi/maigui/forms/MaigFieldBuilder;ILjava/lang/String;ILjava/lang/Object;)V
+	public final fun numeric (Ljava/lang/String;)V
+	public static synthetic fun numeric$default (Lio/github/maignardi/maigui/forms/MaigFieldBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public final fun pattern (Lkotlin/text/Regex;Ljava/lang/String;)V
+	public static synthetic fun pattern$default (Lio/github/maignardi/maigui/forms/MaigFieldBuilder;Lkotlin/text/Regex;Ljava/lang/String;ILjava/lang/Object;)V
+	public final fun phone (Ljava/lang/String;)V
+	public static synthetic fun phone$default (Lio/github/maignardi/maigui/forms/MaigFieldBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public final fun required (Ljava/lang/String;)V
+	public static synthetic fun required$default (Lio/github/maignardi/maigui/forms/MaigFieldBuilder;Ljava/lang/String;ILjava/lang/Object;)V
+	public final fun validator (Lio/github/maignardi/maigui/forms/MaigValidator;)V
+}
+
+public final class io/github/maignardi/maigui/forms/MaigFormBuilder {
+	public static final field $stable I
+	public final fun field (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun field$default (Lio/github/maignardi/maigui/forms/MaigFormBuilder;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+}
+
+public final class io/github/maignardi/maigui/forms/MaigFormField {
+	public static final field $stable I
+	public final fun getError ()Ljava/lang/String;
+	public final fun getFocusRequester ()Landroidx/compose/ui/focus/FocusRequester;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getTouched ()Z
+	public final fun getValue ()Ljava/lang/String;
+	public final fun isValid ()Z
+	public final fun onFocusChanged (Z)V
+	public final fun onValueChange (Ljava/lang/String;)V
+	public final fun reset ()V
+	public final fun validate ()Z
+}
+
+public final class io/github/maignardi/maigui/forms/MaigFormFieldsKt {
+	public static final fun MaigMoneyField (Lio/github/maignardi/maigui/forms/MaigFormField;Landroidx/compose/ui/Modifier;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldColors;Lkotlin/jvm/functions/Function0;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigPasswordField (Lio/github/maignardi/maigui/forms/MaigFormField;Landroidx/compose/ui/Modifier;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldColors;Lkotlin/jvm/functions/Function0;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+	public static final fun MaigPhoneField (Lio/github/maignardi/maigui/forms/MaigFormField;Landroidx/compose/ui/Modifier;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldColors;Lkotlin/jvm/functions/Function0;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigTextArea (Lio/github/maignardi/maigui/forms/MaigFormField;Landroidx/compose/ui/Modifier;ZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;ZLio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+	public static final fun MaigTextField-eDIh-lU (Lio/github/maignardi/maigui/forms/MaigFormField;Landroidx/compose/ui/Modifier;ZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;ZLandroidx/compose/ui/text/input/VisualTransformation;ILio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldColors;Lkotlin/jvm/functions/Function0;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/maignardi/maigui/forms/MaigFormState {
+	public static final field $stable I
+	public final fun get (Ljava/lang/String;)Lio/github/maignardi/maigui/forms/MaigFormField;
+	public final fun getValues ()Ljava/util/Map;
+	public final fun isValid ()Z
+	public final fun reset ()V
+	public final fun validate ()Z
+}
+
+public final class io/github/maignardi/maigui/forms/MaigFormStateKt {
+	public static final fun rememberMaigForm (Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)Lio/github/maignardi/maigui/forms/MaigFormState;
+}
+
 public final class io/github/maignardi/maigui/forms/MaigForms {
 	public static final field $stable I
 	public static final field INSTANCE Lio/github/maignardi/maigui/forms/MaigForms;
 	public static final field VERSION Ljava/lang/String;
+}
+
+public final class io/github/maignardi/maigui/forms/MaigMasks {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/forms/MaigMasks;
+	public final fun cep ()Landroidx/compose/ui/text/input/VisualTransformation;
+	public final fun cnpj ()Landroidx/compose/ui/text/input/VisualTransformation;
+	public final fun cpf ()Landroidx/compose/ui/text/input/VisualTransformation;
+	public final fun creditCard ()Landroidx/compose/ui/text/input/VisualTransformation;
+	public final fun currencyBrl ()Landroidx/compose/ui/text/input/VisualTransformation;
+	public final fun date ()Landroidx/compose/ui/text/input/VisualTransformation;
+	public final fun formatCep (Ljava/lang/String;)Ljava/lang/String;
+	public final fun formatCnpj (Ljava/lang/String;)Ljava/lang/String;
+	public final fun formatCpf (Ljava/lang/String;)Ljava/lang/String;
+	public final fun formatCreditCard (Ljava/lang/String;)Ljava/lang/String;
+	public final fun formatCurrencyBrl (Ljava/lang/String;)Ljava/lang/String;
+	public final fun formatDate (Ljava/lang/String;)Ljava/lang/String;
+	public final fun formatPhone (Ljava/lang/String;)Ljava/lang/String;
+	public final fun phone ()Landroidx/compose/ui/text/input/VisualTransformation;
+}
+
+public abstract interface class io/github/maignardi/maigui/forms/MaigValidator {
+	public abstract fun validate (Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;
+}
+
+public final class io/github/maignardi/maigui/forms/MaigValidators {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/forms/MaigValidators;
+	public final fun brazilianPhone (Ljava/lang/String;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public static synthetic fun brazilianPhone$default (Lio/github/maignardi/maigui/forms/MaigValidators;Ljava/lang/String;ILjava/lang/Object;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public final fun cep (Ljava/lang/String;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public static synthetic fun cep$default (Lio/github/maignardi/maigui/forms/MaigValidators;Ljava/lang/String;ILjava/lang/Object;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public final fun cnpj (Ljava/lang/String;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public static synthetic fun cnpj$default (Lio/github/maignardi/maigui/forms/MaigValidators;Ljava/lang/String;ILjava/lang/Object;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public final fun cpf (Ljava/lang/String;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public static synthetic fun cpf$default (Lio/github/maignardi/maigui/forms/MaigValidators;Ljava/lang/String;ILjava/lang/Object;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public final fun custom (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public static synthetic fun custom$default (Lio/github/maignardi/maigui/forms/MaigValidators;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public final fun email (Ljava/lang/String;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public static synthetic fun email$default (Lio/github/maignardi/maigui/forms/MaigValidators;Ljava/lang/String;ILjava/lang/Object;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public final fun isValidBrazilianPhone (Ljava/lang/String;)Z
+	public final fun isValidCep (Ljava/lang/String;)Z
+	public final fun isValidCnpj (Ljava/lang/String;)Z
+	public final fun isValidCpf (Ljava/lang/String;)Z
+	public final fun matches (Ljava/lang/String;Ljava/lang/String;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public static synthetic fun matches$default (Lio/github/maignardi/maigui/forms/MaigValidators;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public final fun maxLength (ILjava/lang/String;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public static synthetic fun maxLength$default (Lio/github/maignardi/maigui/forms/MaigValidators;ILjava/lang/String;ILjava/lang/Object;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public final fun minLength (ILjava/lang/String;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public static synthetic fun minLength$default (Lio/github/maignardi/maigui/forms/MaigValidators;ILjava/lang/String;ILjava/lang/Object;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public final fun numeric (Ljava/lang/String;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public static synthetic fun numeric$default (Lio/github/maignardi/maigui/forms/MaigValidators;Ljava/lang/String;ILjava/lang/Object;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public final fun pattern (Lkotlin/text/Regex;Ljava/lang/String;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public static synthetic fun pattern$default (Lio/github/maignardi/maigui/forms/MaigValidators;Lkotlin/text/Regex;Ljava/lang/String;ILjava/lang/Object;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public final fun required (Ljava/lang/String;)Lio/github/maignardi/maigui/forms/MaigValidator;
+	public static synthetic fun required$default (Lio/github/maignardi/maigui/forms/MaigValidators;Ljava/lang/String;ILjava/lang/Object;)Lio/github/maignardi/maigui/forms/MaigValidator;
 }
 
 public final class io/github/maignardi/maigui/forms/R {

@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  verify:
+    name: Build, Tests, API Check & Screenshots
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Verify binary compatibility (apiCheck)
+        run: ./gradlew apiCheck --no-daemon
+
+      - name: Run unit, forms, and catalog UI tests
+        run: ./gradlew :maigui-core:testDebugUnitTest :maigui-forms:testDebugUnitTest :sample:testDebugUnitTest --no-daemon
+
+      - name: Verify Roborazzi screenshots
+        run: ./gradlew :maigui-components:verifyRoborazziDebug --no-daemon
+
+      - name: Run Android Lint
+        run: ./gradlew lint --no-daemon
+
+      - name: Build sample APK
+        run: ./gradlew :sample:assembleDebug --no-daemon
+
+      - name: Generate Dokka API documentation
+        run: ./gradlew :maigui-core:dokkaGeneratePublicationHtml :maigui-components:dokkaGeneratePublicationHtml :maigui-forms:dokkaGeneratePublicationHtml --no-daemon
+
+      - name: Publish to local Maven repository (smoke check)
+        run: ./gradlew publishToMavenLocal --no-daemon
+
+      - name: Prepare GitHub Pages site artifact
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          mkdir -p _site/api/core _site/api/components _site/api/forms
+          cp -r docs/* _site/
+          cp -r maigui-core/build/dokka/html/* _site/api/core/ || true
+          cp -r maigui-components/build/dokka/html/* _site/api/components/ || true
+          cp -r maigui-forms/build/dokka/html/* _site/api/forms/ || true
+
+      - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy-pages:
+    name: Deploy MaigUI Showcase & Docs
+    needs: verify
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MaigUI — Bootstrap-style Jetpack Compose Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #2563EB;
+      --primary-hover: #1D4ED8;
+      --primary-subtle: #EFF6FF;
+      --on-primary: #FFFFFF;
+      --on-primary-subtle: #1E40AF;
+      --success: #16A34A;
+      --success-subtle: #F0FDF4;
+      --on-success-subtle: #166534;
+      --warning: #D97706;
+      --warning-subtle: #FFFBEB;
+      --on-warning-subtle: #92400E;
+      --danger: #DC2626;
+      --danger-subtle: #FEF2F2;
+      --on-danger-subtle: #991B1B;
+      --info: #0284C7;
+      --info-subtle: #F0F9FF;
+      --on-info-subtle: #075985;
+      --bg: #FFFFFF;
+      --bg-subtle: #F8FAFC;
+      --surface: #FFFFFF;
+      --surface-variant: #F1F5F9;
+      --border: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --text: #0F172A;
+      --text-secondary: #475569;
+      --text-tertiary: #64748B;
+      --code-bg: #0F172A;
+      --code-text: #E2E8F0;
+      --shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+      --radius: 12px;
+    }
+
+    [data-theme="dark"] {
+      --primary-subtle: rgba(59, 130, 246, 0.16);
+      --on-primary-subtle: #BFDBFE;
+      --success: #4ADE80;
+      --success-subtle: rgba(34, 197, 94, 0.16);
+      --on-success-subtle: #BBF7D0;
+      --warning: #FBBF24;
+      --warning-subtle: rgba(245, 158, 11, 0.16);
+      --on-warning-subtle: #FDE68A;
+      --danger: #F87171;
+      --danger-subtle: rgba(239, 68, 68, 0.16);
+      --on-danger-subtle: #FECACA;
+      --info: #38BDF8;
+      --info-subtle: rgba(14, 165, 233, 0.16);
+      --on-info-subtle: #BAE6FD;
+      --bg: #0B0F17;
+      --bg-subtle: #111622;
+      --surface: #131926;
+      --surface-variant: #1D2538;
+      --border: #252E42;
+      --border-strong: #37435D;
+      --text: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-tertiary: #64748B;
+      --code-bg: #070A10;
+      --code-text: #E2E8F0;
+      --shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    code, pre {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+      font-size: 0.85rem;
+    }
+
+    /* Top Header */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: var(--on-primary);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .version-pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: var(--primary-subtle);
+      color: var(--on-primary-subtle);
+    }
+
+    .topbar-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-variant);
+      color: var(--text);
+      font-size: 0.85rem;
+      width: 210px;
+      outline: none;
+    }
+    .search-box:focus { border-color: var(--primary); }
+
+    .swatch-row {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .swatch {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+    .swatch:hover { transform: scale(1.15); }
+    .swatch.active { border-color: var(--text); }
+
+    .icon-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .icon-toggle:hover { background: var(--surface-variant); }
+
+    /* Layout */
+    .layout {
+      max-width: 1380px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 2rem;
+      padding: 1.5rem;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 76px;
+      height: calc(100vh - 96px);
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .nav-group-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      margin: 1.1rem 0 0.4rem;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 0.42rem 0.75rem;
+      border-radius: 8px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: var(--primary-subtle);
+      color: var(--on-primary-subtle);
+      font-weight: 600;
+    }
+
+    .main { min-width: 0; }
+
+    /* Hero */
+    .hero {
+      padding: 2.25rem;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--primary-subtle), var(--surface));
+      border: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+    .hero p {
+      color: var(--text-secondary);
+      max-width: 720px;
+      font-size: 1.03rem;
+      margin-bottom: 1.25rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    /* Sections & Cards */
+    .section {
+      margin-bottom: 2.75rem;
+      scroll-margin-top: 84px;
+    }
+    .section-header {
+      margin-bottom: 1rem;
+    }
+    .section-header h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1rem;
+    }
+
+    .preview-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    /* Code blocks */
+    .code-wrap {
+      position: relative;
+      background: var(--code-bg);
+      color: var(--code-text);
+      border-radius: 10px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin-top: 0.85rem;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 6px;
+      padding: 0.25rem 0.55rem;
+      font-size: 0.74rem;
+      cursor: pointer;
+    }
+    .copy-btn:hover { background: rgba(255,255,255,0.22); }
+
+    /* MaigUI Preview Components */
+    .m-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.55rem 1.05rem;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s;
+      text-decoration: none;
+    }
+    .m-btn-sm { padding: 0.35rem 0.75rem; font-size: 0.8rem; border-radius: 6px; }
+    .m-btn-lg { padding: 0.75rem 1.35rem; font-size: 0.98rem; border-radius: 10px; }
+    .m-btn-solid { background: var(--primary); color: var(--on-primary); }
+    .m-btn-solid:hover { filter: brightness(0.92); }
+    .m-btn-outline { background: transparent; color: var(--primary); border-color: var(--primary); }
+    .m-btn-soft { background: var(--primary-subtle); color: var(--on-primary-subtle); }
+    .m-btn-ghost { background: transparent; color: var(--primary); }
+    .m-btn-ghost:hover { background: var(--primary-subtle); }
+    .m-btn-link { background: transparent; color: var(--primary); text-decoration: underline; }
+    .m-btn-success { background: var(--success); color: #fff; }
+    .m-btn-danger { background: var(--danger); color: #fff; }
+    .m-btn-warning { background: var(--warning); color: #fff; }
+    .m-btn:disabled { opacity: 0.48; cursor: not-allowed; }
+
+    .m-input-group { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.75rem; }
+    .m-label { font-size: 0.82rem; font-weight: 600; color: var(--text); }
+    .m-input {
+      width: 100%;
+      padding: 0.62rem 0.85rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.92rem;
+      outline: none;
+    }
+    .m-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-subtle); }
+    .m-input.filled { background: var(--surface-variant); border-color: transparent; }
+    .m-input.error { border-color: var(--danger); }
+    .m-helper { font-size: 0.75rem; color: var(--text-secondary); }
+    .m-error { font-size: 0.75rem; color: var(--danger); font-weight: 500; }
+
+    .m-alert {
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      border: 1px solid;
+      margin-bottom: 0.65rem;
+      font-size: 0.88rem;
+    }
+    .m-alert.info { background: var(--info-subtle); color: var(--on-info-subtle); border-color: var(--info); }
+    .m-alert.success { background: var(--success-subtle); color: var(--on-success-subtle); border-color: var(--success); }
+    .m-alert.warning { background: var(--warning-subtle); color: var(--on-warning-subtle); border-color: var(--warning); }
+    .m-alert.danger { background: var(--danger-subtle); color: var(--on-danger-subtle); border-color: var(--danger); }
+
+    .m-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 0.22rem 0.6rem;
+      border-radius: 6px;
+      background: var(--primary-subtle);
+      color: var(--on-primary-subtle);
+    }
+
+    .m-scale-row {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 4px;
+      margin-top: 0.5rem;
+    }
+    .m-shade {
+      height: 36px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .tabs-bar {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      gap: 0.25rem;
+      margin-bottom: 1rem;
+    }
+    .tab-btn {
+      padding: 0.55rem 0.95rem;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.86rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .shot-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.85rem;
+      text-align: center;
+    }
+    .shot-card img {
+      max-width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .shot-card figcaption {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+
+    .toast-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 60;
+      padding: 0.85rem 1.15rem;
+      border-radius: 12px;
+      background: var(--surface);
+      border: 1px solid var(--primary);
+      box-shadow: var(--shadow);
+      display: none;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .toast-float.show { display: flex; }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: none;
+      place-items: center;
+      z-index: 70;
+      padding: 1rem;
+    }
+    .modal-backdrop.open { display: grid; }
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 420px;
+      width: 100%;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .skeleton {
+      height: 14px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--surface-variant) 25%, var(--border) 50%, var(--surface-variant) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.2s infinite linear;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+      .nav-group-title { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="#top" class="brand">
+    <span class="brand-logo">M</span>
+    <span>MaigUI</span>
+    <span class="version-pill">v0.1.0</span>
+  </a>
+
+  <div class="topbar-controls">
+    <input id="searchInput" class="search-box" type="search" placeholder="Buscar componente..." oninput="filterSections(this.value)" />
+    <div class="swatch-row" title="Trocar cor da marca em tempo real">
+      <button class="swatch active" style="background:#2563EB" onclick="setBrand('#2563EB', this)" aria-label="Blue"></button>
+      <button class="swatch" style="background:#7C3AED" onclick="setBrand('#7C3AED', this)" aria-label="Purple"></button>
+      <button class="swatch" style="background:#16A34A" onclick="setBrand('#16A34A', this)" aria-label="Green"></button>
+      <button class="swatch" style="background:#EA580C" onclick="setBrand('#EA580C', this)" aria-label="Orange"></button>
+      <button class="swatch" style="background:#E11D48" onclick="setBrand('#E11D48', this)" aria-label="Rose"></button>
+      <input type="color" id="customColorPicker" value="#2563EB" onchange="setBrand(this.value)" style="width:26px;height:26px;border:none;background:none;cursor:pointer;" title="Cor customizada" />
+    </div>
+    <button class="icon-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark</button>
+    <a class="m-btn m-btn-sm m-btn-outline" href="https://github.com/Maignardi/MaigUI" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</header>
+
+<div class="layout" id="top">
+  <aside class="sidebar">
+    <div class="nav-group-title">Começando</div>
+    <a class="nav-link" href="#install">Instalação</a>
+    <a class="nav-link" href="#theme">Tema &amp; Tokens</a>
+    <div class="nav-group-title">Componentes</div>
+    <a class="nav-link" href="#buttons">Botões</a>
+    <a class="nav-link" href="#inputs">Inputs</a>
+    <a class="nav-link" href="#selection">Seleção &amp; Pickers</a>
+    <a class="nav-link" href="#overlays">Overlays &amp; Feedback</a>
+    <a class="nav-link" href="#display">Exibição &amp; Navegação</a>
+    <div class="nav-group-title">Formulários</div>
+    <a class="nav-link" href="#forms">maigui-forms (BR)</a>
+    <div class="nav-group-title">Qualidade</div>
+    <a class="nav-link" href="#screenshots">Screenshots Reais</a>
+    <a class="nav-link" href="api/components/index.html">Dokka API Docs</a>
+  </aside>
+
+  <main class="main">
+    <section class="hero">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.85rem;">
+        <span class="m-tag">Jetpack Compose Foundation</span>
+        <span class="m-tag">WCAG AA Automático</span>
+        <span class="m-tag">minSdk 23</span>
+        <span class="m-tag">Apache 2.0</span>
+      </div>
+      <h1>Bootstrap para Jetpack Compose.</h1>
+      <p>Adicione uma dependência, envolva seu app em <code>MaigTheme {}</code> e tenha mais de 40 componentes consistentes, acessíveis, com fonte Inter, geração de paleta a partir de 1 cor e formulários brasileiros com CPF/CNPJ/CEP/BRL.</p>
+      <div class="hero-actions">
+        <a href="#install" class="m-btn m-btn-solid">Instalar agora</a>
+        <a href="#buttons" class="m-btn m-btn-soft">Explorar componentes</a>
+        <a href="#screenshots" class="m-btn m-btn-outline">Ver screenshots Android</a>
+      </div>
+    </section>
+
+    <section class="section" id="install" data-keywords="install gradle jitpack maven central github">
+      <div class="section-header">
+        <h2>Instalação</h2>
+        <p>Disponível via <strong>GitHub (JitPack)</strong> e <strong>Maven Central</strong>.</p>
+      </div>
+      <div class="card">
+        <div class="tabs-bar">
+          <button class="tab-btn active" onclick="switchInstallTab('jitpack', this)">GitHub / JitPack</button>
+          <button class="tab-btn" onclick="switchInstallTab('mavencentral', this)">Maven Central</button>
+        </div>
+        <div id="install-jitpack">
+          <div class="code-wrap">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+<pre>// settings.gradle.kts
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://jitpack.io")
+    }
+}
+
+// build.gradle.kts (app)
+dependencies {
+    implementation("com.github.Maignardi.MaigUI:maig-ui:0.1.0")
+    implementation("com.github.Maignardi.MaigUI:maig-ui-forms:0.1.0") // opcional
+}</pre>
+          </div>
+        </div>
+        <div id="install-mavencentral" style="display:none;">
+          <div class="code-wrap">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+<pre>// build.gradle.kts (app)
+dependencies {
+    implementation("io.github.maignardi:maig-ui:0.1.0")
+    implementation("io.github.maignardi:maig-ui-forms:0.1.0") // opcional
+}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="theme" data-keywords="theme tokens colors wcag palette typography spacing shapes">
+      <div class="section-header">
+        <h2>Tema, Paleta Dinâmica &amp; Tokens</h2>
+        <p>Troque a cor no topo desta página para simular <code>MaigBrand(primary = Color(...))</code> gerando tons 50–900 com contraste WCAG AA.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+          <strong>Escala Tonal Primária (50–900)</strong>
+          <span class="m-tag" id="contrastBadge">WCAG AA Verificado</span>
+        </div>
+        <div class="m-scale-row" id="scaleRow"></div>
+        <div class="code-wrap">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+<pre>MaigTheme(
+    brand = MaigBrand(primary = Color(0xFF2563EB)),
+    darkTheme = isSystemInDarkTheme(),
+) {
+    // Tokens disponíveis em qualquer composable:
+    // MaigTheme.colors, MaigTheme.typography, MaigTheme.shapes, MaigTheme.spacing, MaigTheme.elevation
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="buttons" data-keywords="button iconbutton fab buttongroup solid outline ghost soft link">
+      <div class="section-header">
+        <h2>Botões</h2>
+        <p><code>MaigButton</code> (5 variantes × 6 cores × 3 tamanhos), <code>MaigIconButton</code>, <code>MaigFab</code> e <code>MaigButtonGroup</code>.</p>
+      </div>
+      <div class="card">
+        <div class="preview-grid">
+          <button class="m-btn m-btn-solid" onclick="showToast('Solid clicado!')">Solid</button>
+          <button class="m-btn m-btn-outline" onclick="showToast('Outline clicado!')">Outline</button>
+          <button class="m-btn m-btn-soft" onclick="showToast('Soft clicado!')">Soft</button>
+          <button class="m-btn m-btn-ghost" onclick="showToast('Ghost clicado!')">Ghost</button>
+          <button class="m-btn m-btn-link" onclick="showToast('Link clicado!')">Link</button>
+          <button class="m-btn m-btn-success">Success</button>
+          <button class="m-btn m-btn-warning">Warning</button>
+          <button class="m-btn m-btn-danger">Danger</button>
+          <button class="m-btn m-btn-solid m-btn-sm">Small</button>
+          <button class="m-btn m-btn-solid m-btn-lg">Large</button>
+          <button class="m-btn m-btn-solid" disabled>Disabled</button>
+        </div>
+        <div class="code-wrap">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+<pre>MaigButton(
+    text = "Salvar",
+    onClick = { /* ... */ },
+    variant = MaigButtonVariant.Solid,
+    color = MaigButtonColor.Primary,
+    size = MaigButtonSize.Medium,
+    loading = isSaving,
+    leadingIcon = { MaigIcons.Check() },
+)</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="inputs" data-keywords="textfield password search textarea otp money phone input">
+      <div class="section-header">
+        <h2>Inputs</h2>
+        <p><code>MaigTextField</code> (Outlined/Filled), <code>MaigPasswordField</code>, <code>MaigSearchField</code>, <code>MaigTextArea</code>, <code>MaigOtpField</code>, <code>MaigMoneyField</code> e <code>MaigPhoneField</code>.</p>
+      </div>
+      <div class="card">
+        <div class="split-grid">
+          <div>
+            <div class="m-input-group">
+              <label class="m-label">E-mail (Outlined)</label>
+              <input class="m-input" type="email" value="dev@maigui.io" />
+              <span class="m-helper">Usaremos apenas para avisos</span>
+            </div>
+            <div class="m-input-group">
+              <label class="m-label">Busca (Filled)</label>
+              <input class="m-input filled" type="search" placeholder="Buscar componente..." />
+            </div>
+          </div>
+          <div>
+            <div class="m-input-group">
+              <label class="m-label" style="color:var(--danger)">Usuário (Estado de erro)</label>
+              <input class="m-input error" type="text" value="abc" />
+              <span class="m-error">Este nome de usuário já existe</span>
+            </div>
+            <div class="m-input-group">
+              <label class="m-label">Valor (MaigMoneyField)</label>
+              <input class="m-input" type="text" value="R$ 1.259,90" readonly />
+            </div>
+          </div>
+        </div>
+        <div class="code-wrap">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+<pre>MaigTextField(value = email, onValueChange = { email = it }, label = "E-mail")
+MaigPasswordField(value = pass, onValueChange = { pass = it })
+MaigMoneyField(value = cents, onValueChange = { cents = it })
+MaigPhoneField(value = phone, onValueChange = { phone = it })
+MaigOtpField(value = otp, onValueChange = { otp = it }, length = 6)</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="selection" data-keywords="checkbox radio switch chip select slider datepicker timepicker">
+      <div class="section-header">
+        <h2>Seleção &amp; Pickers</h2>
+        <p><code>MaigCheckbox</code> (com indeterminado), <code>MaigRadioGroup</code>, <code>MaigSwitch</code>, <code>MaigChip</code>, <code>MaigSelect</code> (com busca), <code>MaigSlider</code>, <code>MaigRangeSlider</code>, <code>MaigDatePicker</code> e <code>MaigTimePicker</code>.</p>
+      </div>
+      <div class="card">
+        <div class="preview-grid">
+          <label style="display:flex;align-items:center;gap:0.45rem;cursor:pointer;"><input type="checkbox" checked /> Aceito os termos</label>
+          <label style="display:flex;align-items:center;gap:0.45rem;cursor:pointer;"><input type="radio" name="r" checked /> Pix</label>
+          <label style="display:flex;align-items:center;gap:0.45rem;cursor:pointer;"><input type="radio" name="r" /> Cartão</label>
+          <span class="m-tag">✓ Kotlin</span>
+          <span class="m-tag" style="background:var(--surface-variant);color:var(--text);">Compose</span>
+          <input type="range" min="0" max="100" value="65" style="accent-color:var(--primary);" />
+        </div>
+        <div class="code-wrap">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+<pre>MaigSelect(items = cities, selectedItem = city, onItemSelected = { city = it }, itemLabel = { it }, searchable = true)
+MaigDatePicker(selectedDate = date, onDateSelected = { date = it })
+MaigTimePicker(selectedTime = time, onTimeSelected = { time = it })</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="overlays" data-keywords="dialog bottomsheet popover tooltip menu toast alert loading progress skeleton">
+      <div class="section-header">
+        <h2>Overlays &amp; Feedback</h2>
+        <p><code>MaigDialog</code>, <code>MaigBottomSheet</code>, <code>MaigPopover</code>, <code>MaigTooltip</code>, <code>MaigDropdownMenu</code>, <code>MaigToastHost</code>, <code>MaigAlert</code>, <code>MaigLoadingOverlay</code>, <code>MaigProgressBar</code> e <code>MaigSkeleton</code>.</p>
+      </div>
+      <div class="card">
+        <div class="preview-grid" style="margin-bottom:1rem;">
+          <button class="m-btn m-btn-outline m-btn-sm" onclick="document.getElementById('demoModal').classList.add('open')">Abrir Dialog</button>
+          <button class="m-btn m-btn-soft m-btn-sm" onclick="showToast('Toast global exibido com sucesso!')">Disparar Toast</button>
+        </div>
+        <div class="m-alert success"><strong>Sucesso:</strong> Publicação validada no Maven Central e JitPack.</div>
+        <div class="m-alert warning"><strong>Atenção:</strong> Verifique os campos obrigatórios antes de enviar.</div>
+        <div style="display:grid;gap:0.5rem;margin-top:0.85rem;">
+          <div class="skeleton" style="width:45%;"></div>
+          <div class="skeleton" style="width:90%;"></div>
+          <div class="skeleton" style="width:70%;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="display" data-keywords="card avatar badge tag divider listitem emptystate accordion topbar tabs stepper pagination scaffold">
+      <div class="section-header">
+        <h2>Exibição, Navegação &amp; Layout</h2>
+        <p><code>MaigCard</code>, <code>MaigAvatar</code>, <code>MaigBadge</code>, <code>MaigTag</code>, <code>MaigListItem</code>, <code>MaigAccordion</code>, <code>MaigTopBar</code>, <code>MaigBottomNavigation</code>, <code>MaigTabs</code>, <code>MaigStepper</code>, <code>MaigPagination</code>, <code>MaigScaffold</code>.</p>
+      </div>
+      <div class="card">
+        <div class="code-wrap" style="margin-top:0;">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+<pre>MaigScaffold(
+    topBar = { MaigTopBar(title = "Dashboard") },
+    bottomBar = { MaigBottomNavigation(items, selectedIndex, onSelect) },
+) { padding ->
+    MaigSection(title = "Resumo", modifier = Modifier.padding(padding)) {
+        MaigCard(variant = MaigCardVariant.Elevated) { /* ... */ }
+    }
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="forms" data-keywords="forms validadores mascaras cpf cnpj cep telefone rememberMaigForm">
+      <div class="section-header">
+        <h2>Formulários &amp; Máscaras Brasileiras (<code>maigui-forms</code>)</h2>
+        <p>Teste ao vivo abaixo os algoritmos reais de validação de CPF e e-mail usados na biblioteca.</p>
+      </div>
+      <div class="card">
+        <div class="split-grid">
+          <div class="m-input-group">
+            <label class="m-label">E-mail</label>
+            <input class="m-input" id="fEmail" placeholder="dev@maigui.io" oninput="validateDemoForm()" />
+            <span class="m-error" id="fEmailErr"></span>
+          </div>
+          <div class="m-input-group">
+            <label class="m-label">CPF (teste: 52998224725)</label>
+            <input class="m-input" id="fCpf" placeholder="000.000.000-00" maxlength="14" oninput="maskCpfInput(this); validateDemoForm()" />
+            <span class="m-error" id="fCpfErr"></span>
+          </div>
+        </div>
+        <button class="m-btn m-btn-solid" onclick="validateDemoForm(true)">Validar Formulário</button>
+        <div class="code-wrap">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+<pre>val form = rememberMaigForm {
+    field("email") { required(); email() }
+    field("cpf") { required(); cpf() }
+}
+MaigTextField(field = form["email"], label = "E-mail")
+MaigTextField(field = form["cpf"], label = "CPF", visualTransformation = MaigMasks.cpf())</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="screenshots" data-keywords="screenshots roborazzi previews android light dark">
+      <div class="section-header">
+        <h2>Screenshots Reais (Android Jetpack Compose + Roborazzi)</h2>
+        <p>Renderizados diretamente pelo motor Compose da biblioteca em Light e Dark.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="shot-card"><img src="images/buttons_light.png" alt="Buttons Light" /><figcaption>Buttons — Light</figcaption></figure>
+        <figure class="shot-card"><img src="images/buttons_dark.png" alt="Buttons Dark" /><figcaption>Buttons — Dark</figcaption></figure>
+        <figure class="shot-card"><img src="images/inputs_light.png" alt="Inputs Light" /><figcaption>Inputs — Light</figcaption></figure>
+        <figure class="shot-card"><img src="images/inputs_dark.png" alt="Inputs Dark" /><figcaption>Inputs — Dark</figcaption></figure>
+        <figure class="shot-card"><img src="images/selection_light.png" alt="Selection Light" /><figcaption>Selection &amp; Pickers — Light</figcaption></figure>
+        <figure class="shot-card"><img src="images/selection_dark.png" alt="Selection Dark" /><figcaption>Selection &amp; Pickers — Dark</figcaption></figure>
+        <figure class="shot-card"><img src="images/overlays_feedback_light.png" alt="Overlays Light" /><figcaption>Overlays &amp; Feedback — Light</figcaption></figure>
+        <figure class="shot-card"><img src="images/overlays_feedback_dark.png" alt="Overlays Dark" /><figcaption>Overlays &amp; Feedback — Dark</figcaption></figure>
+        <figure class="shot-card"><img src="images/display_navigation_light.png" alt="Display Light" /><figcaption>Display &amp; Navigation — Light</figcaption></figure>
+        <figure class="shot-card"><img src="images/display_navigation_dark.png" alt="Display Dark" /><figcaption>Display &amp; Navigation — Dark</figcaption></figure>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toast-float" id="toastBox">
+  <span style="color:var(--primary);">●</span>
+  <span id="toastMsg">Notificação</span>
+</div>
+
+<div class="modal-backdrop" id="demoModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <h3 style="margin-bottom:0.5rem;">MaigDialog</h3>
+    <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:1.2rem;">Exemplo interativo do dialog modal do MaigUI com ações de confirmação e cancelamento.</p>
+    <div style="display:flex;justify-content:flex-end;gap:0.5rem;">
+      <button class="m-btn m-btn-ghost m-btn-sm" onclick="document.getElementById('demoModal').classList.remove('open')">Cancelar</button>
+      <button class="m-btn m-btn-solid m-btn-sm" onclick="document.getElementById('demoModal').classList.remove('open'); showToast('Ação confirmada!')">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function hexToRgb(hex) {
+    const clean = hex.replace('#', '');
+    return [
+      parseInt(clean.substring(0, 2), 16),
+      parseInt(clean.substring(2, 4), 16),
+      parseInt(clean.substring(4, 6), 16)
+    ];
+  }
+
+  function luminance([r, g, b]) {
+    const f = c => {
+      c /= 255;
+      return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+    };
+    return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+  }
+
+  function contrastRatio(rgb1, rgb2) {
+    const l1 = luminance(rgb1), l2 = luminance(rgb2);
+    return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+  }
+
+  function mix(c1, c2, t) {
+    return c1.map((v, i) => Math.round(v + (c2[i] - v) * t));
+  }
+
+  function rgbCss([r, g, b]) { return `rgb(${r}, ${g}, ${b})`; }
+
+  function setBrand(hex, btn) {
+    document.querySelectorAll('.swatch').forEach(el => el.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    document.getElementById('customColorPicker').value = hex;
+
+    const rgb = hexToRgb(hex);
+    const white = [255, 255, 255];
+    const dark = [9, 9, 11];
+    const onPrimary = contrastRatio(white, rgb) >= contrastRatio(dark, rgb) ? '#FFFFFF' : '#09090B';
+    const ratio = Math.max(contrastRatio(white, rgb), contrastRatio(dark, rgb)).toFixed(2);
+
+    const root = document.documentElement.style;
+    root.setProperty('--primary', hex);
+    root.setProperty('--on-primary', onPrimary);
+    root.setProperty('--primary-subtle', rgbCss(mix(rgb, white, 0.88)));
+    root.setProperty('--on-primary-subtle', rgbCss(mix(rgb, dark, 0.55)));
+    document.getElementById('contrastBadge').textContent = `WCAG AA ${ratio}:1`;
+
+    renderScale(rgb);
+  }
+
+  function renderScale(rgb) {
+    const white = [255, 255, 255], black = [15, 23, 42];
+    const steps = [
+      [50, mix(rgb, white, 0.92)],
+      [100, mix(rgb, white, 0.82)],
+      [200, mix(rgb, white, 0.65)],
+      [300, mix(rgb, white, 0.45)],
+      [400, mix(rgb, white, 0.22)],
+      [500, rgb],
+      [600, mix(rgb, black, 0.16)],
+      [700, mix(rgb, black, 0.32)],
+      [800, mix(rgb, black, 0.48)],
+      [900, mix(rgb, black, 0.64)],
+    ];
+    const row = document.getElementById('scaleRow');
+    row.innerHTML = steps.map(([w, c]) => {
+      const ink = contrastRatio([255,255,255], c) >= 4.5 ? '#fff' : '#09090B';
+      return `<div class="m-shade" style="background:${rgbCss(c)};color:${ink}">${w}</div>`;
+    }).join('');
+  }
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('themeBtn').textContent = isDark ? '🌙 Dark' : '☀️ Light';
+  }
+
+  function switchInstallTab(tab, btn) {
+    document.querySelectorAll('#install .tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('install-jitpack').style.display = tab === 'jitpack' ? 'block' : 'none';
+    document.getElementById('install-mavencentral').style.display = tab === 'mavencentral' ? 'block' : 'none';
+  }
+
+  function copyCode(btn) {
+    const text = btn.nextElementSibling.innerText;
+    navigator.clipboard?.writeText(text);
+    btn.textContent = 'Copiado!';
+    setTimeout(() => btn.textContent = 'Copiar', 1500);
+  }
+
+  let toastTimer;
+  function showToast(msg) {
+    const box = document.getElementById('toastBox');
+    document.getElementById('toastMsg').textContent = msg;
+    box.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => box.classList.remove('show'), 2600);
+  }
+
+  function maskCpfInput(input) {
+    let d = input.value.replace(/\D/g, '').slice(0, 11);
+    d = d.replace(/(\d{3})(\d)/, '$1.$2')
+         .replace(/(\d{3})(\d)/, '$1.$2')
+         .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    input.value = d;
+  }
+
+  function isValidCpf(raw) {
+    const d = raw.replace(/\D/g, '');
+    if (d.length !== 11 || /^(\d)\1+$/.test(d)) return false;
+    let s1 = 0;
+    for (let i = 0; i < 9; i++) s1 += parseInt(d[i]) * (10 - i);
+    let d1 = (s1 * 10) % 11; if (d1 === 10) d1 = 0;
+    if (d1 !== parseInt(d[9])) return false;
+    let s2 = 0;
+    for (let i = 0; i < 10; i++) s2 += parseInt(d[i]) * (11 - i);
+    let d2 = (s2 * 10) % 11; if (d2 === 10) d2 = 0;
+    return d2 === parseInt(d[10]);
+  }
+
+  function validateDemoForm(notify) {
+    const email = document.getElementById('fEmail').value.trim();
+    const cpf = document.getElementById('fCpf').value;
+    const emailErr = email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? 'E-mail inválido' : (notify && !email ? 'Campo obrigatório' : '');
+    const cpfErr = cpf && !isValidCpf(cpf) ? 'CPF inválido' : (notify && !cpf ? 'Campo obrigatório' : '');
+    document.getElementById('fEmailErr').textContent = emailErr;
+    document.getElementById('fCpfErr').textContent = cpfErr;
+    if (notify) {
+      if (!emailErr && !cpfErr) showToast('Formulário validado com sucesso!');
+      else showToast('Corrija os campos com erro.');
+    }
+  }
+
+  function filterSections(q) {
+    const query = q.trim().toLowerCase();
+    document.querySelectorAll('.section').forEach(sec => {
+      const text = (sec.innerText + ' ' + (sec.dataset.keywords || '')).toLowerCase();
+      sec.style.display = !query || text.includes(query) ? 'block' : 'none';
+    });
+  }
+
+  setBrand('#2563EB', document.querySelector('.swatch.active'));
+</script>
+</body>
+</html>

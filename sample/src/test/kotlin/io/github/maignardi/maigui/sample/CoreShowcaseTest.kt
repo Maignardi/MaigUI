@@ -2,6 +2,8 @@ package io.github.maignardi.maigui.sample
 
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.v2.createComposeRule
+import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
@@ -17,16 +19,27 @@ class CoreShowcaseTest {
     val composeRule = createComposeRule()
 
     @Test
-    fun `sample app switches presets and theme mode in real time`() {
+    fun `catalog navigates through tabs and updates theme controls`() {
         composeRule.setContent {
             MaigSampleApp()
         }
 
         composeRule.onNodeWithText("MaigUI Design System").assertIsDisplayed()
-        composeRule.onNodeWithText("Purple").performScrollTo().performClick()
+        composeRule.onAllNodesWithText("Purple").onFirst().performClick()
         composeRule.onNodeWithText("Dark").performScrollTo().performClick()
         composeRule.onNodeWithText("Semantic Roles & WCAG AA Contrast")
             .performScrollTo()
             .assertIsDisplayed()
+
+        // Navigate to Buttons tab
+        composeRule.onNodeWithText("Botões").performScrollTo().performClick()
+        composeRule.onNodeWithText("Variantes (MaigButtonVariant)")
+            .performScrollTo()
+            .assertIsDisplayed()
+
+        // Navigate to Forms via bottom navigation and trigger validation
+        composeRule.onAllNodesWithText("Forms").onFirst().performScrollTo().performClick()
+        composeRule.onNodeWithText("Validar & Enviar").performScrollTo().performClick()
+        composeRule.onNodeWithText("Existem erros de validação no formulário.").assertIsDisplayed()
     }
 }

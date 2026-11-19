@@ -7,3 +7,1412 @@ public final class io/github/maignardi/maigui/components/MaigUi {
 public final class io/github/maignardi/maigui/components/R {
 }
 
+public final class io/github/maignardi/maigui/components/buttons/ComposableSingletons$MaigButtonGroupKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/buttons/ComposableSingletons$MaigButtonGroupKt;
+	public fun <init> ()V
+	public final fun getLambda$-1257533883$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1069909577$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/buttons/ComposableSingletons$MaigButtonKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/buttons/ComposableSingletons$MaigButtonKt;
+	public fun <init> ()V
+	public final fun getLambda$-498025269$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-800613851$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/buttons/ComposableSingletons$MaigFabKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/buttons/ComposableSingletons$MaigFabKt;
+	public fun <init> ()V
+	public final fun getLambda$-121795831$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-24247076$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-393432482$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-405950477$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1672464487$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$711799441$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/buttons/ComposableSingletons$MaigIconButtonKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/buttons/ComposableSingletons$MaigIconButtonKt;
+	public fun <init> ()V
+	public final fun getLambda$-327248917$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-559116894$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-870695908$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-918840999$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1383596283$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$2022244083$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$2071729349$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/buttons/MaigButtonColor : java/lang/Enum {
+	public static final field Danger Lio/github/maignardi/maigui/components/buttons/MaigButtonColor;
+	public static final field Neutral Lio/github/maignardi/maigui/components/buttons/MaigButtonColor;
+	public static final field Primary Lio/github/maignardi/maigui/components/buttons/MaigButtonColor;
+	public static final field Secondary Lio/github/maignardi/maigui/components/buttons/MaigButtonColor;
+	public static final field Success Lio/github/maignardi/maigui/components/buttons/MaigButtonColor;
+	public static final field Warning Lio/github/maignardi/maigui/components/buttons/MaigButtonColor;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/buttons/MaigButtonColor;
+	public static fun values ()[Lio/github/maignardi/maigui/components/buttons/MaigButtonColor;
+}
+
+public final class io/github/maignardi/maigui/components/buttons/MaigButtonColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderColor-0d7_KjU ()J
+	public final fun getContainerColor-0d7_KjU ()J
+	public final fun getContentColor-0d7_KjU ()J
+	public final fun getDisabledBorderColor-0d7_KjU ()J
+	public final fun getDisabledContainerColor-0d7_KjU ()J
+	public final fun getDisabledContentColor-0d7_KjU ()J
+	public final fun getRippleColor-0d7_KjU ()J
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/buttons/MaigButtonDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/buttons/MaigButtonDefaults;
+	public final fun colors (Lio/github/maignardi/maigui/components/buttons/MaigButtonVariant;Lio/github/maignardi/maigui/components/buttons/MaigButtonColor;Landroidx/compose/runtime/Composer;II)Lio/github/maignardi/maigui/components/buttons/MaigButtonColors;
+	public final fun contentPadding (Lio/github/maignardi/maigui/components/buttons/MaigButtonSize;Lio/github/maignardi/maigui/components/buttons/MaigButtonVariant;Landroidx/compose/runtime/Composer;II)Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun minHeight-u2uoSUM (Lio/github/maignardi/maigui/components/buttons/MaigButtonSize;)F
+	public final fun shape (Lio/github/maignardi/maigui/components/buttons/MaigButtonSize;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+	public final fun spinnerSize-u2uoSUM (Lio/github/maignardi/maigui/components/buttons/MaigButtonSize;)F
+	public final fun textStyle (Lio/github/maignardi/maigui/components/buttons/MaigButtonSize;Lio/github/maignardi/maigui/components/buttons/MaigButtonVariant;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/text/TextStyle;
+}
+
+public final class io/github/maignardi/maigui/components/buttons/MaigButtonGroupColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderColor-0d7_KjU ()J
+	public final fun getContainerColor-0d7_KjU ()J
+	public final fun getContentColor-0d7_KjU ()J
+	public final fun getDisabledContentColor-0d7_KjU ()J
+	public final fun getSelectedContainerColor-0d7_KjU ()J
+	public final fun getSelectedContentColor-0d7_KjU ()J
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/buttons/MaigButtonGroupDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/buttons/MaigButtonGroupDefaults;
+	public final fun colors-5tl4gsc (JJJJJJLandroidx/compose/runtime/Composer;II)Lio/github/maignardi/maigui/components/buttons/MaigButtonGroupColors;
+	public final fun shape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/buttons/MaigButtonGroupKt {
+	public static final fun MaigButtonGroup (Ljava/util/List;ILkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLandroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/buttons/MaigButtonGroupColors;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/buttons/MaigButtonKt {
+	public static final fun MaigButton (Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZZLio/github/maignardi/maigui/components/buttons/MaigButtonVariant;Lio/github/maignardi/maigui/components/buttons/MaigButtonColor;Lio/github/maignardi/maigui/components/buttons/MaigButtonSize;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/buttons/MaigButtonColors;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+	public static final fun MaigButton (Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZZLio/github/maignardi/maigui/components/buttons/MaigButtonVariant;Lio/github/maignardi/maigui/components/buttons/MaigButtonColor;Lio/github/maignardi/maigui/components/buttons/MaigButtonSize;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/buttons/MaigButtonColors;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/interaction/MutableInteractionSource;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/maignardi/maigui/components/buttons/MaigButtonSize : java/lang/Enum {
+	public static final field Large Lio/github/maignardi/maigui/components/buttons/MaigButtonSize;
+	public static final field Medium Lio/github/maignardi/maigui/components/buttons/MaigButtonSize;
+	public static final field Small Lio/github/maignardi/maigui/components/buttons/MaigButtonSize;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/buttons/MaigButtonSize;
+	public static fun values ()[Lio/github/maignardi/maigui/components/buttons/MaigButtonSize;
+}
+
+public final class io/github/maignardi/maigui/components/buttons/MaigButtonVariant : java/lang/Enum {
+	public static final field Ghost Lio/github/maignardi/maigui/components/buttons/MaigButtonVariant;
+	public static final field Link Lio/github/maignardi/maigui/components/buttons/MaigButtonVariant;
+	public static final field Outline Lio/github/maignardi/maigui/components/buttons/MaigButtonVariant;
+	public static final field Soft Lio/github/maignardi/maigui/components/buttons/MaigButtonVariant;
+	public static final field Solid Lio/github/maignardi/maigui/components/buttons/MaigButtonVariant;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/buttons/MaigButtonVariant;
+	public static fun values ()[Lio/github/maignardi/maigui/components/buttons/MaigButtonVariant;
+}
+
+public final class io/github/maignardi/maigui/components/buttons/MaigFabDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/buttons/MaigFabDefaults;
+	public final fun colors (Lio/github/maignardi/maigui/components/buttons/MaigButtonColor;Landroidx/compose/runtime/Composer;II)Lio/github/maignardi/maigui/components/buttons/MaigButtonColors;
+	public final fun shape (ZLandroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+	public final fun size-u2uoSUM (Lio/github/maignardi/maigui/components/buttons/MaigFabSize;)F
+}
+
+public final class io/github/maignardi/maigui/components/buttons/MaigFabKt {
+	public static final fun MaigFab-XFD2ZOI (Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/lang/String;ZLio/github/maignardi/maigui/components/buttons/MaigButtonColor;Lio/github/maignardi/maigui/components/buttons/MaigFabSize;Landroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/buttons/MaigButtonColors;FLandroidx/compose/foundation/interaction/MutableInteractionSource;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/maignardi/maigui/components/buttons/MaigFabSize : java/lang/Enum {
+	public static final field Large Lio/github/maignardi/maigui/components/buttons/MaigFabSize;
+	public static final field Medium Lio/github/maignardi/maigui/components/buttons/MaigFabSize;
+	public static final field Small Lio/github/maignardi/maigui/components/buttons/MaigFabSize;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/buttons/MaigFabSize;
+	public static fun values ()[Lio/github/maignardi/maigui/components/buttons/MaigFabSize;
+}
+
+public final class io/github/maignardi/maigui/components/buttons/MaigIconButtonDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/buttons/MaigIconButtonDefaults;
+	public final fun colors (Lio/github/maignardi/maigui/components/buttons/MaigButtonVariant;Lio/github/maignardi/maigui/components/buttons/MaigButtonColor;Landroidx/compose/runtime/Composer;II)Lio/github/maignardi/maigui/components/buttons/MaigButtonColors;
+	public final fun containerSize-u2uoSUM (Lio/github/maignardi/maigui/components/buttons/MaigButtonSize;)F
+	public final fun shape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/buttons/MaigIconButtonKt {
+	public static final fun MaigIconButton (Lkotlin/jvm/functions/Function0;Ljava/lang/String;Landroidx/compose/ui/Modifier;ZZLio/github/maignardi/maigui/components/buttons/MaigButtonVariant;Lio/github/maignardi/maigui/components/buttons/MaigButtonColor;Lio/github/maignardi/maigui/components/buttons/MaigButtonSize;Landroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/buttons/MaigButtonColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/maignardi/maigui/components/display/ComposableSingletons$MaigAccordionKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/ComposableSingletons$MaigAccordionKt;
+	public fun <init> ()V
+	public final fun getLambda$-324863237$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1517853944$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1713630250$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1900149520$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$746394194$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/display/ComposableSingletons$MaigAvatarKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/ComposableSingletons$MaigAvatarKt;
+	public fun <init> ()V
+	public final fun getLambda$-1838437724$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-628968356$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/display/ComposableSingletons$MaigBadgeKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/ComposableSingletons$MaigBadgeKt;
+	public fun <init> ()V
+	public final fun getLambda$-134290572$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-1801598096$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$1566518282$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1671182682$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/display/ComposableSingletons$MaigCardKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/ComposableSingletons$MaigCardKt;
+	public fun <init> ()V
+	public final fun getLambda$-1008271868$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1148818884$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-1471861121$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-1973072210$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$126695606$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$2145808568$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$835530131$maigui_components ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class io/github/maignardi/maigui/components/display/ComposableSingletons$MaigDividerKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/ComposableSingletons$MaigDividerKt;
+	public fun <init> ()V
+	public final fun getLambda$-11152502$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1222988370$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/display/ComposableSingletons$MaigEmptyStateKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/ComposableSingletons$MaigEmptyStateKt;
+	public fun <init> ()V
+	public final fun getLambda$-741500551$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-992739708$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$186922787$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$602943558$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/display/ComposableSingletons$MaigListItemKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/ComposableSingletons$MaigListItemKt;
+	public fun <init> ()V
+	public final fun getLambda$-1413657428$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1658608796$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-556339679$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$331697858$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$443964702$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$511823306$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$566868639$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/display/ComposableSingletons$MaigTagKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/ComposableSingletons$MaigTagKt;
+	public fun <init> ()V
+	public final fun getLambda$-1816951572$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-835291670$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigAccordionDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/MaigAccordionDefaults;
+	public final fun shape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigAccordionKt {
+	public static final fun MaigAccordion (Ljava/lang/String;ZLkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Ljava/lang/String;ZLkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/interaction/MutableInteractionSource;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigAvatarDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/MaigAvatarDefaults;
+	public final fun containerColorFor-XeAY9LY (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)J
+	public final fun extractInitials (Ljava/lang/String;)Ljava/lang/String;
+	public final fun statusColor-XeAY9LY (Lio/github/maignardi/maigui/components/display/MaigAvatarStatus;Landroidx/compose/runtime/Composer;I)J
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigAvatarKt {
+	public static final fun MaigAvatar-EVJuX4I (Ljava/lang/String;Landroidx/compose/ui/Modifier;Landroidx/compose/ui/graphics/painter/Painter;Lio/github/maignardi/maigui/components/display/MaigAvatarSize;Lio/github/maignardi/maigui/components/display/MaigAvatarStatus;JJLjava/lang/String;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigAvatarGroup (Ljava/util/List;Landroidx/compose/ui/Modifier;ILio/github/maignardi/maigui/components/display/MaigAvatarSize;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigAvatarSize : java/lang/Enum {
+	public static final field Lg Lio/github/maignardi/maigui/components/display/MaigAvatarSize;
+	public static final field Md Lio/github/maignardi/maigui/components/display/MaigAvatarSize;
+	public static final field Sm Lio/github/maignardi/maigui/components/display/MaigAvatarSize;
+	public static final field Xl Lio/github/maignardi/maigui/components/display/MaigAvatarSize;
+	public static final field Xs Lio/github/maignardi/maigui/components/display/MaigAvatarSize;
+	public final fun getDp-D9Ej5fM ()F
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getFontSize-XSAIIZE ()J
+	public final fun getStatusSize-D9Ej5fM ()F
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/display/MaigAvatarSize;
+	public static fun values ()[Lio/github/maignardi/maigui/components/display/MaigAvatarSize;
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigAvatarStatus : java/lang/Enum {
+	public static final field Away Lio/github/maignardi/maigui/components/display/MaigAvatarStatus;
+	public static final field Busy Lio/github/maignardi/maigui/components/display/MaigAvatarStatus;
+	public static final field Offline Lio/github/maignardi/maigui/components/display/MaigAvatarStatus;
+	public static final field Online Lio/github/maignardi/maigui/components/display/MaigAvatarStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/display/MaigAvatarStatus;
+	public static fun values ()[Lio/github/maignardi/maigui/components/display/MaigAvatarStatus;
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigBadgeColor : java/lang/Enum {
+	public static final field Danger Lio/github/maignardi/maigui/components/display/MaigBadgeColor;
+	public static final field Info Lio/github/maignardi/maigui/components/display/MaigBadgeColor;
+	public static final field Primary Lio/github/maignardi/maigui/components/display/MaigBadgeColor;
+	public static final field Secondary Lio/github/maignardi/maigui/components/display/MaigBadgeColor;
+	public static final field Success Lio/github/maignardi/maigui/components/display/MaigBadgeColor;
+	public static final field Warning Lio/github/maignardi/maigui/components/display/MaigBadgeColor;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/display/MaigBadgeColor;
+	public static fun values ()[Lio/github/maignardi/maigui/components/display/MaigBadgeColor;
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigBadgeDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/MaigBadgeDefaults;
+	public final fun colors (Lio/github/maignardi/maigui/components/display/MaigBadgeColor;Landroidx/compose/runtime/Composer;II)Lkotlin/Pair;
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigBadgeKt {
+	public static final fun MaigBadge (Landroidx/compose/ui/Modifier;Ljava/lang/String;Lio/github/maignardi/maigui/components/display/MaigBadgeColor;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigBadgedBox-vz2T9sI (Lkotlin/jvm/functions/Function3;Landroidx/compose/ui/Modifier;FFLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigCardColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderColor-0d7_KjU ()J
+	public final fun getContainerColor-0d7_KjU ()J
+	public final fun getContentColor-0d7_KjU ()J
+	public final fun getDisabledContainerColor-0d7_KjU ()J
+	public final fun getDisabledContentColor-0d7_KjU ()J
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigCardDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/MaigCardDefaults;
+	public final fun colors (Lio/github/maignardi/maigui/components/display/MaigCardVariant;Landroidx/compose/runtime/Composer;II)Lio/github/maignardi/maigui/components/display/MaigCardColors;
+	public final fun contentPadding (Landroidx/compose/runtime/Composer;I)Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun elevation-ccRj1GA (Lio/github/maignardi/maigui/components/display/MaigCardVariant;Landroidx/compose/runtime/Composer;I)F
+	public final fun shape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigCardKt {
+	public static final fun MaigCard-cJHQLPU (Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZLio/github/maignardi/maigui/components/display/MaigCardVariant;Landroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/display/MaigCardColors;FLandroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/interaction/MutableInteractionSource;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigCard-iHT-50w (Landroidx/compose/ui/Modifier;Lio/github/maignardi/maigui/components/display/MaigCardVariant;Landroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/display/MaigCardColors;FLandroidx/compose/foundation/layout/PaddingValues;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigCardVariant : java/lang/Enum {
+	public static final field Elevated Lio/github/maignardi/maigui/components/display/MaigCardVariant;
+	public static final field Filled Lio/github/maignardi/maigui/components/display/MaigCardVariant;
+	public static final field Outlined Lio/github/maignardi/maigui/components/display/MaigCardVariant;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/display/MaigCardVariant;
+	public static fun values ()[Lio/github/maignardi/maigui/components/display/MaigCardVariant;
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigDividerDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/MaigDividerDefaults;
+	public final fun color-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun getThickness-D9Ej5fM ()F
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigDividerKt {
+	public static final fun MaigDivider-xfPyhaw (Landroidx/compose/ui/Modifier;Lio/github/maignardi/maigui/components/display/MaigDividerOrientation;Ljava/lang/String;FJLandroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigDividerOrientation : java/lang/Enum {
+	public static final field Horizontal Lio/github/maignardi/maigui/components/display/MaigDividerOrientation;
+	public static final field Vertical Lio/github/maignardi/maigui/components/display/MaigDividerOrientation;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/display/MaigDividerOrientation;
+	public static fun values ()[Lio/github/maignardi/maigui/components/display/MaigDividerOrientation;
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigEmptyStateDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/MaigEmptyStateDefaults;
+	public final fun DefaultIcon (Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigEmptyStateKt {
+	public static final fun MaigEmptyState (Ljava/lang/String;Landroidx/compose/ui/Modifier;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigListItemDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/MaigListItemDefaults;
+	public final fun containerColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigListItemKt {
+	public static final fun MaigListItem-bZJ3-2A (Ljava/lang/String;Landroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function0;ZZJLandroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigTagColor : java/lang/Enum {
+	public static final field Danger Lio/github/maignardi/maigui/components/display/MaigTagColor;
+	public static final field Info Lio/github/maignardi/maigui/components/display/MaigTagColor;
+	public static final field Neutral Lio/github/maignardi/maigui/components/display/MaigTagColor;
+	public static final field Primary Lio/github/maignardi/maigui/components/display/MaigTagColor;
+	public static final field Secondary Lio/github/maignardi/maigui/components/display/MaigTagColor;
+	public static final field Success Lio/github/maignardi/maigui/components/display/MaigTagColor;
+	public static final field Warning Lio/github/maignardi/maigui/components/display/MaigTagColor;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/display/MaigTagColor;
+	public static fun values ()[Lio/github/maignardi/maigui/components/display/MaigTagColor;
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigTagDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/MaigTagDefaults;
+	public final fun colors (Lio/github/maignardi/maigui/components/display/MaigTagColor;Lio/github/maignardi/maigui/components/display/MaigTagVariant;Landroidx/compose/runtime/Composer;I)Lkotlin/Triple;
+	public final fun shape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigTagKt {
+	public static final fun MaigTag (Ljava/lang/String;Landroidx/compose/ui/Modifier;Lio/github/maignardi/maigui/components/display/MaigTagVariant;Lio/github/maignardi/maigui/components/display/MaigTagColor;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigTagVariant : java/lang/Enum {
+	public static final field Outline Lio/github/maignardi/maigui/components/display/MaigTagVariant;
+	public static final field Soft Lio/github/maignardi/maigui/components/display/MaigTagVariant;
+	public static final field Solid Lio/github/maignardi/maigui/components/display/MaigTagVariant;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/display/MaigTagVariant;
+	public static fun values ()[Lio/github/maignardi/maigui/components/display/MaigTagVariant;
+}
+
+public final class io/github/maignardi/maigui/components/feedback/ComposableSingletons$MaigAlertKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/feedback/ComposableSingletons$MaigAlertKt;
+	public fun <init> ()V
+	public final fun getLambda$-2044234213$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$38583709$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/feedback/ComposableSingletons$MaigLoadingKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/feedback/ComposableSingletons$MaigLoadingKt;
+	public fun <init> ()V
+	public final fun getLambda$-1204798022$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-2048756386$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/feedback/ComposableSingletons$MaigProgressBarKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/feedback/ComposableSingletons$MaigProgressBarKt;
+	public fun <init> ()V
+	public final fun getLambda$-1457859830$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$713548026$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/feedback/ComposableSingletons$MaigSkeletonKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/feedback/ComposableSingletons$MaigSkeletonKt;
+	public fun <init> ()V
+	public final fun getLambda$-1946493423$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$2042901985$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/feedback/ComposableSingletons$MaigToastKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/feedback/ComposableSingletons$MaigToastKt;
+	public fun <init> ()V
+	public final fun getLambda$1797731197$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$527157317$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigAlertColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderColor-0d7_KjU ()J
+	public final fun getContainerColor-0d7_KjU ()J
+	public final fun getDescriptionColor-0d7_KjU ()J
+	public final fun getIconColor-0d7_KjU ()J
+	public final fun getTitleColor-0d7_KjU ()J
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigAlertDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/feedback/MaigAlertDefaults;
+	public final fun colors (Lio/github/maignardi/maigui/components/feedback/MaigAlertType;Lio/github/maignardi/maigui/components/feedback/MaigAlertVariant;Landroidx/compose/runtime/Composer;II)Lio/github/maignardi/maigui/components/feedback/MaigAlertColors;
+	public final fun shape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigAlertKt {
+	public static final fun MaigAlert (Ljava/lang/String;Landroidx/compose/ui/Modifier;Ljava/lang/String;Lio/github/maignardi/maigui/components/feedback/MaigAlertType;Lio/github/maignardi/maigui/components/feedback/MaigAlertVariant;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/feedback/MaigAlertColors;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigAlertType : java/lang/Enum {
+	public static final field Danger Lio/github/maignardi/maigui/components/feedback/MaigAlertType;
+	public static final field Info Lio/github/maignardi/maigui/components/feedback/MaigAlertType;
+	public static final field Success Lio/github/maignardi/maigui/components/feedback/MaigAlertType;
+	public static final field Warning Lio/github/maignardi/maigui/components/feedback/MaigAlertType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/feedback/MaigAlertType;
+	public static fun values ()[Lio/github/maignardi/maigui/components/feedback/MaigAlertType;
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigAlertVariant : java/lang/Enum {
+	public static final field Outline Lio/github/maignardi/maigui/components/feedback/MaigAlertVariant;
+	public static final field Soft Lio/github/maignardi/maigui/components/feedback/MaigAlertVariant;
+	public static final field Solid Lio/github/maignardi/maigui/components/feedback/MaigAlertVariant;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/feedback/MaigAlertVariant;
+	public static fun values ()[Lio/github/maignardi/maigui/components/feedback/MaigAlertVariant;
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigLoadingDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/feedback/MaigLoadingDefaults;
+	public final fun getSpinnerSize-D9Ej5fM ()F
+	public final fun getStrokeWidth-D9Ej5fM ()F
+	public final fun overlayColors-zjMxDiM (JJJJJLandroidx/compose/runtime/Composer;II)Lio/github/maignardi/maigui/components/feedback/MaigLoadingOverlayColors;
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigLoadingKt {
+	public static final fun MaigLoadingOverlay (ZLandroidx/compose/ui/Modifier;Ljava/lang/String;Lio/github/maignardi/maigui/components/feedback/MaigLoadingOverlayColors;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigSpinner-vkVulXY (Landroidx/compose/ui/Modifier;FJJFLjava/lang/String;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigLoadingOverlayColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderColor-0d7_KjU ()J
+	public final fun getContainerColor-0d7_KjU ()J
+	public final fun getMessageColor-0d7_KjU ()J
+	public final fun getScrimColor-0d7_KjU ()J
+	public final fun getSpinnerColor-0d7_KjU ()J
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigProgressBarKt {
+	public static final fun MaigCircularProgressBar-ujfASYQ (Landroidx/compose/ui/Modifier;Ljava/lang/Float;FFJJZLandroidx/compose/runtime/Composer;II)V
+	public static final fun MaigLinearProgressBar-xx3dHbM (Landroidx/compose/ui/Modifier;Ljava/lang/Float;FJJZLandroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigProgressDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/feedback/MaigProgressDefaults;
+	public final fun getCircularSize-D9Ej5fM ()F
+	public final fun getCircularStrokeWidth-D9Ej5fM ()F
+	public final fun getLinearHeight-D9Ej5fM ()F
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigSkeletonDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/feedback/MaigSkeletonDefaults;
+	public static final field ShimmerDurationMillis I
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigSkeletonKt {
+	public static final fun MaigSkeleton (Landroidx/compose/ui/Modifier;Landroidx/compose/ui/graphics/Shape;ZLandroidx/compose/runtime/Composer;II)V
+	public static final fun MaigSkeletonCard (Landroidx/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
+	public static final fun MaigSkeletonCircle-Kz89ssw (FLandroidx/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
+	public static final fun MaigSkeletonText (ILandroidx/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigToastData {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Lio/github/maignardi/maigui/components/feedback/MaigToastType;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lio/github/maignardi/maigui/components/feedback/MaigToastDuration;)V
+	public synthetic fun <init> (Ljava/lang/String;Lio/github/maignardi/maigui/components/feedback/MaigToastType;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lio/github/maignardi/maigui/components/feedback/MaigToastDuration;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActionLabel ()Ljava/lang/String;
+	public final fun getDuration ()Lio/github/maignardi/maigui/components/feedback/MaigToastDuration;
+	public final fun getMessage ()Ljava/lang/String;
+	public final fun getOnAction ()Lkotlin/jvm/functions/Function0;
+	public final fun getType ()Lio/github/maignardi/maigui/components/feedback/MaigToastType;
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigToastDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/feedback/MaigToastDefaults;
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigToastDuration : java/lang/Enum {
+	public static final field Indefinite Lio/github/maignardi/maigui/components/feedback/MaigToastDuration;
+	public static final field Long Lio/github/maignardi/maigui/components/feedback/MaigToastDuration;
+	public static final field Short Lio/github/maignardi/maigui/components/feedback/MaigToastDuration;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getMillis ()J
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/feedback/MaigToastDuration;
+	public static fun values ()[Lio/github/maignardi/maigui/components/feedback/MaigToastDuration;
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigToastKt {
+	public static final fun MaigToastBanner (Lio/github/maignardi/maigui/components/feedback/MaigToastData;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigToastHost (Lio/github/maignardi/maigui/components/feedback/MaigToastState;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+	public static final fun getLocalMaigToastState ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+	public static final fun rememberMaigToastState (Landroidx/compose/runtime/Composer;I)Lio/github/maignardi/maigui/components/feedback/MaigToastState;
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigToastState {
+	public static final field $stable I
+	public fun <init> ()V
+	public final fun dismiss ()V
+	public final fun getCurrentToast ()Lio/github/maignardi/maigui/components/feedback/MaigToastData;
+	public final fun show (Ljava/lang/String;Lio/github/maignardi/maigui/components/feedback/MaigToastType;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lio/github/maignardi/maigui/components/feedback/MaigToastDuration;)V
+	public static synthetic fun show$default (Lio/github/maignardi/maigui/components/feedback/MaigToastState;Ljava/lang/String;Lio/github/maignardi/maigui/components/feedback/MaigToastType;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lio/github/maignardi/maigui/components/feedback/MaigToastDuration;ILjava/lang/Object;)V
+	public final fun showError (Ljava/lang/String;)V
+	public final fun showInfo (Ljava/lang/String;)V
+	public final fun showSuccess (Ljava/lang/String;)V
+	public final fun showWarning (Ljava/lang/String;)V
+}
+
+public final class io/github/maignardi/maigui/components/feedback/MaigToastType : java/lang/Enum {
+	public static final field Error Lio/github/maignardi/maigui/components/feedback/MaigToastType;
+	public static final field Info Lio/github/maignardi/maigui/components/feedback/MaigToastType;
+	public static final field Success Lio/github/maignardi/maigui/components/feedback/MaigToastType;
+	public static final field Warning Lio/github/maignardi/maigui/components/feedback/MaigToastType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/feedback/MaigToastType;
+	public static fun values ()[Lio/github/maignardi/maigui/components/feedback/MaigToastType;
+}
+
+public final class io/github/maignardi/maigui/components/icons/MaigIcons {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/icons/MaigIcons;
+	public final fun ArrowBack-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun Calendar-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun Check-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun ChevronLeft-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun ChevronRight-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun Clock-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun Close-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun Menu-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun Plus-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun Search-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigMoneyFieldKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigMoneyFieldKt;
+	public fun <init> ()V
+	public final fun getLambda$-618688179$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1722547683$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigOtpFieldKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigOtpFieldKt;
+	public fun <init> ()V
+	public final fun getLambda$1542344697$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$488456429$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigPasswordFieldKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigPasswordFieldKt;
+	public fun <init> ()V
+	public final fun getLambda$-1106878791$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$968679649$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigPhoneFieldKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigPhoneFieldKt;
+	public fun <init> ()V
+	public final fun getLambda$1140415885$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1797805247$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigSearchFieldKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigSearchFieldKt;
+	public fun <init> ()V
+	public final fun getLambda$-1141499592$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-2020004415$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-952085805$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigTextAreaKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigTextAreaKt;
+	public fun <init> ()V
+	public final fun getLambda$-1939931123$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$272002595$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigTextFieldKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigTextFieldKt;
+	public fun <init> ()V
+	public final fun getLambda$-532040611$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-645987348$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1648043809$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigMoneyFieldDefaults {
+	public static final field $stable I
+	public static final field CurrencyPrefix Ljava/lang/String;
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/inputs/MaigMoneyFieldDefaults;
+	public final fun formatBrlAmount (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigMoneyFieldKt {
+	public static final fun MaigMoneyField (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldColors;Landroidx/compose/foundation/text/KeyboardOptions;Landroidx/compose/foundation/text/KeyboardActions;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigOtpFieldColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderColor-0d7_KjU ()J
+	public final fun getCellContainerColor-0d7_KjU ()J
+	public final fun getDisabledContainerColor-0d7_KjU ()J
+	public final fun getErrorBorderColor-0d7_KjU ()J
+	public final fun getErrorColor-0d7_KjU ()J
+	public final fun getFocusedBorderColor-0d7_KjU ()J
+	public final fun getTextColor-0d7_KjU ()J
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigOtpFieldDefaults {
+	public static final field $stable I
+	public static final field DefaultLength I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/inputs/MaigOtpFieldDefaults;
+	public final fun cellShape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+	public final fun colors (Landroidx/compose/runtime/Composer;I)Lio/github/maignardi/maigui/components/inputs/MaigOtpFieldColors;
+	public final fun getCellSize-D9Ej5fM ()F
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigOtpFieldKt {
+	public static final fun MaigOtpField-WsuR4So (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;IZZLjava/lang/String;Ljava/lang/String;ZLkotlin/jvm/functions/Function1;FLandroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/inputs/MaigOtpFieldColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigPasswordFieldDefaults {
+	public static final field $stable I
+	public static final field HidePasswordDescription Ljava/lang/String;
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/inputs/MaigPasswordFieldDefaults;
+	public static final field ShowPasswordDescription Ljava/lang/String;
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigPasswordFieldKt {
+	public static final fun MaigPasswordField (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLkotlin/jvm/functions/Function2;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldColors;Landroidx/compose/foundation/text/KeyboardOptions;Landroidx/compose/foundation/text/KeyboardActions;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigPhoneFieldDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/inputs/MaigPhoneFieldDefaults;
+	public static final field MaxDigits I
+	public final fun formatBrazilianPhone (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigPhoneFieldKt {
+	public static final fun MaigPhoneField (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLkotlin/jvm/functions/Function2;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldColors;Landroidx/compose/foundation/text/KeyboardOptions;Landroidx/compose/foundation/text/KeyboardActions;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigSearchFieldDefaults {
+	public static final field $stable I
+	public static final field ClearDescription Ljava/lang/String;
+	public static final field DefaultPlaceholder Ljava/lang/String;
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/inputs/MaigSearchFieldDefaults;
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigSearchFieldKt {
+	public static final fun MaigSearchField (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLjava/lang/String;Lkotlin/jvm/functions/Function1;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigTextAreaDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/inputs/MaigTextAreaDefaults;
+	public static final field MaxLines I
+	public static final field MinLines I
+	public final fun getMinHeight-D9Ej5fM ()F
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigTextAreaKt {
+	public static final fun MaigTextArea-S3ezoxQ (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/Integer;ZIIFLio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldColors;Landroidx/compose/foundation/text/KeyboardOptions;Landroidx/compose/foundation/text/KeyboardActions;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigTextFieldColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJJJJJJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderColor-0d7_KjU ()J
+	public final fun getContainerColor-0d7_KjU ()J
+	public final fun getCursorColor-0d7_KjU ()J
+	public final fun getDisabledBorderColor-0d7_KjU ()J
+	public final fun getDisabledContainerColor-0d7_KjU ()J
+	public final fun getDisabledTextColor-0d7_KjU ()J
+	public final fun getErrorBorderColor-0d7_KjU ()J
+	public final fun getErrorColor-0d7_KjU ()J
+	public final fun getErrorLabelColor-0d7_KjU ()J
+	public final fun getFocusedBorderColor-0d7_KjU ()J
+	public final fun getHelperColor-0d7_KjU ()J
+	public final fun getIconColor-0d7_KjU ()J
+	public final fun getLabelColor-0d7_KjU ()J
+	public final fun getPlaceholderColor-0d7_KjU ()J
+	public final fun getTextColor-0d7_KjU ()J
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigTextFieldDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/inputs/MaigTextFieldDefaults;
+	public final fun colors (Lio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;Landroidx/compose/runtime/Composer;II)Lio/github/maignardi/maigui/components/inputs/MaigTextFieldColors;
+	public final fun getMinHeight-D9Ej5fM ()F
+	public final fun shape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigTextFieldKt {
+	public static final fun MaigTextField-htOS_zY (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;ZZIIFLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/input/VisualTransformation;Landroidx/compose/foundation/text/KeyboardOptions;Landroidx/compose/foundation/text/KeyboardActions;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;Landroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/inputs/MaigTextFieldColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;IIII)V
+}
+
+public final class io/github/maignardi/maigui/components/inputs/MaigTextFieldVariant : java/lang/Enum {
+	public static final field Filled Lio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;
+	public static final field Outlined Lio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;
+	public static fun values ()[Lio/github/maignardi/maigui/components/inputs/MaigTextFieldVariant;
+}
+
+public final class io/github/maignardi/maigui/components/layout/ComposableSingletons$MaigScaffoldKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/layout/ComposableSingletons$MaigScaffoldKt;
+	public fun <init> ()V
+	public final fun getLambda$-1017676156$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1166496436$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-2136261004$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-704704687$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1712207425$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1963801974$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$2037524810$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$390049794$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$723021802$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$928391148$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$970788961$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/layout/ComposableSingletons$MaigSectionKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/layout/ComposableSingletons$MaigSectionKt;
+	public fun <init> ()V
+	public final fun getLambda$-1360399390$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1639244759$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-2118799464$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-957602194$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1301799288$maigui_components ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class io/github/maignardi/maigui/components/layout/MaigScaffoldDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/layout/MaigScaffoldDefaults;
+	public final fun containerColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun contentColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+}
+
+public final class io/github/maignardi/maigui/components/layout/MaigScaffoldKt {
+	public static final fun MaigScaffold-dNgdfXs (Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lio/github/maignardi/maigui/components/feedback/MaigToastState;JJZLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/layout/MaigSectionDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/layout/MaigSectionDefaults;
+	public final fun titleColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+}
+
+public final class io/github/maignardi/maigui/components/layout/MaigSectionKt {
+	public static final fun MaigSection (Ljava/lang/String;Landroidx/compose/ui/Modifier;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/layout/MaigSpacer {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/layout/MaigSpacer;
+	public final fun Horizontal-8Feqmps (FLandroidx/compose/runtime/Composer;I)V
+	public final fun Vertical-8Feqmps (FLandroidx/compose/runtime/Composer;I)V
+	public final fun lg (Landroidx/compose/runtime/Composer;I)V
+	public final fun md (Landroidx/compose/runtime/Composer;I)V
+	public final fun sm (Landroidx/compose/runtime/Composer;I)V
+	public final fun xl (Landroidx/compose/runtime/Composer;I)V
+	public final fun xs (Landroidx/compose/runtime/Composer;I)V
+	public final fun xxl (Landroidx/compose/runtime/Composer;I)V
+	public final fun xxs (Landroidx/compose/runtime/Composer;I)V
+	public final fun xxxl (Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class io/github/maignardi/maigui/components/navigation/ComposableSingletons$MaigBottomNavigationKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/navigation/ComposableSingletons$MaigBottomNavigationKt;
+	public fun <init> ()V
+	public final fun getLambda$-1020459115$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1160991396$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1221720434$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-269916774$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-715454085$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1459020692$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1635379618$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/navigation/ComposableSingletons$MaigNavigationDrawerKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/navigation/ComposableSingletons$MaigNavigationDrawerKt;
+	public fun <init> ()V
+	public final fun getLambda$-1669937794$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1694609406$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-534824734$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-627280753$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1766091445$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1943263427$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$229995238$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$570083393$maigui_components ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class io/github/maignardi/maigui/components/navigation/ComposableSingletons$MaigPaginationKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/navigation/ComposableSingletons$MaigPaginationKt;
+	public fun <init> ()V
+	public final fun getLambda$-382698280$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1950767682$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/navigation/ComposableSingletons$MaigStepperKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/navigation/ComposableSingletons$MaigStepperKt;
+	public fun <init> ()V
+	public final fun getLambda$-1377639808$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1564300724$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/navigation/ComposableSingletons$MaigTabsKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/navigation/ComposableSingletons$MaigTabsKt;
+	public fun <init> ()V
+	public final fun getLambda$-1032961086$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$515377680$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/navigation/ComposableSingletons$MaigTopBarKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/navigation/ComposableSingletons$MaigTopBarKt;
+	public fun <init> ()V
+	public final fun getLambda$-1017052210$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-158522608$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-1644105333$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-2003976983$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-2018424126$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-460406576$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$1689521424$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1828534793$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$2013328807$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/navigation/MaigBottomNavItem {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/Integer;Lkotlin/jvm/functions/Function2;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Integer;Lkotlin/jvm/functions/Function2;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getBadgeCount ()Ljava/lang/Integer;
+	public final fun getIcon ()Lkotlin/jvm/functions/Function2;
+	public final fun getLabel ()Ljava/lang/String;
+}
+
+public final class io/github/maignardi/maigui/components/navigation/MaigBottomNavigationDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/navigation/MaigBottomNavigationDefaults;
+	public final fun containerColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun selectedColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun unselectedColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+}
+
+public final class io/github/maignardi/maigui/components/navigation/MaigBottomNavigationKt {
+	public static final fun MaigBottomNavigation-FHprtrg (Ljava/util/List;ILkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;JZLandroidx/compose/runtime/Composer;II)V
+	public static final fun MaigBottomNavigation-sW7UJKQ (Landroidx/compose/ui/Modifier;JZLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigBottomNavigationItem-uPCbpMU (Landroidx/compose/foundation/layout/RowScope;ZLkotlin/jvm/functions/Function0;Ljava/lang/String;Landroidx/compose/ui/Modifier;ZLjava/lang/Integer;JJLandroidx/compose/foundation/interaction/MutableInteractionSource;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/maignardi/maigui/components/navigation/MaigNavigationDrawerDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/navigation/MaigNavigationDrawerDefaults;
+	public final fun containerColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun getDrawerWidth-D9Ej5fM ()F
+}
+
+public final class io/github/maignardi/maigui/components/navigation/MaigNavigationDrawerKt {
+	public static final fun MaigDrawerSheet-3IgeMak (Landroidx/compose/ui/Modifier;JLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigModalNavigationDrawer-WH-ejsw (ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Landroidx/compose/ui/Modifier;FLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigNavigationDrawerItem (Ljava/lang/String;ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/navigation/MaigPaginationDefaults {
+	public static final field $stable I
+	public static final field DefaultMaxVisiblePages I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/navigation/MaigPaginationDefaults;
+}
+
+public final class io/github/maignardi/maigui/components/navigation/MaigPaginationKt {
+	public static final fun MaigPagination (IILkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;IZLandroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/navigation/MaigStepperDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/navigation/MaigStepperDefaults;
+	public final fun activeColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun completedColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun upcomingColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+}
+
+public final class io/github/maignardi/maigui/components/navigation/MaigStepperKt {
+	public static final fun MaigStepper (Ljava/util/List;ILandroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/navigation/MaigTabVariant : java/lang/Enum {
+	public static final field Pill Lio/github/maignardi/maigui/components/navigation/MaigTabVariant;
+	public static final field Underline Lio/github/maignardi/maigui/components/navigation/MaigTabVariant;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/navigation/MaigTabVariant;
+	public static fun values ()[Lio/github/maignardi/maigui/components/navigation/MaigTabVariant;
+}
+
+public final class io/github/maignardi/maigui/components/navigation/MaigTabsDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/navigation/MaigTabsDefaults;
+	public final fun activeColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun inactiveColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+}
+
+public final class io/github/maignardi/maigui/components/navigation/MaigTabsKt {
+	public static final fun MaigTabs (Ljava/util/List;ILkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLio/github/maignardi/maigui/components/navigation/MaigTabVariant;ZLandroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/navigation/MaigTopBarDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/navigation/MaigTopBarDefaults;
+	public final fun containerColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun contentColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun getHeight-D9Ej5fM ()F
+}
+
+public final class io/github/maignardi/maigui/components/navigation/MaigTopBarKt {
+	public static final fun MaigTopBar-ElI5-7k (Ljava/lang/String;Landroidx/compose/ui/Modifier;Ljava/lang/String;ZZZJJLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/overlays/ComposableSingletons$MaigBottomSheetKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/overlays/ComposableSingletons$MaigBottomSheetKt;
+	public fun <init> ()V
+	public final fun getLambda$-1389317637$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$2076227144$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$790838601$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$848544412$maigui_components ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class io/github/maignardi/maigui/components/overlays/ComposableSingletons$MaigDialogKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/overlays/ComposableSingletons$MaigDialogKt;
+	public fun <init> ()V
+	public final fun getLambda$-2043141027$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-324065789$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$216564819$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$75909948$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$857206605$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/overlays/ComposableSingletons$MaigMenuKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/overlays/ComposableSingletons$MaigMenuKt;
+	public fun <init> ()V
+	public final fun getLambda$-1001240873$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-1210205837$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1764639521$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1151595259$maigui_components ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class io/github/maignardi/maigui/components/overlays/ComposableSingletons$MaigPopoverKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/overlays/ComposableSingletons$MaigPopoverKt;
+	public fun <init> ()V
+	public final fun getLambda$-265239491$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-505227373$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-656532505$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-900939089$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$2003674075$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$630823109$maigui_components ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class io/github/maignardi/maigui/components/overlays/ComposableSingletons$MaigTooltipKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/overlays/ComposableSingletons$MaigTooltipKt;
+	public fun <init> ()V
+	public final fun getLambda$1274931755$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$2116424987$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/overlays/MaigBottomSheetDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/overlays/MaigBottomSheetDefaults;
+	public final fun containerColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun scrimColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun shape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/overlays/MaigBottomSheetKt {
+	public static final fun MaigBottomSheet-6oU6zVQ (ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Ljava/lang/String;ZZLandroidx/compose/ui/graphics/Shape;JJLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigBottomSheetSurface-FHprtrg (Landroidx/compose/ui/Modifier;Ljava/lang/String;ZLandroidx/compose/ui/graphics/Shape;JLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/overlays/MaigDialogColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderColor-0d7_KjU ()J
+	public final fun getContainerColor-0d7_KjU ()J
+	public final fun getMessageColor-0d7_KjU ()J
+	public final fun getTitleColor-0d7_KjU ()J
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/overlays/MaigDialogDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/overlays/MaigDialogDefaults;
+	public final fun colors (Landroidx/compose/runtime/Composer;I)Lio/github/maignardi/maigui/components/overlays/MaigDialogColors;
+	public final fun shape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/overlays/MaigDialogKt {
+	public static final fun MaigAlertDialog (ZLjava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigConfirmDialog (ZLjava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/lang/String;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigDialog (ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;ZZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/overlays/MaigDialogColors;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;III)V
+	public static final fun MaigDialogSurface (Landroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/overlays/MaigDialogColors;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/overlays/MaigMenuDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/overlays/MaigMenuDefaults;
+	public final fun containerColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun shape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/overlays/MaigMenuKt {
+	public static final fun MaigDropdownMenu-PN7W-SQ (ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;JLandroidx/compose/ui/graphics/Shape;JLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigMenuDivider (Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigMenuItem (Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigMenuSurface-cf5BqRc (Landroidx/compose/ui/Modifier;Landroidx/compose/ui/graphics/Shape;JLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/overlays/MaigPopoverDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/overlays/MaigPopoverDefaults;
+	public final fun containerColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun shape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/overlays/MaigPopoverKt {
+	public static final fun MaigPopover-93zK7TU (ZLkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;Landroidx/compose/ui/Alignment;JLandroidx/compose/ui/graphics/Shape;JLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/overlays/MaigTooltipDefaults {
+	public static final field $stable I
+	public static final field AutoHideDelayMillis J
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/overlays/MaigTooltipDefaults;
+	public final fun containerColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun contentColor-WaAFU9c (Landroidx/compose/runtime/Composer;I)J
+	public final fun shape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/overlays/MaigTooltipKt {
+	public static final fun MaigTooltip-EVJuX4I (Ljava/lang/String;Landroidx/compose/ui/Modifier;Ljava/lang/Boolean;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/graphics/Shape;JJLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigTooltipBubble-jA1GFJw (Ljava/lang/String;Landroidx/compose/ui/Modifier;Landroidx/compose/ui/graphics/Shape;JJLandroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/selection/ComposableSingletons$MaigCheckboxKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/ComposableSingletons$MaigCheckboxKt;
+	public fun <init> ()V
+	public final fun getLambda$-945397734$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$446391486$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/selection/ComposableSingletons$MaigChipKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/ComposableSingletons$MaigChipKt;
+	public fun <init> ()V
+	public final fun getLambda$-1161413830$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1255094164$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/selection/ComposableSingletons$MaigDatePickerKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/ComposableSingletons$MaigDatePickerKt;
+	public fun <init> ()V
+	public final fun getLambda$-1140318004$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1164575162$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1331351611$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1602466788$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/selection/ComposableSingletons$MaigRadioGroupKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/ComposableSingletons$MaigRadioGroupKt;
+	public fun <init> ()V
+	public final fun getLambda$-972407622$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$195282428$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/selection/ComposableSingletons$MaigSelectKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/ComposableSingletons$MaigSelectKt;
+	public fun <init> ()V
+	public final fun getLambda$-2036270406$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$509412748$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/selection/ComposableSingletons$MaigSliderKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/ComposableSingletons$MaigSliderKt;
+	public fun <init> ()V
+	public final fun getLambda$-547328614$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1875188546$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/selection/ComposableSingletons$MaigSwitchKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/ComposableSingletons$MaigSwitchKt;
+	public fun <init> ()V
+	public final fun getLambda$629957916$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$672155578$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/selection/ComposableSingletons$MaigTimePickerKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/ComposableSingletons$MaigTimePickerKt;
+	public fun <init> ()V
+	public final fun getLambda$-1689643814$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-550614361$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-645015282$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1182591024$maigui_components ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigCheckboxColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCheckedBorderColor-0d7_KjU ()J
+	public final fun getCheckedContainerColor-0d7_KjU ()J
+	public final fun getCheckmarkColor-0d7_KjU ()J
+	public final fun getDisabledBorderColor-0d7_KjU ()J
+	public final fun getDisabledCheckmarkColor-0d7_KjU ()J
+	public final fun getDisabledContainerColor-0d7_KjU ()J
+	public final fun getDisabledLabelColor-0d7_KjU ()J
+	public final fun getLabelColor-0d7_KjU ()J
+	public final fun getUncheckedBorderColor-0d7_KjU ()J
+	public final fun getUncheckedContainerColor-0d7_KjU ()J
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigCheckboxDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/MaigCheckboxDefaults;
+	public final fun colors (Landroidx/compose/runtime/Composer;I)Lio/github/maignardi/maigui/components/selection/MaigCheckboxColors;
+	public final fun getBoxSize-D9Ej5fM ()F
+	public final fun shape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigCheckboxKt {
+	public static final fun MaigCheckbox (ZLkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLjava/lang/String;Landroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/selection/MaigCheckboxColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigTriStateCheckbox (Landroidx/compose/ui/state/ToggleableState;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZLjava/lang/String;Landroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/selection/MaigCheckboxColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigChipColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderColor-0d7_KjU ()J
+	public final fun getContainerColor-0d7_KjU ()J
+	public final fun getContentColor-0d7_KjU ()J
+	public final fun getDisabledContainerColor-0d7_KjU ()J
+	public final fun getDisabledContentColor-0d7_KjU ()J
+	public final fun getSelectedBorderColor-0d7_KjU ()J
+	public final fun getSelectedContainerColor-0d7_KjU ()J
+	public final fun getSelectedContentColor-0d7_KjU ()J
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigChipDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/MaigChipDefaults;
+	public final fun colors (Lio/github/maignardi/maigui/components/selection/MaigChipVariant;Landroidx/compose/runtime/Composer;II)Lio/github/maignardi/maigui/components/selection/MaigChipColors;
+	public final fun shape (Lio/github/maignardi/maigui/components/selection/MaigChipVariant;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigChipKt {
+	public static final fun MaigChip (Ljava/lang/String;ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lio/github/maignardi/maigui/components/selection/MaigChipVariant;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/selection/MaigChipColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigChipVariant : java/lang/Enum {
+	public static final field Choice Lio/github/maignardi/maigui/components/selection/MaigChipVariant;
+	public static final field Filter Lio/github/maignardi/maigui/components/selection/MaigChipVariant;
+	public static final field Input Lio/github/maignardi/maigui/components/selection/MaigChipVariant;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/selection/MaigChipVariant;
+	public static fun values ()[Lio/github/maignardi/maigui/components/selection/MaigChipVariant;
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigDate : java/lang/Comparable {
+	public static final field $stable I
+	public static final field Companion Lio/github/maignardi/maigui/components/selection/MaigDate$Companion;
+	public fun <init> (III)V
+	public fun compareTo (Lio/github/maignardi/maigui/components/selection/MaigDate;)I
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun formatPtBr ()Ljava/lang/String;
+	public final fun getDayOfMonth ()I
+	public final fun getMonth ()I
+	public final fun getYear ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigDate$Companion {
+	public final fun today ()Lio/github/maignardi/maigui/components/selection/MaigDate;
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigDatePickerDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/MaigDatePickerDefaults;
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigDatePickerKt {
+	public static final fun MaigDatePicker (Lio/github/maignardi/maigui/components/selection/MaigDate;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lio/github/maignardi/maigui/components/selection/MaigDate;Lio/github/maignardi/maigui/components/selection/MaigDate;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigDatePickerDialog (ZLio/github/maignardi/maigui/components/selection/MaigDate;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Ljava/lang/String;Lio/github/maignardi/maigui/components/selection/MaigDate;Lio/github/maignardi/maigui/components/selection/MaigDate;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigRadioColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDisabledColor-0d7_KjU ()J
+	public final fun getDisabledLabelColor-0d7_KjU ()J
+	public final fun getLabelColor-0d7_KjU ()J
+	public final fun getSelectedColor-0d7_KjU ()J
+	public final fun getUnselectedColor-0d7_KjU ()J
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigRadioDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/MaigRadioDefaults;
+	public final fun colors (Landroidx/compose/runtime/Composer;I)Lio/github/maignardi/maigui/components/selection/MaigRadioColors;
+	public final fun getInnerDotSize-D9Ej5fM ()F
+	public final fun getOuterSize-D9Ej5fM ()F
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigRadioGroupKt {
+	public static final fun MaigRadioButton (ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZLjava/lang/String;Lio/github/maignardi/maigui/components/selection/MaigRadioColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigRadioGroup (Ljava/util/List;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLio/github/maignardi/maigui/components/selection/MaigRadioOrientation;Lio/github/maignardi/maigui/components/selection/MaigRadioColors;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigRadioOrientation : java/lang/Enum {
+	public static final field Horizontal Lio/github/maignardi/maigui/components/selection/MaigRadioOrientation;
+	public static final field Vertical Lio/github/maignardi/maigui/components/selection/MaigRadioOrientation;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/maignardi/maigui/components/selection/MaigRadioOrientation;
+	public static fun values ()[Lio/github/maignardi/maigui/components/selection/MaigRadioOrientation;
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigSelectColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderColor-0d7_KjU ()J
+	public final fun getContainerColor-0d7_KjU ()J
+	public final fun getDisabledContainerColor-0d7_KjU ()J
+	public final fun getErrorBorderColor-0d7_KjU ()J
+	public final fun getFocusedBorderColor-0d7_KjU ()J
+	public final fun getMenuContainerColor-0d7_KjU ()J
+	public final fun getPlaceholderColor-0d7_KjU ()J
+	public final fun getSelectedItemContainerColor-0d7_KjU ()J
+	public final fun getSelectedItemTextColor-0d7_KjU ()J
+	public final fun getTextColor-0d7_KjU ()J
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigSelectDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/MaigSelectDefaults;
+	public final fun colors (Landroidx/compose/runtime/Composer;I)Lio/github/maignardi/maigui/components/selection/MaigSelectColors;
+	public final fun shape (Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Shape;
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigSelectKt {
+	public static final fun MaigSelect (Ljava/util/List;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZLjava/lang/String;Ljava/lang/String;Landroidx/compose/ui/graphics/Shape;Lio/github/maignardi/maigui/components/selection/MaigSelectColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigSliderColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActiveTrackColor-0d7_KjU ()J
+	public final fun getDisabledActiveTrackColor-0d7_KjU ()J
+	public final fun getDisabledInactiveTrackColor-0d7_KjU ()J
+	public final fun getDisabledThumbColor-0d7_KjU ()J
+	public final fun getInactiveTrackColor-0d7_KjU ()J
+	public final fun getThumbBorderColor-0d7_KjU ()J
+	public final fun getThumbColor-0d7_KjU ()J
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigSliderDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/MaigSliderDefaults;
+	public final fun colors (Landroidx/compose/runtime/Composer;I)Lio/github/maignardi/maigui/components/selection/MaigSliderColors;
+	public final fun getThumbRadius-D9Ej5fM ()F
+	public final fun getTrackHeight-D9Ej5fM ()F
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigSliderKt {
+	public static final fun MaigRangeSlider (Lkotlin/ranges/ClosedFloatingPointRange;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLkotlin/ranges/ClosedFloatingPointRange;ILjava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Lio/github/maignardi/maigui/components/selection/MaigSliderColors;Landroidx/compose/runtime/Composer;II)V
+	public static final fun MaigSlider (FLkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLkotlin/ranges/ClosedFloatingPointRange;ILjava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Lio/github/maignardi/maigui/components/selection/MaigSliderColors;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigSwitchColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCheckedThumbColor-0d7_KjU ()J
+	public final fun getCheckedTrackColor-0d7_KjU ()J
+	public final fun getDisabledLabelColor-0d7_KjU ()J
+	public final fun getDisabledThumbColor-0d7_KjU ()J
+	public final fun getDisabledTrackColor-0d7_KjU ()J
+	public final fun getLabelColor-0d7_KjU ()J
+	public final fun getUncheckedThumbColor-0d7_KjU ()J
+	public final fun getUncheckedTrackColor-0d7_KjU ()J
+	public fun hashCode ()I
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigSwitchDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/MaigSwitchDefaults;
+	public final fun colors (Landroidx/compose/runtime/Composer;I)Lio/github/maignardi/maigui/components/selection/MaigSwitchColors;
+	public final fun getThumbSize-D9Ej5fM ()F
+	public final fun getTrackHeight-D9Ej5fM ()F
+	public final fun getTrackWidth-D9Ej5fM ()F
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigSwitchKt {
+	public static final fun MaigSwitch (ZLkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLjava/lang/String;Lio/github/maignardi/maigui/components/selection/MaigSwitchColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigTime {
+	public static final field $stable I
+	public fun <init> (II)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun format24h ()Ljava/lang/String;
+	public final fun getHour ()I
+	public final fun getMinute ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigTimePickerDefaults {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/selection/MaigTimePickerDefaults;
+	public final fun getQuickPresets ()Ljava/util/List;
+}
+
+public final class io/github/maignardi/maigui/components/selection/MaigTimePickerKt {
+	public static final fun MaigTimePicker (Lio/github/maignardi/maigui/components/selection/MaigTime;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;IZLandroidx/compose/runtime/Composer;II)V
+	public static final fun MaigTimePickerDialog (ZLio/github/maignardi/maigui/components/selection/MaigTime;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Ljava/lang/String;Landroidx/compose/runtime/Composer;II)V
+}
+
