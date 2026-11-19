@@ -175,6 +175,7 @@ public fun MaigAvatarGroup(
             Box(
                 modifier = Modifier
                     .offset(x = -overlap * index)
+                    .clip(CircleShape)
                     .border(2.dp, MaigTheme.colors.surface, CircleShape),
             ) {
                 MaigAvatar(

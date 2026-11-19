@@ -35,6 +35,7 @@ import io.github.maignardi.maigui.components.display.MaigCard
 import io.github.maignardi.maigui.components.display.MaigCardVariant
 import io.github.maignardi.maigui.components.display.MaigDivider
 import io.github.maignardi.maigui.components.display.MaigEmptyState
+import io.github.maignardi.maigui.components.display.MaigKeyValueRow
 import io.github.maignardi.maigui.components.display.MaigListItem
 import io.github.maignardi.maigui.components.display.MaigStatCard
 import io.github.maignardi.maigui.components.display.MaigStatTrend
@@ -391,6 +392,11 @@ class MaigComponentsScreenshotTest {
             )
             MaigNumberStepper(value = 3, onValueChange = {}, label = "Quantidade")
             MaigRating(rating = 4, onRatingChange = {})
+            MaigCard(variant = MaigCardVariant.Elevated, modifier = Modifier.fillMaxWidth()) {
+                MaigKeyValueRow(label = "Subtotal", value = "R$ 149,90", showDivider = true)
+                MaigKeyValueRow(label = "Desconto", value = "- R$ 20,00", valueColor = MaigTheme.colors.successDefault, showDivider = true)
+                MaigKeyValueRow(label = "Total", value = "R$ 129,90", emphasizeValue = true)
+            }
             MaigCard(variant = MaigCardVariant.Outlined, modifier = Modifier.fillMaxWidth()) {
                 MaigTimeline(
                     items = listOf(

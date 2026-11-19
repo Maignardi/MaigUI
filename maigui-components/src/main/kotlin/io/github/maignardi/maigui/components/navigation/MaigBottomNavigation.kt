@@ -180,7 +180,11 @@ public fun RowScope.MaigBottomNavigationItem(
         ) {
             CompositionLocalProvider(LocalMaigContentColor provides fgColor) {
                 if (badgeCount != null && badgeCount > 0) {
-                    MaigBadgedBox(badge = { MaigBadge(text = badgeCount.toString()) }) {
+                    MaigBadgedBox(
+                        badge = { MaigBadge(text = badgeCount.toString()) },
+                        badgeOffsetX = 12.dp,
+                        badgeOffsetY = (-8).dp,
+                    ) {
                         icon()
                     }
                 } else {

@@ -315,9 +315,13 @@ public object MaigPaletteGenerator {
         val surfaceVariant = MaigOklch(l = 0.220f, c = bgChroma, h = bgHue).toColor()
         val surfaceElevated = MaigOklch(l = 0.240f, c = bgChroma, h = bgHue).toColor()
 
-        val primaryDefault = primary.shade400
-        val primaryHover = primary.shade300
-        val primaryActive = primary.shade200
+        val primaryDefault = if (MaigColorUtils.contrastRatio(Color.White, primary.shade500) >= MaigColorUtils.WCAG_AA_NORMAL) {
+            primary.shade500
+        } else {
+            primary.shade400
+        }
+        val primaryHover = primary.shade400
+        val primaryActive = primary.shade300
         val primarySubtle = primary.shade900.copy(alpha = 0.48f).compositeOver(surface)
         val onPrimary = MaigColorUtils.bestOnColor(primaryDefault)
         val onPrimarySubtle = MaigColorUtils.ensureContrast(primary.shade200, primarySubtle)

@@ -1,37 +1,54 @@
 <div align="center">
 
+<br/>
+
 # MaigUI
 
-**Bootstrap-style Design System & UI Component Library for Jetpack Compose**
+### Enterprise-grade, Bootstrap-style Design System & UI Component Library for Jetpack Compose
 
-Add one dependency, wrap your app in `MaigTheme {}`, and ship consistent, accessible, modern Android UIs in minutes — **100% built on `androidx.compose.foundation`** with zero Material 3 visual lock-in.
+Add one dependency, wrap your app in `MaigTheme {}`, and ship cohesive, accessible, modern Android UIs across every project — **100% built on `androidx.compose.foundation`** with zero Material 3 visual lock-in.
 
 [![CI](https://github.com/Maignardi/MaigUI/actions/workflows/ci.yml/badge.svg)](https://github.com/Maignardi/MaigUI/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![minSdk](https://img.shields.io/badge/minSdk-23-brightgreen.svg)](gradle/libs.versions.toml)
+[![minSdk](https://img.shields.io/badge/minSdk-23-16A34A.svg)](gradle/libs.versions.toml)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.3.21-7F52FF.svg)](gradle/libs.versions.toml)
+[![Compose BOM](https://img.shields.io/badge/Compose%20BOM-2026.09.00-4285F4.svg)](gradle/libs.versions.toml)
 [![JitPack](https://jitpack.io/v/Maignardi/MaigUI.svg)](https://jitpack.io/#Maignardi/MaigUI)
 
-[Interactive Docs & Component Explorer](https://maignardi.github.io/MaigUI/) • [Sample Catalog App](sample) • [Brazilian Forms & Masks](maigui-forms)
+[Interactive Explorer & Docs](https://maignardi.github.io/MaigUI/) • [Installation](#-installation) • [Visual Gallery](#-visual-gallery-light--dark) • [Recipes](#-production-recipes) • [Components](#-component-catalog)
 
 </div>
 
 ---
 
-## Why MaigUI?
+## Architecture & Highlights
 
-- **Zero Material 3 look-and-feel**: Crafted directly on `androidx.compose.foundation` (`Canvas`, `BasicText`, `BasicTextField`, `Popup`, `Dialog`) for crisp, predictable cross-brand styling.
-- **Single-color WCAG AA Palette Engine**: Pass `MaigBrand(primary = Color(0xFF...))` and MaigUI generates full `50–900` tonal scales in **OKLCH** for both Light & Dark themes, mathematically guaranteeing `>= 4.5:1` WCAG AA contrast on all `"on"` colors.
-- **40+ Ready-to-Use Components**: Buttons, Inputs, Selection controls, Pickers, Dialogs, Bottom Sheets, Toasts, Skeletons, Navigation, Cards, Avatars, and Scaffolds — all following official Compose API conventions (`modifier` first optional param, `XxxDefaults`, `enabled`, `interactionSource`, 48dp touch targets, semantics, and Light/Dark `@Preview`).
-- **Declarative Brazilian Forms (`maigui-forms`)**: `rememberMaigForm {}` with `rememberSaveable` rotation survival, automatic `ImeAction.Next`/`Done` focus chaining, real mod-11 CPF & CNPJ validation, CEP, Brazilian phone, and `VisualTransformation` masks.
-- **Bundled Inter Typography**: Ships with Inter (`Regular`, `Medium`, `SemiBold`, `Bold` — SIL OFL) and lets you swap `fontFamily` in one line.
-- **Battle-tested Quality**: `explicitApi()`, Binary Compatibility Validator (`apiCheck`), Dokka, unit tests, Robolectric Compose UI tests, and Roborazzi Light & Dark screenshot tests.
+```text
+  Your Android App (:app)
+          │
+          ├──▶ maig-ui-forms  (rememberMaigForm, CPF/CNPJ/CEP/Phone masks & validators)
+          │         │
+          │         ▼
+          └──▶ maig-ui        (45+ Compose Foundation components, MaigScaffold, MaigIcons)
+                    │  (exposed transitively via `api`)
+                    ▼
+               maig-ui-core   (@Immutable tokens, OKLCH WCAG AA generator, 10 presets, Inter OFL)
+```
+
+| Feature | Why teams choose MaigUI |
+| :--- | :--- |
+| **Pure `foundation` rendering** | Zero Material 3 visual look-and-feel — generous rounded corners (`14dp–24dp`), subtle gradient dark-mode borders, spring press feedback, and soft focus halos. |
+| **Single-color OKLCH Engine** | Pass `MaigBrand(primary = Color(...))` to generate 50–900 scales and Light/Dark palettes with **guaranteed `>= 4.5:1` WCAG AA** `"on"` colors. |
+| **10 Designer Presets** | `Default` (Blue), `Indigo`, `Purple`, `Rose`, `Crimson`, `Orange`, `Amber`, `Green`, `Teal`, `Slate` — or any custom hex color. |
+| **Bundled Inter Typography** | Regular, Medium, SemiBold, and Bold (SIL OFL 1.1) included in `res/font`, with a 1-line `fontFamily` override. |
+| **Brazilian Forms & Masks** | `rememberMaigForm {}` with `rememberSaveable` rotation survival, automatic `ImeAction.Next`/`Done` chaining, mod-11 CPF/CNPJ validation, CEP, phone, and BRL currency. |
+| **Production Quality Gates** | `explicitApi()`, Binary Compatibility Validator (`apiCheck`), Dokka HTML/Javadoc, Android Lint, Unit + Compose UI tests, and Roborazzi Light/Dark screenshot tests. |
 
 ---
 
-## Visual Gallery (Rendered Compose UI)
+## Visual Gallery (Light & Dark)
 
-> Generated directly from our Compose UI test suite via **Roborazzi** (`./gradlew :maigui-components:verifyRoborazziDebug`).
+> Every screenshot below is rendered directly from our Android Jetpack Compose engine via **Roborazzi** (`./gradlew :maigui-components:verifyRoborazziDebug`).
 
 <table>
   <tr>
@@ -90,10 +107,11 @@ Add one dependency, wrap your app in `MaigTheme {}`, and ship consistent, access
 
 ### Option 1 — Direct from GitHub (JitPack)
 
-Add JitPack to your `settings.gradle.kts`:
+1. Add JitPack to `settings.gradle.kts`:
 
 ```kotlin
 dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
@@ -102,17 +120,17 @@ dependencyResolutionManagement {
 }
 ```
 
-Then add MaigUI to your module `build.gradle.kts`:
+2. Add the dependency in your app `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    // Components + Core (MaigTheme & tokens included transitively via api)
+    // Full UI kit (MaigTheme + all components + MaigIcons)
     implementation("com.github.Maignardi.MaigUI:maig-ui:0.1.0")
 
     // Optional: Declarative forms, masks & Brazilian validators
     implementation("com.github.Maignardi.MaigUI:maig-ui-forms:0.1.0")
 
-    // Optional: Tokens & theme only
+    // Optional: Tokens & theme engine only
     // implementation("com.github.Maignardi.MaigUI:maig-ui-core:0.1.0")
 }
 ```
@@ -126,78 +144,141 @@ dependencies {
 }
 ```
 
----
+### Modules
 
-## Modules
-
-| Module | Artifact | Description |
+| Module | Artifact ID | Purpose |
 | :--- | :--- | :--- |
-| `maigui-core` | `maig-ui-core` | `@Immutable` tokens, OKLCH palette generator, WCAG AA contrast utilities, 4 presets, Inter typography |
-| `maigui-components` | `maig-ui` | All UI components + built-in `MaigIcons` (exposes `maigui-core` via `api`) |
-| `maigui-forms` | `maig-ui-forms` | `rememberMaigForm`, validators (including CPF/CNPJ/CEP/BR Phone), `MaigMasks`, focus-linked fields |
-| `sample` | — | Interactive catalog & testing app with live Light/Dark and real-time brand color switching |
+| `maigui-core` | `maig-ui-core` | `@Immutable` tokens, OKLCH palette generator, WCAG AA utilities, 10 presets, Inter font |
+| `maigui-components` | `maig-ui` | 45+ UI components + `MaigIcons` (exposes `maigui-core` via `api`) |
+| `maigui-forms` | `maig-ui-forms` | `rememberMaigForm`, validators (CPF, CNPJ, CEP, BR Phone, etc.), `MaigMasks` |
+| `sample` | — | Interactive catalog & test app with real-time Light/Dark and brand color switching |
 
 ---
 
-## Quick Start & Theme Setup
+## Quick Start (30 Seconds)
 
-Wrap your root composable in `MaigTheme {}`. By default it respects `isSystemInDarkTheme()` and uses the `MaigThemes.Default` cobalt blue palette with Inter typography:
+Wrap your root UI in `MaigTheme {}` and build screens with `MaigScaffold`:
 
 ```kotlin
-@Composable
-fun MyApp() {
-    MaigTheme {
-        val toast = LocalMaigToastState.current
-
-        MaigScaffold(
-            topBar = { MaigTopBar(title = "My App") },
-        ) { padding ->
-            Column(
-                modifier = Modifier
-                    .padding(padding)
-                    .padding(MaigTheme.spacing.lg),
-            ) {
-                MaigCard {
-                    Text(
-                        text = "Welcome to MaigUI",
-                        style = MaigTheme.typography.title,
-                    )
-                    MaigSpacer.md()
-                    MaigButton(
-                        text = "Get Started",
-                        onClick = { toast.showSuccess("Ready to build!") },
-                        fullWidth = true,
-                    )
-                }
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            MaigTheme(preset = MaigThemes.Indigo) {
+                DashboardScreen()
             }
+        }
+    }
+}
+
+@Composable
+fun DashboardScreen() {
+    val toast = LocalMaigToastState.current
+
+    MaigScaffold(
+        topBar = { MaigTopBar(title = "Overview") },
+    ) { padding ->
+        Column(
+            modifier = Modifier
+                .padding(padding)
+                .padding(MaigTheme.spacing.lg),
+            verticalArrangement = Arrangement.spacedBy(MaigTheme.spacing.md),
+        ) {
+            MaigStatCard(
+                label = "Monthly Revenue",
+                value = "R$ 48.920",
+                delta = "+18,4%",
+                trend = MaigStatTrend.Positive,
+                subtitle = "Last 30 days",
+            )
+            MaigButton(
+                text = "Create Report",
+                onClick = { toast.showSuccess("Report generated!") },
+                fullWidth = true,
+            )
         }
     }
 }
 ```
 
-### Customizing Brand Colors & Fonts
+---
 
-Generate an entire Light & Dark WCAG AA theme from **one single color**:
+## Theme & Token Customization
+
+### 1. Generate a full palette from one color
 
 ```kotlin
 MaigTheme(
-    brand = MaigBrand(primary = Color(0xFFE11D48)),
-    darkTheme = isSystemInDarkTheme(), // or force true / false
-    fontFamily = MyCustomFontFamily,   // overrides Inter across all 10 text styles
-) {
-    // Access tokens anywhere via MaigTheme.*
-    // MaigTheme.colors.primaryDefault / primarySubtle / surface / textPrimary ...
-    // MaigTheme.typography.displayLarge .. button
-    // MaigTheme.spacing.xxs .. xxxl
-    // MaigTheme.shapes.none .. full
-    // MaigTheme.elevation.none .. xl
+    brand = MaigBrand(primary = Color(0xFF0D9488)), // generates 50–900 scales + Dark Mode + WCAG AA
+    darkTheme = isSystemInDarkTheme(),               // optional manual override: true / false
+) { /* ... */ }
+```
+
+### 2. Swap the font family
+
+```kotlin
+val MyBrandFont = FontFamily(Font(R.font.plus_jakarta_sans))
+
+MaigTheme(
+    preset = MaigThemes.Purple,
+    fontFamily = MyBrandFont, // updates all 10 typography styles automatically
+) { /* ... */ }
+```
+
+### 3. Access tokens anywhere
+
+```kotlin
+MaigTheme.colors      // primaryDefault, primarySubtle, surface, surfaceElevated, textPrimary, border, dangerDefault...
+MaigTheme.typography  // displayLarge, displayMedium, headline, title, subtitle, body, bodySmall, label, caption, button
+MaigTheme.spacing     // xxs(2), xs(4), sm(8), md(12), lg(16), xl(24), xxl(32), xxxl(48)
+MaigTheme.shapes      // none(0), xs(6), sm(10), md(14), lg(18), xl(24), full(pill)
+MaigTheme.elevation   // none(0), xs(1), sm(2), md(4), lg(8), xl(16)
+```
+
+---
+
+## Production Recipes
+
+### Checkout / Summary Card
+
+```kotlin
+MaigCard(variant = MaigCardVariant.Elevated) {
+    MaigKeyValueRow(label = "Subtotal", value = "R$ 149,90", showDivider = true)
+    MaigKeyValueRow(
+        label = "Cupom MAIG20",
+        value = "- R$ 20,00",
+        valueColor = MaigTheme.colors.successDefault,
+        showDivider = true,
+    )
+    MaigKeyValueRow(label = "Total", value = "R$ 129,90", emphasizeValue = true)
+    MaigSpacer.md()
+    MaigButton(text = "Finalizar Pedido", onClick = onCheckout, fullWidth = true)
 }
 ```
 
-Or pick one of the **10 curated designer presets** (`Default`, `Indigo`, `Purple`, `Rose`, `Crimson`, `Orange`, `Amber`, `Green`, `Teal`, `Slate`):
+### Declarative Brazilian Form (`maigui-forms`)
 
 ```kotlin
-MaigTheme(preset = MaigThemes.Purple) { /* ... */ }
+val form = rememberMaigForm {
+    field("email") { required(); email() }
+    field("cpf") { required(); cpf() }
+    field("cep") { required(); cep() }
+    field("telefone") { required(); phone() }
+    field("senha") { required(); minLength(8) }
+    field("confirmar") { required(); matches("senha", "Senhas não conferem") }
+}
+
+MaigTextField(field = form["email"], label = "E-mail")
+MaigTextField(field = form["cpf"], label = "CPF", visualTransformation = MaigMasks.cpf())
+MaigTextField(field = form["cep"], label = "CEP", visualTransformation = MaigMasks.cep())
+MaigPhoneField(field = form["telefone"])
+MaigPasswordField(field = form["senha"], label = "Senha")
+MaigPasswordField(
+    field = form["confirmar"],
+    label = "Confirmar senha",
+    onSubmit = { if (form.validate()) submit(form.values) },
+)
 ```
 
 ---
@@ -206,75 +287,40 @@ MaigTheme(preset = MaigThemes.Purple) { /* ... */ }
 
 | Category | Components |
 | :--- | :--- |
-| **Buttons** | `MaigButton` (`Solid`, `Outline`, `Ghost`, `Soft`, `Link` × 6 semantic colors × 3 sizes, loading, icons, `fullWidth`, spring press feedback), `MaigIconButton`, `MaigFab`, `MaigButtonGroup` |
+| **Buttons** | `MaigButton` (`Solid`, `Outline`, `Ghost`, `Soft`, `Link` × 6 colors × 3 sizes, loading, icons, `fullWidth`, spring press), `MaigIconButton`, `MaigFab`, `MaigButtonGroup` |
 | **Inputs** | `MaigTextField` (`Outlined`, `Filled`, focus halo, helper/error, counter), `MaigPasswordField`, `MaigSearchField`, `MaigTextArea`, `MaigOtpField`, `MaigMoneyField` (`R$`), `MaigPhoneField`, `MaigNumberStepper` |
-| **Selection** | `MaigCheckbox`, `MaigTriStateCheckbox` (indeterminate), `MaigRadioButton`, `MaigRadioGroup`, `MaigSwitch`, `MaigChip` (`Filter`, `Choice`, `Input`), `MaigSelect` (searchable), `MaigSlider`, `MaigRangeSlider`, `MaigRating`, `MaigDatePicker`, `MaigTimePicker` |
+| **Selection** | `MaigCheckbox`, `MaigTriStateCheckbox`, `MaigRadioButton`, `MaigRadioGroup`, `MaigSwitch`, `MaigChip` (`Filter`, `Choice`, `Input`), `MaigSelect` (searchable), `MaigSlider`, `MaigRangeSlider`, `MaigRating`, `MaigDatePicker`, `MaigTimePicker` |
 | **Overlays & Feedback** | `MaigDialog`, `MaigAlertDialog`, `MaigConfirmDialog`, `MaigBottomSheet`, `MaigPopover`, `MaigTooltip`, `MaigDropdownMenu`, `MaigToastHost` + `rememberMaigToastState()`, `MaigAlert`, `MaigSpinner`, `MaigLoadingOverlay`, `MaigLinearProgressBar`, `MaigCircularProgressBar`, `MaigSkeleton` (`Circle`, `Text`, `Card`) |
-| **Display** | `MaigCard` (`Elevated`, `Outlined`, `Filled`, clickable), `MaigStatCard`, `MaigTimeline`, `MaigAvatar`, `MaigAvatarGroup`, `MaigBadge`, `MaigBadgedBox`, `MaigTag`, `MaigDivider`, `MaigListItem`, `MaigEmptyState`, `MaigAccordion` |
-| **Navigation** | `MaigTopBar`, `MaigBottomNavigation`, `MaigSegmentedControl`, `MaigBreadcrumb`, `MaigTabs` (`Underline` animated e `Pill`, fixed & scrollable), `MaigStepper`, `MaigModalNavigationDrawer`, `MaigPagination` |
-| **Layout & Icons** | `MaigScaffold` (integrated with `MaigToastHost`), `MaigSpacer` (`xxs`..`xxxl`), `MaigSection`, `MaigIcons` |
+| **Display** | `MaigCard` (`Elevated`, `Outlined`, `Filled`, clickable), `MaigStatCard`, `MaigKeyValueRow`, `MaigTimeline`, `MaigAvatar`, `MaigAvatarGroup`, `MaigBadge`, `MaigBadgedBox`, `MaigTag`, `MaigDivider`, `MaigListItem`, `MaigEmptyState`, `MaigAccordion` |
+| **Navigation** | `MaigTopBar`, `MaigBottomNavigation`, `MaigSegmentedControl`, `MaigBreadcrumb`, `MaigTabs` (`Underline`, `Pill`, fixed & scrollable), `MaigStepper`, `MaigModalNavigationDrawer`, `MaigPagination` |
+| **Layout & Icons** | `MaigScaffold` (integrated `MaigToastHost`), `MaigSpacer` (`xxs`..`xxxl`), `MaigSection`, `MaigIcons` |
 
 ---
 
-## Declarative Forms (`maigui-forms`)
-
-```kotlin
-val form = rememberMaigForm {
-    field("email") { required(); email() }
-    field("senha") { required(); minLength(8) }
-    field("confirmar") { required(); matches("senha", "Senhas não conferem") }
-    field("cpf") { required(); cpf() }
-}
-
-MaigTextField(field = form["email"], label = "E-mail")
-MaigPasswordField(field = form["senha"], label = "Senha")
-MaigPasswordField(field = form["confirmar"], label = "Confirmar senha")
-MaigTextField(
-    field = form["cpf"],
-    label = "CPF",
-    visualTransformation = MaigMasks.cpf(),
-)
-
-MaigButton(
-    text = "Enviar",
-    onClick = {
-        if (form.validate()) {
-            submit(form.values)
-        }
-    },
-    fullWidth = true,
-)
-```
-
-Available validators: `required`, `email`, `minLength`, `maxLength`, `pattern`, `numeric`, `matches`, `custom`, `cpf`, `cnpj`, `cep`, `phone`.  
-Available masks (`MaigMasks`): `cpf()`, `cnpj()`, `cep()`, `phone()`, `date()`, `creditCard()`, `currencyBrl()`.
-
----
-
-## Running Locally & Verification
+## Running & Contributing Locally
 
 ```bash
-# Run all unit, forms, and UI tests
-./gradlew testDebugUnitTest
+# Run all unit, forms, and catalog UI tests
+./gradlew :maigui-core:testDebugUnitTest :maigui-forms:testDebugUnitTest :sample:testDebugUnitTest
 
-# Verify Roborazzi screenshots (Light & Dark)
+# Verify Roborazzi screenshots (12 Light & Dark sheets)
 ./gradlew :maigui-components:verifyRoborazziDebug
 
 # Verify binary public API compatibility
 ./gradlew apiCheck
 
-# Run Android Lint & assemble the sample catalog APK
+# Run Android Lint & build sample catalog APK
 ./gradlew lint :sample:assembleDebug
 
-# Generate Dokka API docs
-./gradlew dokkaGeneratePublicationHtml
+# Generate Dokka API docs & publish to ~/.m2
+./gradlew dokkaGeneratePublicationHtml publishToMavenLocal
 ```
 
-Open [`docs/index.html`](docs/index.html) in any browser for the interactive MaigUI explorer website.
+Open [`docs/index.html`](docs/index.html) in any browser or visit https://maignardi.github.io/MaigUI/ for the interactive documentation explorer.
 
 ---
 
 ## License
 
-MaigUI is licensed under the [Apache License 2.0](LICENSE).  
+Licensed under the [Apache License 2.0](LICENSE).  
 Bundled Inter font files are licensed under the [SIL Open Font License 1.1](maigui-core/INTER_OFL_LICENSE.txt).

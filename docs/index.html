@@ -225,13 +225,47 @@
 
     .main { min-width: 0; }
 
-    /* Hero */
     .hero {
       padding: 2.25rem;
-      border-radius: 18px;
+      border-radius: 22px;
       background: linear-gradient(135deg, var(--primary-subtle), var(--surface));
       border: 1px solid var(--border);
       margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .phone-frame {
+      background: var(--bg);
+      border: 6px solid var(--text);
+      border-radius: 28px;
+      padding: 0.95rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .phone-seg {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--surface-variant);
+      padding: 3px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    .phone-seg span { padding: 0.25rem 0; border-radius: 999px; color: var(--text-secondary); }
+    .phone-seg span.active { background: var(--surface); color: var(--text); box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
+    .phone-stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 0.85rem;
+    }
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
     }
     .hero h1 {
       font-size: clamp(1.9rem, 3.2vw, 2.75rem);
@@ -555,18 +589,44 @@
 
   <main class="main">
     <section class="hero">
-      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.85rem;">
-        <span class="m-tag">Jetpack Compose Foundation</span>
-        <span class="m-tag">WCAG AA Automático</span>
-        <span class="m-tag">minSdk 23</span>
-        <span class="m-tag">Apache 2.0</span>
+      <div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.85rem;">
+          <span class="m-tag">Jetpack Compose Foundation</span>
+          <span class="m-tag">WCAG AA Automático</span>
+          <span class="m-tag">10 Presets</span>
+          <span class="m-tag">minSdk 23</span>
+        </div>
+        <h1>Bootstrap para Jetpack Compose.</h1>
+        <p>Adicione uma dependência, envolva seu app em <code>MaigTheme {}</code> e tenha mais de 45 componentes consistentes, acessíveis, com fonte Inter, geração de paleta a partir de 1 cor e formulários brasileiros com CPF/CNPJ/CEP/BRL.</p>
+        <div class="hero-actions">
+          <a href="#install" class="m-btn m-btn-solid">Instalar agora</a>
+          <a href="#buttons" class="m-btn m-btn-soft">Explorar componentes</a>
+          <a href="#screenshots" class="m-btn m-btn-outline">Screenshots Android</a>
+        </div>
       </div>
-      <h1>Bootstrap para Jetpack Compose.</h1>
-      <p>Adicione uma dependência, envolva seu app em <code>MaigTheme {}</code> e tenha mais de 40 componentes consistentes, acessíveis, com fonte Inter, geração de paleta a partir de 1 cor e formulários brasileiros com CPF/CNPJ/CEP/BRL.</p>
-      <div class="hero-actions">
-        <a href="#install" class="m-btn m-btn-solid">Instalar agora</a>
-        <a href="#buttons" class="m-btn m-btn-soft">Explorar componentes</a>
-        <a href="#screenshots" class="m-btn m-btn-outline">Ver screenshots Android</a>
+
+      <div class="phone-frame" aria-label="Live MaigUI Android Preview">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <strong style="font-size:0.9rem;">MaigUI App</strong>
+          <span class="m-tag" style="font-size:0.68rem;">Live Theme</span>
+        </div>
+        <div class="phone-seg">
+          <span class="active">Visão</span>
+          <span>Métricas</span>
+          <span>Logs</span>
+        </div>
+        <div class="phone-stat">
+          <div style="font-size:0.72rem;color:var(--text-secondary);font-weight:600;">Receita Mensal</div>
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-top:0.2rem;">
+            <strong style="font-size:1.35rem;letter-spacing:-0.02em;">R$ 48.920</strong>
+            <span class="m-tag" style="background:var(--success-subtle);color:var(--on-success-subtle);font-size:0.68rem;">● +18,4%</span>
+          </div>
+          <div style="font-size:0.7rem;color:var(--text-tertiary);margin-top:0.2rem;">Comparado aos últimos 30 dias</div>
+        </div>
+        <div style="display:flex;gap:0.45rem;">
+          <button class="m-btn m-btn-solid m-btn-sm" style="flex:1;" onclick="showToast('Relatório gerado!')">Exportar</button>
+          <button class="m-btn m-btn-outline m-btn-sm" style="flex:1;" onclick="toggleTheme()">Alternar Tema</button>
+        </div>
       </div>
     </section>
 

@@ -217,6 +217,15 @@ public final class io/github/maignardi/maigui/components/display/ComposableSingl
 	public final fun getLambda$602943558$maigui_components ()Lkotlin/jvm/functions/Function2;
 }
 
+public final class io/github/maignardi/maigui/components/display/ComposableSingletons$MaigKeyValueRowKt {
+	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/ComposableSingletons$MaigKeyValueRowKt;
+	public fun <init> ()V
+	public final fun getLambda$-1993170902$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-528381697$maigui_components ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-762361264$maigui_components ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1778741979$maigui_components ()Lkotlin/jvm/functions/Function3;
+}
+
 public final class io/github/maignardi/maigui/components/display/ComposableSingletons$MaigListItemKt {
 	public static final field INSTANCE Lio/github/maignardi/maigui/components/display/ComposableSingletons$MaigListItemKt;
 	public fun <init> ()V
@@ -383,6 +392,10 @@ public final class io/github/maignardi/maigui/components/display/MaigEmptyStateD
 
 public final class io/github/maignardi/maigui/components/display/MaigEmptyStateKt {
 	public static final fun MaigEmptyState (Ljava/lang/String;Landroidx/compose/ui/Modifier;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/maignardi/maigui/components/display/MaigKeyValueRowKt {
+	public static final fun MaigKeyValueRow-fWhpE4E (Ljava/lang/String;Ljava/lang/String;Landroidx/compose/ui/Modifier;JZZLandroidx/compose/runtime/Composer;II)V
 }
 
 public final class io/github/maignardi/maigui/components/display/MaigListItemDefaults {
@@ -655,15 +668,23 @@ public final class io/github/maignardi/maigui/components/icons/MaigIcons {
 	public static final field $stable I
 	public static final field INSTANCE Lio/github/maignardi/maigui/components/icons/MaigIcons;
 	public final fun ArrowBack-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun Bell-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
 	public final fun Calendar-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
 	public final fun Check-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
 	public final fun ChevronLeft-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
 	public final fun ChevronRight-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
 	public final fun Clock-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
 	public final fun Close-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun Form-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun Home-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun Layers-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun Lock-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun Mail-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
 	public final fun Menu-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun Palette-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
 	public final fun Plus-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
 	public final fun Search-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public final fun User-9IZ8Weo (Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
 }
 
 public final class io/github/maignardi/maigui/components/inputs/ComposableSingletons$MaigMoneyFieldKt {

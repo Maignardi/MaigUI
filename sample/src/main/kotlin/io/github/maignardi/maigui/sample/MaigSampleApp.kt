@@ -177,10 +177,10 @@ public fun MaigSampleApp() {
                     }
                     MaigBottomNavigation(
                         items = listOf(
-                            MaigBottomNavItem("Tokens") { MaigIcons.Plus() },
-                            MaigBottomNavItem("Básicos") { MaigIcons.Search() },
-                            MaigBottomNavItem("UI") { MaigIcons.Plus() },
-                            MaigBottomNavItem("Forms") { MaigIcons.Search() },
+                            MaigBottomNavItem("Tokens") { MaigIcons.Palette() },
+                            MaigBottomNavItem("Básicos") { MaigIcons.Home() },
+                            MaigBottomNavItem("UI", badgeCount = 6) { MaigIcons.Layers() },
+                            MaigBottomNavItem("Forms") { MaigIcons.Form() },
                         ),
                         selectedIndex = bottomIdx,
                         onItemSelected = { idx ->

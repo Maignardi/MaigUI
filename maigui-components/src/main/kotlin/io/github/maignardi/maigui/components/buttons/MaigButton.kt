@@ -161,8 +161,12 @@ public object MaigButtonDefaults {
             )
         }
 
-        val outlineInk = if (color == MaigButtonColor.Neutral) c.textPrimary else baseFill
-        val outlineBorder = if (color == MaigButtonColor.Neutral) c.borderStrong else baseFill.copy(alpha = 0.65f)
+        val outlineInk = when {
+            color == MaigButtonColor.Neutral -> c.textPrimary
+            c.isDark && color == MaigButtonColor.Primary -> c.primary.shade300
+            else -> baseFill
+        }
+        val outlineBorder = if (color == MaigButtonColor.Neutral) c.borderStrong else outlineInk.copy(alpha = 0.65f)
 
         return when (variant) {
             MaigButtonVariant.Solid -> MaigButtonColors(
