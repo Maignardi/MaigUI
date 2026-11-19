@@ -10,6 +10,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import io.github.maignardi.maigui.components.inputs.MaigMoneyField
 import io.github.maignardi.maigui.components.inputs.MaigMoneyFieldDefaults
+import io.github.maignardi.maigui.components.inputs.MaigNumberStepper
 import io.github.maignardi.maigui.components.inputs.MaigOtpField
 import io.github.maignardi.maigui.components.inputs.MaigPasswordField
 import io.github.maignardi.maigui.components.inputs.MaigPhoneField
@@ -31,6 +32,7 @@ internal fun InputsShowcaseScreen() {
     var moneyDigits by remember { mutableStateOf("14990") }
     var phoneDigits by remember { mutableStateOf("11987654321") }
     var notes by remember { mutableStateOf("") }
+    var quantity by remember { mutableStateOf(2) }
     var simulateError by remember { mutableStateOf(false) }
 
     MaigSection(title = "Simulação de Estado") {
@@ -97,6 +99,13 @@ internal fun InputsShowcaseScreen() {
             onValueChange = { phoneDigits = it },
             errorText = if (simulateError) "Telefone inválido" else null,
             modifier = Modifier.fillMaxWidth(),
+        )
+        MaigNumberStepper(
+            value = quantity,
+            onValueChange = { quantity = it },
+            minValue = 1,
+            maxValue = 10,
+            label = "Quantidade (NumberStepper)",
         )
         MaigTextArea(
             value = notes,

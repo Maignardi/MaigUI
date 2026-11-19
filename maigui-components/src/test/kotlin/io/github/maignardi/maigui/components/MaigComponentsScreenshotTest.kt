@@ -36,9 +36,14 @@ import io.github.maignardi.maigui.components.display.MaigCardVariant
 import io.github.maignardi.maigui.components.display.MaigDivider
 import io.github.maignardi.maigui.components.display.MaigEmptyState
 import io.github.maignardi.maigui.components.display.MaigListItem
+import io.github.maignardi.maigui.components.display.MaigStatCard
+import io.github.maignardi.maigui.components.display.MaigStatTrend
 import io.github.maignardi.maigui.components.display.MaigTag
 import io.github.maignardi.maigui.components.display.MaigTagColor
 import io.github.maignardi.maigui.components.display.MaigTagVariant
+import io.github.maignardi.maigui.components.display.MaigTimeline
+import io.github.maignardi.maigui.components.display.MaigTimelineItem
+import io.github.maignardi.maigui.components.display.MaigTimelineStatus
 import io.github.maignardi.maigui.components.feedback.MaigAlert
 import io.github.maignardi.maigui.components.feedback.MaigAlertType
 import io.github.maignardi.maigui.components.feedback.MaigCircularProgressBar
@@ -48,6 +53,7 @@ import io.github.maignardi.maigui.components.feedback.MaigToastBanner
 import io.github.maignardi.maigui.components.feedback.MaigToastData
 import io.github.maignardi.maigui.components.feedback.MaigToastType
 import io.github.maignardi.maigui.components.inputs.MaigMoneyField
+import io.github.maignardi.maigui.components.inputs.MaigNumberStepper
 import io.github.maignardi.maigui.components.inputs.MaigOtpField
 import io.github.maignardi.maigui.components.inputs.MaigPasswordField
 import io.github.maignardi.maigui.components.inputs.MaigPhoneField
@@ -60,7 +66,9 @@ import io.github.maignardi.maigui.components.internal.MaigPlusIcon
 import io.github.maignardi.maigui.components.internal.MaigSearchIcon
 import io.github.maignardi.maigui.components.navigation.MaigBottomNavItem
 import io.github.maignardi.maigui.components.navigation.MaigBottomNavigation
+import io.github.maignardi.maigui.components.navigation.MaigBreadcrumb
 import io.github.maignardi.maigui.components.navigation.MaigPagination
+import io.github.maignardi.maigui.components.navigation.MaigSegmentedControl
 import io.github.maignardi.maigui.components.navigation.MaigStepper
 import io.github.maignardi.maigui.components.navigation.MaigTabVariant
 import io.github.maignardi.maigui.components.navigation.MaigTabs
@@ -78,6 +86,7 @@ import io.github.maignardi.maigui.components.selection.MaigDate
 import io.github.maignardi.maigui.components.selection.MaigDatePicker
 import io.github.maignardi.maigui.components.selection.MaigRadioGroup
 import io.github.maignardi.maigui.components.selection.MaigRangeSlider
+import io.github.maignardi.maigui.components.selection.MaigRating
 import io.github.maignardi.maigui.components.selection.MaigSelect
 import io.github.maignardi.maigui.components.selection.MaigSlider
 import io.github.maignardi.maigui.components.selection.MaigSwitch
@@ -129,6 +138,12 @@ class MaigComponentsScreenshotTest {
 
     @Test
     fun display_navigation_dark() = captureSnapshot("display_navigation_dark", darkTheme = true) { DisplayNavigationShowcase() }
+
+    @Test
+    fun modern_extras_light() = captureSnapshot("modern_extras_light", darkTheme = false) { ModernExtrasShowcase() }
+
+    @Test
+    fun modern_extras_dark() = captureSnapshot("modern_extras_dark", darkTheme = true) { ModernExtrasShowcase() }
 
     private fun captureSnapshot(
         name: String,
@@ -353,6 +368,38 @@ class MaigComponentsScreenshotTest {
                 selectedIndex = 0,
                 onItemSelected = {},
             )
+        }
+    }
+
+    @Composable
+    private fun ModernExtrasShowcase() {
+        Column(verticalArrangement = Arrangement.spacedBy(MaigTheme.spacing.md)) {
+            MaigBreadcrumb(items = listOf("Início", "Dashboard", "Métricas"), onItemClick = {})
+            MaigSegmentedControl(
+                options = listOf("Visão", "Métricas", "Logs"),
+                selectedIndex = 0,
+                onOptionSelected = {},
+            )
+            MaigStatCard(
+                label = "Receita Mensal",
+                value = "R$ 48.920",
+                delta = "+18,4%",
+                trend = MaigStatTrend.Positive,
+                subtitle = "Comparado aos últimos 30 dias",
+                icon = { MaigPlusIcon() },
+                modifier = Modifier.fillMaxWidth(),
+            )
+            MaigNumberStepper(value = 3, onValueChange = {}, label = "Quantidade")
+            MaigRating(rating = 4, onRatingChange = {})
+            MaigCard(variant = MaigCardVariant.Outlined, modifier = Modifier.fillMaxWidth()) {
+                MaigTimeline(
+                    items = listOf(
+                        MaigTimelineItem("Pedido confirmado", "Pix aprovado", "10:15", MaigTimelineStatus.Completed),
+                        MaigTimelineItem("Em preparação", "Separando estoque", "11:40", MaigTimelineStatus.Active),
+                        MaigTimelineItem("Entrega", "Prevista para amanhã", null, MaigTimelineStatus.Pending),
+                    ),
+                )
+            }
         }
     }
 }

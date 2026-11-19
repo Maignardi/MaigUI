@@ -517,12 +517,17 @@
 
   <div class="topbar-controls">
     <input id="searchInput" class="search-box" type="search" placeholder="Buscar componente..." oninput="filterSections(this.value)" />
-    <div class="swatch-row" title="Trocar cor da marca em tempo real">
-      <button class="swatch active" style="background:#2563EB" onclick="setBrand('#2563EB', this)" aria-label="Blue"></button>
+    <div class="swatch-row" title="10 presets + cor customizada">
+      <button class="swatch active" style="background:#2563EB" onclick="setBrand('#2563EB', this)" aria-label="Default Blue"></button>
+      <button class="swatch" style="background:#4F46E5" onclick="setBrand('#4F46E5', this)" aria-label="Indigo"></button>
       <button class="swatch" style="background:#7C3AED" onclick="setBrand('#7C3AED', this)" aria-label="Purple"></button>
-      <button class="swatch" style="background:#16A34A" onclick="setBrand('#16A34A', this)" aria-label="Green"></button>
-      <button class="swatch" style="background:#EA580C" onclick="setBrand('#EA580C', this)" aria-label="Orange"></button>
       <button class="swatch" style="background:#E11D48" onclick="setBrand('#E11D48', this)" aria-label="Rose"></button>
+      <button class="swatch" style="background:#DC2626" onclick="setBrand('#DC2626', this)" aria-label="Crimson"></button>
+      <button class="swatch" style="background:#EA580C" onclick="setBrand('#EA580C', this)" aria-label="Orange"></button>
+      <button class="swatch" style="background:#D97706" onclick="setBrand('#D97706', this)" aria-label="Amber"></button>
+      <button class="swatch" style="background:#16A34A" onclick="setBrand('#16A34A', this)" aria-label="Green"></button>
+      <button class="swatch" style="background:#0D9488" onclick="setBrand('#0D9488', this)" aria-label="Teal"></button>
+      <button class="swatch" style="background:#334155" onclick="setBrand('#334155', this)" aria-label="Slate"></button>
       <input type="color" id="customColorPicker" value="#2563EB" onchange="setBrand(this.value)" style="width:26px;height:26px;border:none;background:none;cursor:pointer;" title="Cor customizada" />
     </div>
     <button class="icon-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark</button>
@@ -816,6 +821,8 @@ MaigTextField(field = form["cpf"], label = "CPF", visualTransformation = MaigMas
         <figure class="shot-card"><img src="images/overlays_feedback_dark.png" alt="Overlays Dark" /><figcaption>Overlays &amp; Feedback — Dark</figcaption></figure>
         <figure class="shot-card"><img src="images/display_navigation_light.png" alt="Display Light" /><figcaption>Display &amp; Navigation — Light</figcaption></figure>
         <figure class="shot-card"><img src="images/display_navigation_dark.png" alt="Display Dark" /><figcaption>Display &amp; Navigation — Dark</figcaption></figure>
+        <figure class="shot-card"><img src="images/modern_extras_light.png" alt="Modern Extras Light" /><figcaption>StatCard, Segmented, Stepper &amp; Timeline — Light</figcaption></figure>
+        <figure class="shot-card"><img src="images/modern_extras_dark.png" alt="Modern Extras Dark" /><figcaption>StatCard, Segmented, Stepper &amp; Timeline — Dark</figcaption></figure>
       </div>
     </section>
   </main>

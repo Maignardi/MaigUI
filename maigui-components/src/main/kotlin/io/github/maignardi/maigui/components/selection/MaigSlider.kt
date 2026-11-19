@@ -75,8 +75,8 @@ public class MaigSliderColors(
  * Default values for [MaigSlider] and [MaigRangeSlider].
  */
 public object MaigSliderDefaults {
-    public val TrackHeight: Dp = 6.dp
-    public val ThumbRadius: Dp = 10.dp
+    public val TrackHeight: Dp = 8.dp
+    public val ThumbRadius: Dp = 11.dp
 
     @Composable
     public fun colors(): MaigSliderColors {
@@ -207,13 +207,18 @@ public fun MaigSlider(
             )
 
             drawCircle(
+                color = thumbBorder.copy(alpha = 0.16f),
+                radius = thumbPx * 1.55f,
+                center = Offset(activeEnd, centerY),
+            )
+            drawCircle(
                 color = thumbBorder,
                 radius = thumbPx,
                 center = Offset(activeEnd, centerY),
             )
             drawCircle(
                 color = thumbColor,
-                radius = thumbPx - 2.5.dp.toPx(),
+                radius = thumbPx - 3.dp.toPx(),
                 center = Offset(activeEnd, centerY),
             )
         }
@@ -332,8 +337,9 @@ public fun MaigRangeSlider(
             )
 
             listOf(startX, endX).forEach { x ->
+                drawCircle(thumbBorder.copy(alpha = 0.16f), radius = thumbPx * 1.5f, center = Offset(x, centerY))
                 drawCircle(thumbBorder, radius = thumbPx, center = Offset(x, centerY))
-                drawCircle(thumbColor, radius = thumbPx - 2.5.dp.toPx(), center = Offset(x, centerY))
+                drawCircle(thumbColor, radius = thumbPx - 3.dp.toPx(), center = Offset(x, centerY))
             }
         }
     }

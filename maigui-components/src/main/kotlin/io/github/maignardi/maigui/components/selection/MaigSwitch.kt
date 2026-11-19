@@ -1,7 +1,9 @@
 package io.github.maignardi.maigui.components.selection
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -78,9 +80,9 @@ public class MaigSwitchColors(
  * Default dimensions and colors for [MaigSwitch].
  */
 public object MaigSwitchDefaults {
-    public val TrackWidth: Dp = 46.dp
-    public val TrackHeight: Dp = 26.dp
-    public val ThumbSize: Dp = 20.dp
+    public val TrackWidth: Dp = 50.dp
+    public val TrackHeight: Dp = 28.dp
+    public val ThumbSize: Dp = 22.dp
 
     @Composable
     public fun colors(): MaigSwitchColors {
@@ -132,7 +134,10 @@ public fun MaigSwitch(
         } else {
             3.dp
         },
-        animationSpec = tween(160),
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessMedium,
+        ),
         label = "MaigSwitchThumbOffset",
     )
 

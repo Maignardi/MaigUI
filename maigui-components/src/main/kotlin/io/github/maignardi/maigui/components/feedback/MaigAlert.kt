@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -156,8 +158,14 @@ public fun MaigAlert(
             .padding(MaigTheme.spacing.md),
         verticalAlignment = Alignment.Top,
     ) {
-        Box(modifier = Modifier.padding(top = 2.dp)) {
-            MaigStatusGlyphIcon(type = glyph, tint = colors.iconColor, size = 20.dp)
+        Box(
+            modifier = Modifier
+                .size(32.dp)
+                .clip(CircleShape)
+                .background(colors.iconColor.copy(alpha = if (variant == MaigAlertVariant.Solid) 0.18f else 0.12f)),
+            contentAlignment = Alignment.Center,
+        ) {
+            MaigStatusGlyphIcon(type = glyph, tint = colors.iconColor, size = 18.dp)
         }
         Spacer(modifier = Modifier.width(MaigTheme.spacing.md))
         Column(

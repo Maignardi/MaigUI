@@ -27,6 +27,7 @@ import io.github.maignardi.maigui.components.selection.MaigDatePicker
 import io.github.maignardi.maigui.components.selection.MaigDatePickerDialog
 import io.github.maignardi.maigui.components.selection.MaigRadioGroup
 import io.github.maignardi.maigui.components.selection.MaigRangeSlider
+import io.github.maignardi.maigui.components.selection.MaigRating
 import io.github.maignardi.maigui.components.selection.MaigSelect
 import io.github.maignardi.maigui.components.selection.MaigSlider
 import io.github.maignardi.maigui.components.selection.MaigSwitch
@@ -60,6 +61,7 @@ internal fun SelectionShowcaseScreen() {
 
     var sliderVal by remember { mutableFloatStateOf(0.55f) }
     var rangeVal by remember { mutableStateOf(150f..650f) }
+    var ratingVal by remember { mutableStateOf(4) }
 
     var selectedDate by remember { mutableStateOf(MaigDate.today()) }
     var showDateDialog by remember { mutableStateOf(false) }
@@ -144,6 +146,10 @@ internal fun SelectionShowcaseScreen() {
             valueRange = 0f..1000f,
             label = "Orçamento",
             rangeFormatter = { "R$ ${it.start.roundToInt()} - R$ ${it.endInclusive.roundToInt()}" },
+        )
+        MaigRating(
+            rating = ratingVal,
+            onRatingChange = { ratingVal = it },
         )
     }
 

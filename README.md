@@ -74,6 +74,14 @@ Add one dependency, wrap your app in `MaigTheme {}`, and ship consistent, access
     <td align="center"><img src="docs/images/display_navigation_light.png" width="360" alt="MaigUI Display and Navigation Light"/></td>
     <td align="center"><img src="docs/images/display_navigation_dark.png" width="360" alt="MaigUI Display and Navigation Dark"/></td>
   </tr>
+  <tr>
+    <th>Modern Dashboard &amp; Extras (Light)</th>
+    <th>Modern Dashboard &amp; Extras (Dark)</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/images/modern_extras_light.png" width="360" alt="MaigUI Modern Extras Light"/></td>
+    <td align="center"><img src="docs/images/modern_extras_dark.png" width="360" alt="MaigUI Modern Extras Dark"/></td>
+  </tr>
 </table>
 
 ---
@@ -186,7 +194,7 @@ MaigTheme(
 }
 ```
 
-Or pick one of the 4 built-in presets: `MaigThemes.Default`, `MaigThemes.Purple`, `MaigThemes.Green`, `MaigThemes.Orange`:
+Or pick one of the **10 curated designer presets** (`Default`, `Indigo`, `Purple`, `Rose`, `Crimson`, `Orange`, `Amber`, `Green`, `Teal`, `Slate`):
 
 ```kotlin
 MaigTheme(preset = MaigThemes.Purple) { /* ... */ }
@@ -198,12 +206,12 @@ MaigTheme(preset = MaigThemes.Purple) { /* ... */ }
 
 | Category | Components |
 | :--- | :--- |
-| **Buttons** | `MaigButton` (`Solid`, `Outline`, `Ghost`, `Soft`, `Link` × 6 semantic colors × 3 sizes, loading, icons, `fullWidth`), `MaigIconButton`, `MaigFab`, `MaigButtonGroup` |
-| **Inputs** | `MaigTextField` (`Outlined`, `Filled`, helper/error, counter), `MaigPasswordField`, `MaigSearchField`, `MaigTextArea`, `MaigOtpField`, `MaigMoneyField` (`R$`), `MaigPhoneField` |
-| **Selection** | `MaigCheckbox`, `MaigTriStateCheckbox` (indeterminate), `MaigRadioButton`, `MaigRadioGroup`, `MaigSwitch`, `MaigChip` (`Filter`, `Choice`, `Input`), `MaigSelect` (searchable), `MaigSlider`, `MaigRangeSlider`, `MaigDatePicker`, `MaigTimePicker` |
+| **Buttons** | `MaigButton` (`Solid`, `Outline`, `Ghost`, `Soft`, `Link` × 6 semantic colors × 3 sizes, loading, icons, `fullWidth`, spring press feedback), `MaigIconButton`, `MaigFab`, `MaigButtonGroup` |
+| **Inputs** | `MaigTextField` (`Outlined`, `Filled`, focus halo, helper/error, counter), `MaigPasswordField`, `MaigSearchField`, `MaigTextArea`, `MaigOtpField`, `MaigMoneyField` (`R$`), `MaigPhoneField`, `MaigNumberStepper` |
+| **Selection** | `MaigCheckbox`, `MaigTriStateCheckbox` (indeterminate), `MaigRadioButton`, `MaigRadioGroup`, `MaigSwitch`, `MaigChip` (`Filter`, `Choice`, `Input`), `MaigSelect` (searchable), `MaigSlider`, `MaigRangeSlider`, `MaigRating`, `MaigDatePicker`, `MaigTimePicker` |
 | **Overlays & Feedback** | `MaigDialog`, `MaigAlertDialog`, `MaigConfirmDialog`, `MaigBottomSheet`, `MaigPopover`, `MaigTooltip`, `MaigDropdownMenu`, `MaigToastHost` + `rememberMaigToastState()`, `MaigAlert`, `MaigSpinner`, `MaigLoadingOverlay`, `MaigLinearProgressBar`, `MaigCircularProgressBar`, `MaigSkeleton` (`Circle`, `Text`, `Card`) |
-| **Display** | `MaigCard` (`Elevated`, `Outlined`, `Filled`, clickable), `MaigAvatar`, `MaigAvatarGroup`, `MaigBadge`, `MaigBadgedBox`, `MaigTag`, `MaigDivider`, `MaigListItem`, `MaigEmptyState`, `MaigAccordion` |
-| **Navigation** | `MaigTopBar`, `MaigBottomNavigation`, `MaigTabs` (`Underline`, `Pill`, fixed & scrollable), `MaigStepper`, `MaigModalNavigationDrawer`, `MaigPagination` |
+| **Display** | `MaigCard` (`Elevated`, `Outlined`, `Filled`, clickable), `MaigStatCard`, `MaigTimeline`, `MaigAvatar`, `MaigAvatarGroup`, `MaigBadge`, `MaigBadgedBox`, `MaigTag`, `MaigDivider`, `MaigListItem`, `MaigEmptyState`, `MaigAccordion` |
+| **Navigation** | `MaigTopBar`, `MaigBottomNavigation`, `MaigSegmentedControl`, `MaigBreadcrumb`, `MaigTabs` (`Underline` animated e `Pill`, fixed & scrollable), `MaigStepper`, `MaigModalNavigationDrawer`, `MaigPagination` |
 | **Layout & Icons** | `MaigScaffold` (integrated with `MaigToastHost`), `MaigSpacer` (`xxs`..`xxxl`), `MaigSection`, `MaigIcons` |
 
 ---

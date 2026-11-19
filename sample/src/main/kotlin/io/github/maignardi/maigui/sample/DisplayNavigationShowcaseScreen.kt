@@ -30,13 +30,20 @@ import io.github.maignardi.maigui.components.display.MaigCardVariant
 import io.github.maignardi.maigui.components.display.MaigDivider
 import io.github.maignardi.maigui.components.display.MaigEmptyState
 import io.github.maignardi.maigui.components.display.MaigListItem
+import io.github.maignardi.maigui.components.display.MaigStatCard
+import io.github.maignardi.maigui.components.display.MaigStatTrend
 import io.github.maignardi.maigui.components.display.MaigTag
 import io.github.maignardi.maigui.components.display.MaigTagColor
 import io.github.maignardi.maigui.components.display.MaigTagVariant
+import io.github.maignardi.maigui.components.display.MaigTimeline
+import io.github.maignardi.maigui.components.display.MaigTimelineItem
+import io.github.maignardi.maigui.components.display.MaigTimelineStatus
 import io.github.maignardi.maigui.components.feedback.LocalMaigToastState
 import io.github.maignardi.maigui.components.icons.MaigIcons
 import io.github.maignardi.maigui.components.layout.MaigSection
+import io.github.maignardi.maigui.components.navigation.MaigBreadcrumb
 import io.github.maignardi.maigui.components.navigation.MaigPagination
+import io.github.maignardi.maigui.components.navigation.MaigSegmentedControl
 import io.github.maignardi.maigui.components.navigation.MaigStepper
 import io.github.maignardi.maigui.components.navigation.MaigTabVariant
 import io.github.maignardi.maigui.components.navigation.MaigTabs
@@ -50,8 +57,35 @@ internal fun DisplayNavigationShowcaseScreen() {
     var accordion2 by remember { mutableStateOf(false) }
     var subTabIndex by remember { mutableIntStateOf(0) }
     var pillTabIndex by remember { mutableIntStateOf(1) }
+    var segmentedIndex by remember { mutableIntStateOf(0) }
     var currentStep by remember { mutableIntStateOf(1) }
     var currentPage by remember { mutableIntStateOf(3) }
+
+    MaigSection(title = "StatCard, Timeline & Breadcrumb") {
+        MaigBreadcrumb(
+            items = listOf("Início", "Catálogo", "Exibição"),
+            onItemClick = { toast.showInfo("Breadcrumb #$it") },
+        )
+        MaigStatCard(
+            label = "Usuários Ativos",
+            value = "24.890",
+            delta = "+21,6%",
+            trend = MaigStatTrend.Positive,
+            subtitle = "Últimos 30 dias",
+            icon = { MaigIcons.Plus() },
+            onClick = { toast.showInfo("StatCard clicado") },
+            modifier = Modifier.fillMaxWidth(),
+        )
+        MaigCard(variant = MaigCardVariant.Outlined, modifier = Modifier.fillMaxWidth()) {
+            MaigTimeline(
+                items = listOf(
+                    MaigTimelineItem("Design System", "Tokens OKLCH + Inter", "00:15", MaigTimelineStatus.Completed),
+                    MaigTimelineItem("Componentes Modernos", "45+ componentes prontos", "Agora", MaigTimelineStatus.Active),
+                    MaigTimelineItem("Publicação", "Maven Central & JitPack", null, MaigTimelineStatus.Pending),
+                ),
+            )
+        }
+    }
 
     MaigSection(title = "Cards (Elevated, Outlined, Filled, Clicável)") {
         MaigCard(variant = MaigCardVariant.Elevated, modifier = Modifier.fillMaxWidth()) {
@@ -148,7 +182,12 @@ internal fun DisplayNavigationShowcaseScreen() {
         )
     }
 
-    MaigSection(title = "Tabs, Stepper & Pagination") {
+    MaigSection(title = "SegmentedControl, Tabs, Stepper & Pagination") {
+        MaigSegmentedControl(
+            options = listOf("Visão", "Métricas", "Logs"),
+            selectedIndex = segmentedIndex,
+            onOptionSelected = { segmentedIndex = it },
+        )
         MaigTabs(
             tabs = listOf("Visão Geral", "Exemplos", "Propriedades"),
             selectedIndex = subTabIndex,

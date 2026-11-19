@@ -12,11 +12,11 @@ import androidx.compose.ui.unit.dp
 @Immutable
 public class MaigShapes(
     public val none: CornerBasedShape = RoundedCornerShape(0.dp),
-    public val xs: CornerBasedShape = RoundedCornerShape(4.dp),
-    public val sm: CornerBasedShape = RoundedCornerShape(6.dp),
-    public val md: CornerBasedShape = RoundedCornerShape(8.dp),
-    public val lg: CornerBasedShape = RoundedCornerShape(12.dp),
-    public val xl: CornerBasedShape = RoundedCornerShape(16.dp),
+    public val xs: CornerBasedShape = RoundedCornerShape(6.dp),
+    public val sm: CornerBasedShape = RoundedCornerShape(10.dp),
+    public val md: CornerBasedShape = RoundedCornerShape(14.dp),
+    public val lg: CornerBasedShape = RoundedCornerShape(18.dp),
+    public val xl: CornerBasedShape = RoundedCornerShape(24.dp),
     public val full: CornerBasedShape = CircleShape,
 ) {
     /**

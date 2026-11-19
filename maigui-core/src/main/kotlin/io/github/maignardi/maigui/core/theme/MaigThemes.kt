@@ -40,55 +40,82 @@ public class MaigThemePreset(
 }
 
 /**
- * Built-in ready-to-use MaigUI theme presets.
+ * Built-in ready-to-use MaigUI designer theme presets.
  */
 public object MaigThemes {
-    /**
-     * Crisp cobalt blue default theme inspired by modern web/mobile design systems.
-     */
+    /** Crisp cobalt blue default theme. */
     public val Default: MaigThemePreset = MaigThemePreset(
         name = "Default",
-        brand = MaigBrand(
-            primary = Color(0xFF2563EB),
-            secondary = Color(0xFF475569),
-        ),
+        brand = MaigBrand(primary = Color(0xFF2563EB), secondary = Color(0xFF475569)),
     )
 
-    /**
-     * Vivid violet/purple theme preset.
-     */
+    /** Deep electric indigo preset. */
+    public val Indigo: MaigThemePreset = MaigThemePreset(
+        name = "Indigo",
+        brand = MaigBrand(primary = Color(0xFF4F46E5), secondary = Color(0xFF6366F1)),
+    )
+
+    /** Vivid violet/purple preset. */
     public val Purple: MaigThemePreset = MaigThemePreset(
         name = "Purple",
-        brand = MaigBrand(
-            primary = Color(0xFF7C3AED),
-            secondary = Color(0xFF4F46E5),
-        ),
+        brand = MaigBrand(primary = Color(0xFF7C3AED), secondary = Color(0xFF4F46E5)),
     )
 
-    /**
-     * Fresh emerald green theme preset.
-     */
-    public val Green: MaigThemePreset = MaigThemePreset(
-        name = "Green",
-        brand = MaigBrand(
-            primary = Color(0xFF16A34A),
-            secondary = Color(0xFF0D9488),
-        ),
+    /** Modern rose/magenta preset. */
+    public val Rose: MaigThemePreset = MaigThemePreset(
+        name = "Rose",
+        brand = MaigBrand(primary = Color(0xFFE11D48), secondary = Color(0xFFBE185D)),
     )
 
-    /**
-     * Warm vibrant orange theme preset.
-     */
+    /** Bold crimson red preset. */
+    public val Crimson: MaigThemePreset = MaigThemePreset(
+        name = "Crimson",
+        brand = MaigBrand(primary = Color(0xFFDC2626), secondary = Color(0xFF991B1B)),
+    )
+
+    /** Warm vibrant orange preset. */
     public val Orange: MaigThemePreset = MaigThemePreset(
         name = "Orange",
-        brand = MaigBrand(
-            primary = Color(0xFFEA580C),
-            secondary = Color(0xFFD97706),
-        ),
+        brand = MaigBrand(primary = Color(0xFFEA580C), secondary = Color(0xFFD97706)),
+    )
+
+    /** Rich golden amber preset. */
+    public val Amber: MaigThemePreset = MaigThemePreset(
+        name = "Amber",
+        brand = MaigBrand(primary = Color(0xFFD97706), secondary = Color(0xFFB45309)),
+    )
+
+    /** Fresh emerald green preset. */
+    public val Green: MaigThemePreset = MaigThemePreset(
+        name = "Green",
+        brand = MaigBrand(primary = Color(0xFF16A34A), secondary = Color(0xFF0D9488)),
+    )
+
+    /** Sleek ocean teal preset. */
+    public val Teal: MaigThemePreset = MaigThemePreset(
+        name = "Teal",
+        brand = MaigBrand(primary = Color(0xFF0D9488), secondary = Color(0xFF0284C7)),
+    )
+
+    /** Minimalist monochrome slate preset. */
+    public val Slate: MaigThemePreset = MaigThemePreset(
+        name = "Slate",
+        brand = MaigBrand(primary = Color(0xFF334155), secondary = Color(0xFF64748B)),
     )
 
     /**
      * All built-in theme presets in display order.
      */
-    public val presets: List<MaigThemePreset> = listOf(Default, Purple, Green, Orange)
+    public val presets: List<MaigThemePreset> = listOf(
+        Default,
+        Indigo,
+        Purple,
+        Rose,
+        Crimson,
+        Orange,
+        Amber,
+        Green,
+        Teal,
+        Slate,
+    )
 }

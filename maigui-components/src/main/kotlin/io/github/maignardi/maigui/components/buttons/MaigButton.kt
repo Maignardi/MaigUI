@@ -1,12 +1,16 @@
 package io.github.maignardi.maigui.components.buttons
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,8 +31,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
@@ -289,7 +295,16 @@ public fun MaigButton(
     content: @Composable RowScope.() -> Unit,
 ) {
     val resolvedInteraction = interactionSource ?: remember { MutableInteractionSource() }
+    val isPressed by resolvedInteraction.collectIsPressedAsState()
     val isInteractive = enabled && !loading
+    val pressScale by animateFloatAsState(
+        targetValue = if (isPressed && isInteractive) 0.965f else 1f,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessMedium,
+        ),
+        label = "MaigButtonScale",
+    )
 
     val targetContainer by animateColorAsState(
         targetValue = colors.containerColor(enabled),
@@ -317,12 +332,22 @@ public fun MaigButton(
         .maigTouchTarget(minWidth = 48.dp, minHeight = 48.dp)
 
     Box(
-        modifier = outerModifier,
+        modifier = outerModifier.graphicsLayer {
+            scaleX = pressScale
+            scaleY = pressScale
+        },
         contentAlignment = Alignment.Center,
     ) {
+        val solidElevation = if (variant == MaigButtonVariant.Solid && enabled) 2.dp else 0.dp
         val visualModifier = Modifier
             .then(if (fullWidth) Modifier.fillMaxWidth() else Modifier)
             .defaultMinSize(minHeight = minHeight)
+            .shadow(
+                elevation = solidElevation,
+                shape = shape,
+                ambientColor = targetContainer.copy(alpha = 0.35f),
+                spotColor = targetContainer.copy(alpha = 0.35f),
+            )
             .clip(shape)
             .background(targetContainer)
             .then(

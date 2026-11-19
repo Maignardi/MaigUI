@@ -1,10 +1,14 @@
 package io.github.maignardi.maigui.components.display
 
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -15,12 +19,15 @@ import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -138,18 +145,30 @@ public fun MaigCard(
     contentPadding: PaddingValues = MaigCardDefaults.contentPadding(),
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    val borderStroke = if (colors.borderColor != Color.Transparent) {
-        BorderStroke(1.dp, colors.borderColor)
+    val isDark = MaigTheme.colors.isDark
+    val borderBrush = if (colors.borderColor != Color.Transparent) {
+        if (isDark && variant == MaigCardVariant.Elevated) {
+            Brush.verticalGradient(
+                listOf(Color.White.copy(alpha = 0.12f), colors.borderColor.copy(alpha = 0.55f)),
+            )
+        } else {
+            Brush.linearGradient(listOf(colors.borderColor, colors.borderColor))
+        }
     } else {
         null
     }
 
     Column(
         modifier = modifier
-            .shadow(elevation = elevation, shape = shape)
+            .shadow(
+                elevation = elevation,
+                shape = shape,
+                ambientColor = MaigTheme.colors.shadow,
+                spotColor = MaigTheme.colors.shadow,
+            )
             .clip(shape)
             .background(colors.containerColor)
-            .then(if (borderStroke != null) Modifier.border(borderStroke, shape) else Modifier)
+            .then(if (borderBrush != null) Modifier.border(BorderStroke(1.dp, borderBrush), shape) else Modifier)
             .padding(contentPadding),
     ) {
         CompositionLocalProvider(LocalMaigContentColor provides colors.contentColor) {
@@ -175,6 +194,12 @@ public fun MaigCard(
     content: @Composable ColumnScope.() -> Unit,
 ) {
     val resolvedInteraction = interactionSource ?: remember { MutableInteractionSource() }
+    val isPressed by resolvedInteraction.collectIsPressedAsState()
+    val scale by animateFloatAsState(
+        targetValue = if (isPressed && enabled) 0.98f else 1f,
+        animationSpec = spring(Spring.DampingRatioMediumBouncy, Spring.StiffnessMedium),
+        label = "MaigCardScale",
+    )
     val containerColor = if (enabled) colors.containerColor else colors.disabledContainerColor
     val contentColor = if (enabled) colors.contentColor else colors.disabledContentColor
     val borderStroke = if (colors.borderColor != Color.Transparent) {
@@ -185,7 +210,16 @@ public fun MaigCard(
 
     Column(
         modifier = modifier
-            .shadow(elevation = if (enabled) elevation else 0.dp, shape = shape)
+            .graphicsLayer {
+                scaleX = scale
+                scaleY = scale
+            }
+            .shadow(
+                elevation = if (enabled) elevation else 0.dp,
+                shape = shape,
+                ambientColor = MaigTheme.colors.shadow,
+                spotColor = MaigTheme.colors.shadow,
+            )
             .clip(shape)
             .background(containerColor)
             .then(if (borderStroke != null) Modifier.border(borderStroke, shape) else Modifier)

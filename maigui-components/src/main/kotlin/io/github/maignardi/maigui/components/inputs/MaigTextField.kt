@@ -266,8 +266,22 @@ public fun MaigTextField(
             interactionSource = resolvedInteraction,
             cursorBrush = SolidColor(if (isError) colors.errorColor else colors.cursorColor),
             decorationBox = { innerTextField ->
+                val focusRingColor = when {
+                    isError && isFocused -> colors.errorColor.copy(alpha = 0.22f)
+                    isFocused -> MaigTheme.colors.focusRing
+                    else -> Color.Transparent
+                }
                 val boxModifier = Modifier
                     .fillMaxWidth()
+                    .then(
+                        if (focusRingColor != Color.Transparent) {
+                            Modifier
+                                .border(3.dp, focusRingColor, shape)
+                                .padding(2.dp)
+                        } else {
+                            Modifier
+                        },
+                    )
                     .defaultMinSize(minHeight = minHeight)
                     .clip(shape)
                     .background(containerColor)
@@ -279,7 +293,7 @@ public fun MaigTextField(
                         },
                     )
                     .padding(
-                        horizontal = MaigTheme.spacing.md,
+                        horizontal = MaigTheme.spacing.lg,
                         vertical = if (singleLine) MaigTheme.spacing.sm else MaigTheme.spacing.md,
                     )
 

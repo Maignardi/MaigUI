@@ -187,8 +187,8 @@ public object MaigPaletteGenerator {
         info: MaigColorScale,
         neutral: MaigColorScale,
     ): MaigColors {
-        val background = Color.White
-        val backgroundSubtle = neutral.shade50
+        val background = neutral.shade50
+        val backgroundSubtle = neutral.shade100
         val surface = Color.White
         val surfaceVariant = neutral.shade100
         val surfaceElevated = Color.White
@@ -307,13 +307,13 @@ public object MaigPaletteGenerator {
         neutral: MaigColorScale,
     ): MaigColors {
         val bgHue = MaigOklch.fromColor(primary.shade500).h
-        val bgChroma = if (MaigOklch.fromColor(primary.shade500).c < 0.01f) 0f else 0.008f
+        val bgChroma = if (MaigOklch.fromColor(primary.shade500).c < 0.01f) 0f else 0.009f
 
-        val background = MaigOklch(l = 0.145f, c = bgChroma, h = bgHue).toColor()
-        val backgroundSubtle = MaigOklch(l = 0.175f, c = bgChroma, h = bgHue).toColor()
-        val surface = MaigOklch(l = 0.185f, c = bgChroma, h = bgHue).toColor()
-        val surfaceVariant = MaigOklch(l = 0.235f, c = bgChroma, h = bgHue).toColor()
-        val surfaceElevated = MaigOklch(l = 0.255f, c = bgChroma, h = bgHue).toColor()
+        val background = MaigOklch(l = 0.135f, c = bgChroma, h = bgHue).toColor()
+        val backgroundSubtle = MaigOklch(l = 0.165f, c = bgChroma, h = bgHue).toColor()
+        val surface = MaigOklch(l = 0.175f, c = bgChroma, h = bgHue).toColor()
+        val surfaceVariant = MaigOklch(l = 0.220f, c = bgChroma, h = bgHue).toColor()
+        val surfaceElevated = MaigOklch(l = 0.240f, c = bgChroma, h = bgHue).toColor()
 
         val primaryDefault = primary.shade400
         val primaryHover = primary.shade300

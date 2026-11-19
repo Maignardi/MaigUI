@@ -92,11 +92,17 @@ public final class io/github/maignardi/maigui/core/theme/MaigThemePreset {
 public final class io/github/maignardi/maigui/core/theme/MaigThemes {
 	public static final field $stable I
 	public static final field INSTANCE Lio/github/maignardi/maigui/core/theme/MaigThemes;
+	public final fun getAmber ()Lio/github/maignardi/maigui/core/theme/MaigThemePreset;
+	public final fun getCrimson ()Lio/github/maignardi/maigui/core/theme/MaigThemePreset;
 	public final fun getDefault ()Lio/github/maignardi/maigui/core/theme/MaigThemePreset;
 	public final fun getGreen ()Lio/github/maignardi/maigui/core/theme/MaigThemePreset;
+	public final fun getIndigo ()Lio/github/maignardi/maigui/core/theme/MaigThemePreset;
 	public final fun getOrange ()Lio/github/maignardi/maigui/core/theme/MaigThemePreset;
 	public final fun getPresets ()Ljava/util/List;
 	public final fun getPurple ()Lio/github/maignardi/maigui/core/theme/MaigThemePreset;
+	public final fun getRose ()Lio/github/maignardi/maigui/core/theme/MaigThemePreset;
+	public final fun getSlate ()Lio/github/maignardi/maigui/core/theme/MaigThemePreset;
+	public final fun getTeal ()Lio/github/maignardi/maigui/core/theme/MaigThemePreset;
 }
 
 public final class io/github/maignardi/maigui/core/tokens/MaigColorScale {
